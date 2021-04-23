@@ -1,19 +1,18 @@
-
 import Head from 'next/head'
 import Nav from '../components/nav'
 
-function HomePage() {
+function CareersPage() {
   return (
     <>
       <Head>
-        <title>Compound Studios</title>
+        <title>Compound - Careers</title>
       </Head>
       <Nav></Nav>
-      <h1>Compound Studios</h1>
+      <h1>Careers</h1>
       <style jsx>{`
         `}</style>
     </>
   )
 }
 
-export default HomePage
+export default CareersPage

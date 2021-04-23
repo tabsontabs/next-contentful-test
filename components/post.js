@@ -39,7 +39,7 @@ function Post({ alt, date, image, title, url }) {
         `}</style>
       </div>
     )
-  }
+}
   
-  export default Post
+export default Post
   
