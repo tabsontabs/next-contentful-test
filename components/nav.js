@@ -58,44 +58,44 @@ const client = require('contentful').createClient({
 })
   
 function Nav() {
-    // async function fetchEntries() {
-    //   const entries = await client.getEntries({
-    //     content_type: 'navLink'
-    //   })
-    //   if (entries.items) return entries.items
-    //   console.log(`Error getting Entries for ${contentType.name}.`)
-    // }
+    async function fetchEntries() {
+      const entries = await client.getEntries({
+        content_type: 'navLink'
+      })
+      if (entries.items) return entries.items
+      console.log(`Error getting Entries for ${contentType.name}.`)
+    }
   
-    // const [navLinks, setNavLinks] = useState([])
+    const [navLinks, setNavLinks] = useState([])
   
-    // useEffect(() => {
-    //   async function getNavLink() {
-    //     const allNavLink = await fetchEntries()
-    //     setNavLinks([...allNavLink])
-    //   }
-    //   getNavLink()
-    // }, [])
+    useEffect(() => {
+      async function getNavLink() {
+        const allNavLink = await fetchEntries()
+        setNavLinks([...allNavLink])
+      }
+      getNavLink()
+    }, [])
   
-    // return (
-    //   <>
-    //     <div className='navLinkWrapper'>
-    //       {navLinks.length > 0
-    //         ? navLinks.map((x) => (
-    //             <NavLink
-    //               link={x.fields.link}
-    //               key={x.fields.link}
-    //             />
-    //           ))
-    //         : null}
-    //     </div>
-    //     <style jsx>{`
-    //         .navLinkWrapper {
-    //           display: flex;
-    //           justify-content: space-between;
-    //         }
-    //       `}</style>
-    //   </>
-    // )
+    return (
+      <>
+        <div className='navLinkWrapper'>
+          {navLinks.length > 0
+            ? navLinks.map((x) => (
+                <NavLink
+                  link={x.fields.link}
+                  key={x.fields.link}
+                />
+              ))
+            : null}
+        </div>
+        <style jsx>{`
+            .navLinkWrapper {
+              display: flex;
+              justify-content: space-between;
+            }
+          `}</style>
+      </>
+    )
   }
   
   export default Nav
