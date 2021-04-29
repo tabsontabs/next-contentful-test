@@ -4,12 +4,13 @@ function NavLink({ link }) {
 
     let linkLowerCaseText = link.toLowerCase()
     let linkSpacesRemoved = linkLowerCaseText.replace(/\s+/g, '')
-
+    let linkClassName = link + '_link'
+    
     return (
-      <div className="nav">
+      <div className="nav" className={linkClassName}>
         <Link href={`/${linkSpacesRemoved}`}>
-            <p className='link'>{link}</p>
-        </Link>
+            <p>{link}</p>
+        </Link>   
         <style jsx>{`
           .link {
             cursor: pointer;
@@ -18,6 +19,7 @@ function NavLink({ link }) {
         `}</style>
       </div>
     )
+    
 }
   
 export default NavLink

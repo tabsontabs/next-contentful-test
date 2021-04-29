@@ -1,19 +1,38 @@
+import Head from 'next/head';
+import Nav from '../components/nav';
+import AboutSubsection from '../components/aboutSubsection';
+import { createClient } from 'contentful'
+import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
 
-import Head from 'next/head'
-import Nav from '../components/nav'
+export async function getStaticProps() {
 
-function AboutPage() {
+  const client = createClient({
+    space: process.env.NEXT_PUBLIC_CONTENTFUL_SPACE_ID,
+    accessToken: process.env.NEXT_PUBLIC_CONTENTFUL_ACCESS_TOKEN,
+  })
+
+  const response = await client.getEntries({ content_type: 'aboutPage'})
+
+  return {
+    props: {
+      mainAboutEntry: response.items[0].fields.mainAboutSection,
+      subAboutEntries: response.items[0].fields.subAboutSections
+    }
+  }
+}
+
+export default function AbooutPage({ subAboutEntries, mainAboutEntry }) {
+  console.log(mainAboutEntry)
   return (
     <>
-      <Head>
-        <title>Compound - About</title>
-      </Head>
-      <Nav></Nav>
-      <h1>About</h1>
-      <style jsx>{`
-        `}</style>
+    <Head>
+      <title>Compound - About</title>
+    </Head>
+    <Nav />
+    { documentToReactComponents(mainAboutEntry) }
+    {subAboutEntries.map(subAboutEntry => (
+      <AboutSubsection key={subAboutEntry.sys.id} subAboutEntry={subAboutEntry} />
+    ))}
     </>
   )
 }
-
-export default AboutPage
