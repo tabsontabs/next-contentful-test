@@ -1,30 +1,40 @@
 import Link from 'next/link'
+import Image from 'next/image'
 
-function Brand({ brandName, brandImageURL, brandImageAlt, brandPageImage }) {
+function Brand({ brand }) {
+    const { brandName, brandImageAlt, brandImageURL, imageForBrandsPage } = brand.fields
 
     let lowerCaseText = brandName.toLowerCase()
     let spacesRemoved = lowerCaseText.replace(/\s+/g, '')
     
     return (
       <div className="container">
-        <img alt={brandImageAlt} src={brandImageURL} />
-        <div>{brandPageImage}</div>
-        <div className="text">
           <Link href={`/brands/${spacesRemoved}`}>
-            <h2>{brandName}</h2>
+            <div className="brandContent">
+              <a>
+              <Image 
+                src={'https:' + imageForBrandsPage.fields.file.url}
+                width={imageForBrandsPage.fields.file.details.image.width}
+                height={imageForBrandsPage.fields.file.details.image.height}
+                className="brandsPageFeaturedImage"
+                alt={brandImageAlt}
+              />
+              <h2>{brandName}</h2>
+              <button>See More</button>
+              </a>
+            </div>
           </Link>
-        </div>
         <style jsx>{`
           .container {
-            
-            height: auto;
-            margin-bottom: 48px;
+            width: 100%;
+            display: flex;
           }
-          .container img {
-            width: 50vw;
-          }
-          .container:nth-of-type(even) {
+          .container:nth-of-type(odd) {
             text-align: right;
+            flex-direction: row-reverse;
+          }
+          .brandContent {
+            width: 60%;
           }
           h2 {
             color: black;

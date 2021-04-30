@@ -1,15 +1,15 @@
 import Link from 'next/link'
 
-function NavLink({ link }) {
+function NavLink({ slug, title }) {
 
-    let linkLowerCaseText = link.toLowerCase()
-    let linkSpacesRemoved = linkLowerCaseText.replace(/\s+/g, '')
-    let linkClassName = link + '_link'
+    let slugLowerCaseText = slug.toLowerCase()
+    let titleLowerCaseText = title.toLowerCase()
+    let slugClassName = titleLowerCaseText + '_link'
     
     return (
-      <div className="nav" className={linkClassName}>
-        <Link href={`/${linkSpacesRemoved}`}>
-            <p>{link}</p>
+      <div className="nav" className={slugClassName}>
+        <Link href={`${slugLowerCaseText}`}>
+            <p>{title}</p>
         </Link>   
         <style jsx>{`
           .link {

@@ -11,20 +11,16 @@ export async function getStaticProps() {
     accessToken: process.env.NEXT_PUBLIC_CONTENTFUL_ACCESS_TOKEN,
   })
 
-  const careerEntries = await client.getEntries({ content_type: 'career'})
   const careersPage = await client.getEntries({ content_type: 'careersPage'})
 
   return {
     props: {
-      careerEntries: careerEntries.items,
       careersPage: careersPage.items
     }
   }
 }
 
-export default function CareersPage({ careerEntries, careersPage }) {
-  // console.log(careerEntries)
-  console.log(careersPage)
+export default function CareersPage({ careersPage }) {
   return (
     <>
     <Head>

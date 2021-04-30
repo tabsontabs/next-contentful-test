@@ -15,6 +15,7 @@ function Nav() {
     }
   
     const [navLinks, setNavLinks] = useState([])
+    
   
     useEffect(() => {
       async function getNavLink() {
@@ -23,14 +24,15 @@ function Nav() {
       }
       getNavLink()
     }, [])
-  
+    
     return (
       <>
         <div className='navLinkWrapper'>
           {navLinks.length > 0
             ? navLinks.map((x) => (
                 <NavLink
-                  link={x.fields.link}
+                  title={x.fields.link}
+                  slug={x.fields.slug}
                   key={x.fields.link}
                 />
               ))

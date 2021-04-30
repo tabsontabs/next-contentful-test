@@ -1,63 +1,100 @@
-import { useEffect, useState } from 'react'
 import Head from 'next/head'
 import Brand from '../components/brand'
 import Nav from '../components/nav'
+import { createClient } from 'contentful'
+import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
 
-const client = require('contentful').createClient({
-  space: process.env.NEXT_PUBLIC_CONTENTFUL_SPACE_ID,
-  accessToken: process.env.NEXT_PUBLIC_CONTENTFUL_ACCESS_TOKEN,
-})
+// const client = require('contentful').createClient({
+//   space: process.env.NEXT_PUBLIC_CONTENTFUL_SPACE_ID,
+//   accessToken: process.env.NEXT_PUBLIC_CONTENTFUL_ACCESS_TOKEN,
+// })
 
-function BrandsPage() {
-  async function fetchEntries() {
-    const entries = await client.getEntries({
-      content_type: 'brand'
-    })
-    if (entries.items) return entries.items
-    console.log(`Error getting Entries for ${contentType.name}.`)
-  }
+export async function getStaticProps() {
 
-  const [brands, setBrands] = useState([])
+  const client = createClient({
+    space: process.env.NEXT_PUBLIC_CONTENTFUL_SPACE_ID,
+    accessToken: process.env.NEXT_PUBLIC_CONTENTFUL_ACCESS_TOKEN,
+  })
 
-  useEffect(() => {
-    async function getBrands() {
-      const allBrands = await fetchEntries()
-      setBrands([...allBrands])
+  const brandsPage = await client.getEntries({ content_type: 'brandsPage'})
+
+  return {
+    props: {
+      brandsPage: brandsPage.items
     }
-    getBrands()
-  }, [])
+  }
+}
 
+export default function BrandsPage({ brandsPage }) {
+  console.log(brandsPage)
   return (
     <>
-      <Head>
-        <title>Compound Studios</title>
-      </Head>
-      <Nav></Nav>
-      <h1>Brands</h1>
-      <div className='brandsWrapper'>
-        {brands.length > 0
-          ? brands.map((b) => (
-              <Brand
-                brandImageAlt={b.fields.brandImageAlt}
-                key={b.fields.brandName}
-                brandImageURL={b.fields.brandImageURL}
-                brandName={b.fields.brandName}
-                brandPageImage={b.fields.brandPageImage}
-              />
-            ))
-          : null}
-      </div>
-      <style jsx>{`
-          .brandsWrapper {
-            max-width: 1400px;
-            width: 80%;
-            margin: 0 auto;
-            display: flex;
-            flex-direction: column-reverse;
-          }
-        `}</style>
+    <Head>
+      <title>Compound - Brands</title>
+    </Head>
+    <Nav />
+    <h1>Brands</h1>
+    {
+      brandsPage.map(x => (
+        x.fields.brand.map(y => (
+          <Brand key={y.sys.id} brand={y} />
+        ))
+      ))
+    }
     </>
   )
 }
 
-export default BrandsPage
+// function BrandsPage() {
+//   async function fetchEntries() {
+//     const entries = await client.getEntries({
+//       content_type: 'brand'
+//     })
+//     if (entries.items) return entries.items
+//     console.log(`Error getting Entries for ${contentType.name}.`)
+//   }
+
+//   const [brands, setBrands] = useState([])
+
+//   useEffect(() => {
+//     async function getBrands() {
+//       const allBrands = await fetchEntries()
+//       setBrands([...allBrands])
+//     }
+//     getBrands()
+//   }, [])
+
+//   return (
+//     <>
+//       <Head>
+//         <title>Compound Studios</title>
+//       </Head>
+//       <Nav></Nav>
+//       <h1>Brands</h1>
+//       <div className='brandsWrapper'>
+//         {brands.length > 0
+//           ? brands.map((b) => (
+//               <Brand
+//                 brandImageAlt={b.fields.brandImageAlt}
+//                 key={b.fields.brandName}
+//                 brandImageURL={b.fields.brandImageURL}
+//                 brandName={b.fields.brandName}
+//                 brandPageImage={b.fields.brandPageImage}
+//               />
+//             ))
+//           : null}
+//       </div>
+//       <style jsx>{`
+//           .brandsWrapper {
+//             max-width: 1400px;
+//             width: 80%;
+//             margin: 0 auto;
+//             display: flex;
+//             flex-direction: column-reverse;
+//           }
+//         `}</style>
+//     </>
+//   )
+// }
+
+// export default BrandsPage
