@@ -115,19 +115,19 @@ export default function ContactPage() {
           { nameDisplay ? 
           <div className='nameInput'>
             <label htmlFor='name'>Name</label>
-            <input value={name} type='text' onChange={(e)=>{setName(e.target.value), setNameErrorMessage(false)}} name='name' className={styles.inputField} />  
+            <input value={name} type='text' onChange={(e)=>{setName(e.target.value), setNameErrorMessage(false)}} name='name' />  
           </div> : null
           }
           { emailDisplay ? 
           <div className='emailInput'>
             <label htmlFor='email'>Email</label>
-            <input value={email} id='emailField' type='email' onChange={(e)=>{setEmail(e.target.value), setEmailErrorMessage(false)}} name='email' className={styles.inputField} />
+            <input value={email} id='emailField' type='email' onChange={(e)=>{setEmail(e.target.value), setEmailErrorMessage(false)}} name='email' />
           </div> : null
           }
           { messageDisplay ? 
           <div className='messageInput'>
             <label htmlFor='message'>Message</label>
-            <input value={message} id='messageField' type='text' onChange={(e)=>{setMessage(e.target.value), setMessageErrorMessage(false)}} name='message' className={styles.inputField} /> 
+            <input value={message} id='messageField' type='text' onChange={(e)=>{setMessage(e.target.value), setMessageErrorMessage(false)}} name='message' /> 
           </div> : null
           }
         </form>
