@@ -28,11 +28,13 @@ export default function AbooutPage({ subAboutEntries, mainAboutEntry }) {
     <Head>
       <title>Compound - About</title>
     </Head>
-    <Nav />
-    { documentToReactComponents(mainAboutEntry) }
-    {subAboutEntries.map(subAboutEntry => (
-      <AboutSubsection key={subAboutEntry.sys.id} subAboutEntry={subAboutEntry} />
-    ))}
+    <div className='generalWrapper'>
+      <Nav />
+      { documentToReactComponents(mainAboutEntry) }
+      {subAboutEntries.map(subAboutEntry => (
+        <AboutSubsection key={subAboutEntry.sys.id} subAboutEntry={subAboutEntry} />
+      ))}
+    </div>
     </>
   )
 }

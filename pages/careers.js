@@ -26,19 +26,21 @@ export default function CareersPage({ careersPage }) {
     <Head>
       <title>Compound - Careers</title>
     </Head>
-    <Nav />
-    <h1>Careers</h1>
-    {careersPage[0].fields.currentCareers !== undefined ?
-      careersPage.map(x => (
-        x.fields.currentCareers.map(y => (
-          <Career key={y.sys.id} career={y} />
+    <div className='generalWrapper'>
+      <Nav />
+      <h1>Careers</h1>
+      {careersPage[0].fields.currentCareers !== undefined ?
+        careersPage.map(x => (
+          x.fields.currentCareers.map(y => (
+            <Career key={y.sys.id} career={y} />
+          ))
         ))
-      ))
-    :
-      careersPage.map(x => ( 
-        <div> { documentToReactComponents(x.fields.noCurrentCareersMessage) }</div>
-      ))
-    }
+      :
+        careersPage.map(x => ( 
+          <div key='noCareersFound'> { documentToReactComponents(x.fields.noCurrentCareersMessage) }</div>
+        ))
+      }
+    </div>
     </>
   )
 }

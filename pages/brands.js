@@ -32,15 +32,17 @@ export default function BrandsPage({ brandsPage }) {
     <Head>
       <title>Compound - Brands</title>
     </Head>
-    <Nav />
-    <h1>Brands</h1>
-    {
-      brandsPage.map(x => (
-        x.fields.brand.map(y => (
-          <Brand key={y.sys.id} brand={y} />
+    <div className='generalWrapper'>
+      <Nav />
+      <h1>Brands</h1>
+      {
+        brandsPage.map(x => (
+          x.fields.brand.map(y => (
+            <Brand key={y.sys.id} brand={y} />
+          ))
         ))
-      ))
-    }
+      }
+    </div>
     </>
   )
 }
