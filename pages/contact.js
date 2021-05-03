@@ -1,7 +1,6 @@
 import Head from 'next/head'
 import Nav from '../components/nav'
 import { useState } from 'react'
-import styles from '../styles/Contact.module.css'
 
 export default function ContactPage() {
 
