@@ -1,6 +1,6 @@
 export default function (req, res) {
 
-    const PASSWORD = process.env.password
+    const PASSWORD = process.env.NEXT_PUBLIC_EMAIL_PASSWORD
 
     let nodemailer = require('nodemailer')
 
