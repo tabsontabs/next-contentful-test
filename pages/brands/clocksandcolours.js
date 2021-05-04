@@ -4,9 +4,11 @@ import Link from 'next/link';
 import Nav from '../../components/nav';
 import { createClient } from 'contentful'
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
+import Instagram from "instagram-web-api";
 
 export async function getStaticProps() {
 
+  // get Contentful data
   const client = createClient({
     space: process.env.NEXT_PUBLIC_CONTENTFUL_SPACE_ID,
     accessToken: process.env.NEXT_PUBLIC_CONTENTFUL_ACCESS_TOKEN,
@@ -14,15 +16,40 @@ export async function getStaticProps() {
 
   const clocksPage = await client.getEntries({ content_type: 'clocksBrandPage'})
 
+  // get IG data
+  const igclient = new Instagram({
+    username: 'clocksandcolours',
+    password: process.env.NEXT_PUBLIC_CLOCKS_IG_PW
+  })
+
+  let images = []
+  let posts = []
+
+  try {
+    await igclient.login()
+    const instagram = await igclient.getPhotosByUsername({
+      username: 'clocksandcolours',
+    })
+    if (instagram["user"]["edge_owner_to_timeline_media"]["count"] > 0) {
+      posts = instagram["user"]["edge_owner_to_timeline_media"]["edges"]
+    }
+  } catch (err) {
+    console.log("something went wrong logging into IG", err)
+  }
+
+  let slicedPosts = posts.slice(0,3)  
+
   return {
     props: {
-      clocksPage: clocksPage.items
+      clocksPage: clocksPage.items,
+      instagramPosts: slicedPosts
     }
   }
 }
 
-export default function clocksPage({ clocksPage }) {
-  console.log(clocksPage)
+export default function clocksPage({ clocksPage, instagramPosts }) {
+  // console.log(clocksPage)
+  console.log(instagramPosts)
   return (
     <>
     <Head>
@@ -40,19 +67,34 @@ export default function clocksPage({ clocksPage }) {
                 className="clocksFeaturedImage"
             />
             { documentToReactComponents(x.fields.brandInfo) }
-            {/* <Link href={`/brands/clocks/${x.fields.creativeCampaigns.fields.slug}`}>
-                <a>
-                    <Image
-                        src={'https:' + x.fields.creativeCampaigns.fields.featuredImage.fields.file.url}
-                        width={x.fields.creativeCampaigns.fields.featuredImage.fields.file.details.image.width}
-                        height={x.fields.creativeCampaigns.fields.featuredImage.fields.file.details.image.height}
-                    />
-                </a>
-            </Link> */}
         </div>
       ))
     }
-    <div className="vitalyInstagram">IG FEED / COUNTER WILL GO HERE</div>
+    <div className="vitalyInstagram">
+      <ul>
+        {instagramPosts.map(({node}, i) => {
+          return (
+            <li>
+              <a
+                href={`https://www.instagram.com/p/${node.shortcode}`}
+                key={i}
+                aria-label="View image on Instagram"
+              >
+                <img
+                  src={node.thumbnail_src}
+                  alt={
+                    // the caption with hashtags removed
+                    node.edge_media_to_caption.edges[0].node.text
+                      .replace(/(#\w+)+/g, "")
+                      .trim()
+                  }
+                />
+              </a>
+            </li>
+          )
+        })}
+      </ul>
+    </div>
     <h2>Recent Campaigns</h2>
     <div className='clocksRecentCampaigns'>
     {
