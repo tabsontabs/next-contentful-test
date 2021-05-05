@@ -22,25 +22,47 @@
 }
 
 .main_about {
-    height: calc(100vh - 2rem);
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 5rem;
     max-width: 1400px;
     margin: 0 auto;
     width: 80%;
+    font-size: 3rem;
+    padding-bottom: 2rem;
+}
+
+.subsections {
+    max-width: 1400px;
+    width: 80%;
+    margin: 0 auto;
 }
 
 .about_subsection {
-    font-size: 3rem;
-    height: 100vh;
+    font-size: 1rem;
     display: flex;
     align-items: center;
+    padding-bottom: 2rem;
 }
 
 .about_subsection h2 {
-    font-size: 5rem;
+    font-size: 3rem;
     font-weight: normal;
     padding-bottom: 1rem;
+}
+
+@media only screen and (min-width: 600px) {
+    .main_about {
+        min-height: calc(100vh - 2rem);
+        font-size: 5rem;
+        padding-bottom: 0;
+    }
+    .about_subsection {
+        height: 100vh;
+        font-size: 3rem;
+        padding-bottom: 0;
+    }
+    .about_subsection h2 {
+        font-size: 5rem;
+    }
 }
