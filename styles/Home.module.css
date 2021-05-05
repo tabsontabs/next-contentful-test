@@ -8,7 +8,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 50%;
+    height: 100%;
 }
 
 .Tilt {
@@ -17,19 +17,30 @@
     width: 50vw;
 }
 
+.vanta_about {
+
+}
+
 .main_about {
     height: calc(100vh - 2rem);
     display: flex;
     justify-content: center;
     align-items: center;
     font-size: 5rem;
+    max-width: 1400px;
+    margin: 0 auto;
+    width: 80%;
 }
 
 .about_subsection {
-    font-size: 2rem;
+    font-size: 3rem;
+    height: 100vh;
+    display: flex;
+    align-items: center;
 }
 
 .about_subsection h2 {
     font-size: 5rem;
     font-weight: normal;
+    padding-bottom: 1rem;
 }

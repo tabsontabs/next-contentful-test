@@ -37,7 +37,6 @@ function Brand({ brand }) {
             width: 60%;
           }
           h2 {
-            color: black;
             font-size: 24px;
             margin-bottom: 0;
             cursor: pointer;

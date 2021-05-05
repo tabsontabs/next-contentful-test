@@ -47,26 +47,48 @@ export default function AbooutPage({ subAboutEntries, mainAboutEntry }) {
     };
   }, [vantaEffect]);
 
+  const [vantaEffect2, setVantaEffect2] = useState(0);
+  const vantaRef2 = useRef(null);
+  useEffect(() => {
+    if (!vantaEffect2) {
+      setVantaEffect2(
+        NET({
+          el: vantaRef2.current,
+          color: 0x8c8c8c,
+          backgroundColor: 0x0,
+          points: 10.00,
+          maxDistance: 23.00,
+          spacing: 20.00,
+          THREE,
+        })
+      );
+    }
+    return () => {
+      if (vantaEffect2) vantaEffect2.destroy()
+    };
+  }, [vantaEffect2]);
+
   return (
     <>
     <Head>
       <title>Compound - About</title>
     </Head>
-    <main className={styles.main} ref={vantaRef}>
-      <div className='generalWrapper'>
-        <Nav />
-        <div className={styles.about}>
-          <div className={styles.main_about}>
-            { documentToReactComponents(mainAboutEntry) }
-          </div>
-          <div className={styles.about_subsection}>
-            {subAboutEntries.map(subAboutEntry => (
-              <AboutSubsection key={subAboutEntry.sys.id} subAboutEntry={subAboutEntry} />
-            ))}
-          </div>
+      <section className={styles.vanta_about} ref={vantaRef}>
+        <div className='navWrapper'>
+          <Nav />
         </div>
-      </div>
-    </main>
+        <div className={styles.main_about}>
+          { documentToReactComponents(mainAboutEntry) }
+        </div>
+      </section>
+          
+      {subAboutEntries.map(subAboutEntry => (
+        <div className={styles.about_subsection} ref={vantaRef2}>
+          <AboutSubsection key={subAboutEntry.sys.id} subAboutEntry={subAboutEntry} />
+        </div>
+      ))}
+ 
+  
     </>
   )
 }
