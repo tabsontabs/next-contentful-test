@@ -4,6 +4,13 @@ body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  color: white;
+  background-color: black;
+}
+
+div, p, a, h1, h2, h3, li, ul {
+  padding: 0;
+  margin: 0;
 }
 
 a {
@@ -15,18 +22,19 @@ a {
   box-sizing: border-box;
 }
 
+svg {
+  fill: white;
+}
+
 .generalWrapper {
   max-width: 1400px;
   margin: 0 auto;
   width: 80%;
 }
 
-.Tilt {
-  height: 50vh;
-  width: 50vw;
-  /* background-color: pink; */
-  display: flex;
-  justify-content: center;
-  align-items: center;
+.navWrapper {
+  max-width: 1400px;
   margin: 0 auto;
+  width: 80%;
 }
+

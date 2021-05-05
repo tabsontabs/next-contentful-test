@@ -42,6 +42,7 @@ function Nav() {
             .navLinkWrapper {
               display: flex;
               justify-content: space-between;
+              padding: 2rem 0;
             }
           `}</style>
       </>
