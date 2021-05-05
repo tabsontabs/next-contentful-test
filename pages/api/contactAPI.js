@@ -1,4 +1,4 @@
-export default function (req, res) {
+export default async function (req, res) {
 
     // const PASSWORD = process.env.NEXT_PUBLIC_EMAIL_PASSWORD
 
@@ -41,7 +41,8 @@ export default function (req, res) {
         subject: `${req.body.name}`,
         text: `${req.body.message}`
     };
-    sgMail
+
+    await sgMail
     .send(msg)
     .then(() => {
         console.log('email sent')
@@ -49,6 +50,16 @@ export default function (req, res) {
     .catch((error) => {
         console.error("error", error)
     });
+
+    // sgMail
+    // .send(msg)
+    // .then(() => {}, error => {
+    //     console.error(error);
+
+    //     if (error.response) {
+    //     console.error(error.response.body)
+    //     }
+    // });
 
     console.log(req.body)
     res.send('success')
