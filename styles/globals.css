@@ -4,7 +4,7 @@ body {
   margin: 0;
   /* font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif; */
-  font-family: 'Archivo Narrow';
+  font-family: 'Inconsolata';
   color: white;
   background-color: black;
 }
@@ -12,6 +12,10 @@ body {
 div, p, a, h1, h2, h3, li, ul {
   padding: 0;
   margin: 0;
+}
+
+b {
+  font-weight: 700;
 }
 
 a {
@@ -27,19 +31,23 @@ svg {
   fill: white;
 }
 
+input, textarea {
+  font-family: 'Inconsolata';
+}
+
 .generalWrapper {
   max-width: 1400px;
   margin: 0 auto;
-  width: 80%;
+  width: 95%;
 }
 
 .navWrapper {
   max-width: 1400px;
   margin: 0 auto;
-  width: 80%;
+  width: 95%;
   position: fixed;
   z-index: 100;
-  left: 10%;
+  left: 2.5%;
 }
 
 .visually-hidden {

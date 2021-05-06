@@ -17,8 +17,8 @@
     width: 50vw;
 }
 
-.vanta_about {
-
+.overlay {
+    background-color: rgba(0,0,0,0.5);
 }
 
 .main_about {
@@ -27,14 +27,14 @@
     align-items: center;
     max-width: 1400px;
     margin: 0 auto;
-    width: 80%;
+    width: 95%;
     font-size: 3rem;
     padding-bottom: 2rem;
 }
 
 .subsections {
     max-width: 1400px;
-    width: 80%;
+    width: 95%;
     margin: 0 auto;
 }
 

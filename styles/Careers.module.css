@@ -1,0 +1,35 @@
+.careersSection {
+    padding-top: 7rem;
+    width: 60%;
+}
+
+.careersSection h1 {
+    font-size: 5rem;
+    text-transform: uppercase;
+}
+
+.careerEntry {
+    padding-top: 4rem;
+}
+
+.careerEntry:last-of-type {
+    padding-bottom: 4rem;
+}
+
+.careerEntry h2 {
+    text-decoration: underline;
+}
+
+.careerEntry p {
+    font-family: 'Montserrat';
+    font-weight: 200;
+    padding-top: 1.5rem;
+}
+
+.careerEntry ul li p {
+    padding-top: 0;
+}
+
+.careerEntry ul li:first-of-type {
+    padding-top: 1rem;
+}

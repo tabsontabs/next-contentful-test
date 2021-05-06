@@ -3,6 +3,7 @@ import Nav from '../components/nav';
 import Career from '../components/career';
 import { createClient } from 'contentful'
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
+import styles from '../styles/Careers.module.css';
 
 export async function getStaticProps() {
 
@@ -26,20 +27,24 @@ export default function CareersPage({ careersPage }) {
     <Head>
       <title>Compound - Careers</title>
     </Head>
+    <div className='navWrapper'>
+        <Nav />
+    </div>
     <div className='generalWrapper'>
-      <Nav />
-      <h1>Careers</h1>
-      {careersPage[0].fields.currentCareers !== undefined ?
-        careersPage.map(x => (
-          x.fields.currentCareers.map(y => (
-            <Career key={y.sys.id} career={y} />
+      <div className={styles.careersSection}>
+        <h1>Careers</h1>
+        {careersPage[0].fields.currentCareers !== undefined ?
+          careersPage.map(x => (
+            x.fields.currentCareers.map(y => (
+              <Career key={y.sys.id} career={y} />
+            ))
           ))
-        ))
-      :
-        careersPage.map(x => ( 
-          <div key='noCareersFound'> { documentToReactComponents(x.fields.noCurrentCareersMessage) }</div>
-        ))
-      }
+        :
+          careersPage.map(x => ( 
+            <div key='noCareersFound'> { documentToReactComponents(x.fields.noCurrentCareersMessage) }</div>
+          ))
+        }
+      </div>
     </div>
     </>
   )

@@ -74,12 +74,14 @@ export default function AbooutPage({ subAboutEntries, mainAboutEntry }) {
       <title>Compound - About</title>
     </Head>
       <section className={styles.vanta_about} ref={vantaRef}>
+      <div className={styles.overlay}>  
         <div className='navWrapper'>
           <Nav />
         </div>
         <div className={styles.main_about}>
           { documentToReactComponents(mainAboutEntry) }
         </div>
+      </div>
       </section>
       <section className={styles.subsections}>  
       {subAboutEntries.map(subAboutEntry => (
@@ -91,3 +93,4 @@ export default function AbooutPage({ subAboutEntries, mainAboutEntry }) {
     </>
   )
 }
+
