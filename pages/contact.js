@@ -1,6 +1,7 @@
 import Head from 'next/head'
 import Nav from '../components/nav'
 import { useState } from 'react'
+import styles from '../styles/Contact.module.css';
 
 export default function ContactPage() {
 
@@ -105,71 +106,78 @@ export default function ContactPage() {
   }
   
   return (
-    <div className='generalWrapper'>
+    <>
       <Head>
         <title>Compound - Contact</title>
       </Head>
-      <Nav />
-      <div>
-        <form>
-          { nameDisplay ? 
-          <div className='nameInput'>
-            <label htmlFor='name'>Name</label>
-            <input value={name} type='text' onChange={(e)=>{setName(e.target.value), setNameErrorMessage(false)}} name='name' />  
+      <div className='navWrapper'>
+        <Nav />
+      </div>
+      <div className={styles.contactFormPage}>
+        <h1 className={styles.contactTitle}>contact us</h1>
+        <div className={styles.formHolder}>
+          <form>
+            { nameDisplay ? 
+            <div className={styles.nameInput}>
+              <label className='visually-hidden' htmlFor='name'>Name</label>
+              <input value={name} type='text' placeholder='Type your full name here' onChange={(e)=>{setName(e.target.value), setNameErrorMessage(false)}} name='name' />  
+            </div> : null
+            }
+            { emailDisplay ? 
+            <div className='emailInput'>
+              <label className='visually-hidden' htmlFor='email'>Email</label>
+              <input value={email} id='emailField' type='email' placeholder='Type your email here' onChange={(e)=>{setEmail(e.target.value), setEmailErrorMessage(false)}} name='email' />
+            </div> : null
+            }
+            { messageDisplay ? 
+            <div className='messageInput'>
+              <label className='visually-hidden' htmlFor='message'>Message</label>
+              <textarea rows="4" value={message} id='messageField' placeholder='Type your message here' onChange={(e)=>{setMessage(e.target.value), setMessageErrorMessage(false)}} name='message'></textarea>
+            </div> : null
+            }
+          </form>
+          { submitted ? 
+          <div className={styles.messageReceived}>
+            <p>Thanks for contacting us!</p>
           </div> : null
           }
-          { emailDisplay ? 
-          <div className='emailInput'>
-            <label htmlFor='email'>Email</label>
-            <input value={email} id='emailField' type='email' onChange={(e)=>{setEmail(e.target.value), setEmailErrorMessage(false)}} name='email' />
-          </div> : null
-          }
-          { messageDisplay ? 
-          <div className='messageInput'>
-            <label htmlFor='message'>Message</label>
-            <input value={message} id='messageField' type='text' onChange={(e)=>{setMessage(e.target.value), setMessageErrorMessage(false)}} name='message' /> 
-          </div> : null
-          }
-        </form>
+        </div>
         { nameErrorMessage ?
-        <div><p>You must provide your name.</p></div>
+        <div className={styles.errorMessage}><p>You must provide your name.</p></div>
         : null
         }
         { nameDisplay ? 
-        <button className='showEmail' onClick={(e)=>{showEmailForm(e)}}>Next</button>
+        <div className={styles.singleButtonHolder}>
+          <button className='showEmail' onClick={(e)=>{showEmailForm(e)}}>Next</button>
+        </div>
         : null
         }
         { emailErrorMessage ?
-        <div><p>You must provide a valid email.</p></div>
+        <div className={styles.errorMessage}><p>You must provide a valid email.</p></div>
         : null
         }
         { emailDisplay ?
-        <div> 
-          <button className='backToName' onClick={(e)=>{showNameFormBack(e)}}>Back</button>
+        <div className={styles.buttonHolder}> 
+          <button className={styles.backButton} onClick={(e)=>{showNameFormBack(e)}}>Back</button>
           <button className='showMessage' onClick={(e)=>{showMessageForm(e)}}>Next</button>
         </div>
         : null
         }
         { messageErrorMessage ?
-        <div><p>You must provide a message.</p></div>
+        <div className={styles.errorMessage}><p>You must provide a message.</p></div>
         : null
         }
         { messageDisplay ? 
-        <div>
-          <button className='backToEmail' onClick={(e)=>{showEmailFormBack(e)}}>Back</button>
+        <div className={styles.buttonHolder}>
+          <button className={styles.backButton} onClick={(e)=>{showEmailFormBack(e)}}>Back</button>
           <button className='formSubmit' onClick={(e)=>{handleSubmit(e)}}>Submit</button>
         </div>
         : null
-        }
-        { submitted ? 
-          <div className='messageReceived'>
-            <p>Thanks for contacting us!</p>
-          </div> : null
         }
         <style jsx>{`
         
         `}</style>
       </div>
-    </div>
+    </>
   )
 }
