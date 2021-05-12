@@ -9,7 +9,7 @@ import { Suspense } from 'react';
 // import * as THREE  from "three";
 // import styles from '../styles/Home.module.css';
 import { Canvas, useFrame } from '@react-three/fiber';
-import { OrbitControls, Stars } from '@react-three/drei';
+import { OrbitControls, Stars, Html } from '@react-three/drei';
 // import { Physics, usePlane, useBox } from "@react-three/cannon";
 // import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader'
 import Riot from '../components/Riotcompressed'
@@ -111,7 +111,7 @@ export default function HomePage() {
     <Head>
       <title>Compound Studio</title>
     </Head>
-    <div class='navWrapper'>
+    <div className='navWrapper'>
       <Nav/>
     </div>
     <Canvas>
@@ -129,7 +129,7 @@ export default function HomePage() {
       />
       <ambientLight intensity={0.5} />
       <spotLight position={[10, 15, 10]} angle={0.3}/>
-      <Suspense fallback={<div>Loading...</div>}>
+      <Suspense fallback={<Html><div> </div></Html>}>
         <Riot />
         <RiotTwo />
       </Suspense>
