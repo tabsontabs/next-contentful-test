@@ -4,6 +4,7 @@ import Link from 'next/link';
 import Nav from '../../components/nav';
 import { createClient } from 'contentful'
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
+import styles from '../../styles/Brand.module.css';
 
 export async function getStaticProps() {
 
@@ -28,27 +29,33 @@ export default function etahPage({ etahPage }) {
     <Head>
       <title>Compound - Etah Love</title>
     </Head>
-    <Nav />
-    <h1>Etah Love</h1>
+    <div className='navWrapper'>
+      <Nav />
+    </div>
+    <div className={styles.brandContentHolder}>
+    <h1 className='visually-hidden'>Etah Love</h1>
+    {/* LOGO: */}
+    {/* {
+        etahPage.map(x => (
+          <div className={styles.brandLogo} key={x.sys.id}>
+            <Image
+                  src={'https:' + x.fields.brandLogo.fields.file.url}
+                  width={x.fields.brandLogo.fields.file.details.image.width}
+                  height={x.fields.brandLogo.fields.file.details.image.height}
+            />
+          </div>
+        ))
+    } */}
     {
       etahPage.map(x => (
-        <div className='etahPageContent1' key={x.sys.id}>
+        <div className={styles.brandContent1}  key={x.sys.id}>
             <Image 
                 src={'https:' + x.fields.featuredImage.fields.file.url}
                 width={x.fields.featuredImage.fields.file.details.image.width}
                 height={x.fields.featuredImage.fields.file.details.image.height}
-                className="etahFeaturedImage"
+                className={styles.featuredImage}
             />
             { documentToReactComponents(x.fields.brandInfo) }
-            {/* <Link href={`/brands/etah/${x.fields.creativeCampaigns.fields.slug}`}>
-                <a>
-                    <Image
-                        src={'https:' + x.fields.creativeCampaigns.fields.featuredImage.fields.file.url}
-                        width={x.fields.creativeCampaigns.fields.featuredImage.fields.file.details.image.width}
-                        height={x.fields.creativeCampaigns.fields.featuredImage.fields.file.details.image.height}
-                    />
-                </a>
-            </Link> */}
         </div>
       ))
     }
@@ -81,7 +88,7 @@ export default function etahPage({ etahPage }) {
         }
         `}</style>
     </div>
-    
+    </div>
     </>
   )
 }

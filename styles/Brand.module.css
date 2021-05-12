@@ -1,0 +1,21 @@
+.brandContentHolder {
+    max-width: 1400px;
+    width: calc(95% - 300px);
+    margin: 0 auto;
+    padding-top: 7rem;
+}
+
+.brandLogo {
+    margin-bottom: 2rem;
+}
+
+.brandContent1 p {
+    margin: 2rem 0;
+    font-size: 2rem;
+}
+
+.brandContentHolder h2 {
+    margin: 2rem 0;
+    font-size: 3rem;
+    text-transform: uppercase;
+}

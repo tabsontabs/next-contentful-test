@@ -28,7 +28,7 @@ export default function ContactPage() {
   // if the user clicks the first 'next' button and the name input field is empty, an error message will display
   const showEmailForm = (e) => {
     e.preventDefault()
-    if (name != '' & name!= ' ') {
+    if (name != '' && name!= ' ') {
       setNameErrorMessage(false)
       setNameDisplay(false)
       setEmailDisplay(true)
@@ -49,7 +49,7 @@ export default function ContactPage() {
   // if the user clicks the 2nd 'next' button and the email input field is empty, an error message will display 
   const showMessageForm = (e) => {
     e.preventDefault()
-    if (email != '' & email!= ' ') {
+    if (email != '' && email != ' ' && email.includes('@') && email.includes('.')) {
       setEmailDisplay(false)
       setMessageDisplay(true)
     } else {
@@ -72,7 +72,7 @@ export default function ContactPage() {
     e.preventDefault()
     console.log('Sending')
 
-    if (message != '' & message != ' ') {
+    if (message != '' && message != ' ') {
       let data = {
         name,
         email,

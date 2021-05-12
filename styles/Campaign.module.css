@@ -1,0 +1,24 @@
+.campaignContentHolder {
+    max-width: 1400px;
+    width: calc(95% - 300px);
+    margin: 0 auto;
+    padding-top: 7rem;
+}
+
+.campaignContentHolder {
+    text-transform: uppercase;
+}
+
+.campaignImages div {
+    margin-top: 1rem;
+}
+
+.campaignCredits {
+    margin: 2rem 0;
+    text-align: center;
+}
+
+.backLink {
+    margin-bottom: 2rem;
+    text-align: center;
+}

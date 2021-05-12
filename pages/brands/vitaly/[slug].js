@@ -4,6 +4,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import Nav from '../../../components/nav';
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
+import styles from '../../../styles/Campaign.module.css';
 
 const client = createClient({
     space: process.env.NEXT_PUBLIC_CONTENTFUL_SPACE_ID,
@@ -48,24 +49,32 @@ export default function vitalyCampaign({ campaign }) {
         <Head>
             <title>{campaignTitle}</title>
         </Head>
+        <div className='navWrapper'>
         <Nav></Nav>
-        <h1>{campaignTitle}</h1>
-        <div className='campaignImages'>
-            { images.map(x => (
-                <Image 
-                    src={'https:' + x.fields.file.url}
-                    width={x.fields.file.details.image.width}
-                    height={x.fields.file.details.image.height}
-                    key={x.fields.title}
-                />
-            ))}
         </div>
-        <div className='campaignCredits'>
-            { documentToReactComponents(credits) }
+        <div className={styles.campaignContentHolder}>
+            <h1>{campaignTitle}</h1>
+            <div className={styles.campaignImages}>
+                { images.map(x => (
+                    <div>
+                    <Image 
+                        src={'https:' + x.fields.file.url}
+                        width={x.fields.file.details.image.width}
+                        height={x.fields.file.details.image.height}
+                        key={x.fields.title}
+                    />
+                    </div>
+                ))}
+            </div>
+            <div className={styles.campaignCredits}>
+                { documentToReactComponents(credits) }
+            </div>
+        <div className={styles.backLink}>
+            <Link href={`/brands/${associatedBrand}`}>
+                <p>Back to Vitaly</p>
+            </Link>   
+        </div>    
         </div>
-        <Link href={`/brands/${associatedBrand}`}>
-            <p>Back to Vitaly</p>
-        </Link>   
         </>
   )
 }

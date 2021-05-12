@@ -35,6 +35,10 @@ input, textarea {
   font-family: 'Inconsolata';
 }
 
+canvas {
+  height: 100vh;
+}
+
 .generalWrapper {
   max-width: 1400px;
   margin: 0 auto;

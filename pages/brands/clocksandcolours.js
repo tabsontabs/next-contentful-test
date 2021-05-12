@@ -5,6 +5,7 @@ import Nav from '../../components/nav';
 import { createClient } from 'contentful'
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
 import Instagram from "instagram-web-api";
+import styles from '../../styles/Brand.module.css';
 
 export async function getStaticProps() {
 
@@ -55,8 +56,22 @@ export default function clocksPage({ clocksPage, instagramPosts }) {
     <Head>
       <title>Compound - Clocks and Colours</title>
     </Head>
-    <Nav />
-    <h1>Clocks and Colours</h1>
+    <div className='navWrapper'>
+      <Nav />
+    </div>
+    <h1 className='visually-hidden'>Clocks and Colours</h1>
+    {/* LOGO: */}
+    {/* {
+        clocksPage.map(x => (
+          <div className={styles.brandLogo} key={x.sys.id}>
+            <Image
+                  src={'https:' + x.fields.brandLogo.fields.file.url}
+                  width={x.fields.brandLogo.fields.file.details.image.width}
+                  height={x.fields.brandLogo.fields.file.details.image.height}
+            />
+          </div>
+        ))
+    } */}
     {
       clocksPage.map(x => (
         <div className='clocksPageContent1' key={x.sys.id}>
