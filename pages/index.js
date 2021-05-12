@@ -1,16 +1,16 @@
 import Head from 'next/head';
 import Nav from '../components/nav';
-import Suspense from 'react';
+import { Suspense } from 'react';
 // import AboutSubsection from '../components/aboutSubsection';
 // import { createClient } from 'contentful'
 // import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
-import { useEffect, useRef, useState } from "react";
+// import { useEffect, useRef, useState } from "react";
 // import NET from "vanta/dist/vanta.net.min";
 // import * as THREE  from "three";
 // import styles from '../styles/Home.module.css';
 import { Canvas, useFrame } from '@react-three/fiber';
 import { OrbitControls, Stars } from '@react-three/drei';
-import { Physics, usePlane, useBox } from "@react-three/cannon";
+// import { Physics, usePlane, useBox } from "@react-three/cannon";
 // import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader'
 import Riot from '../components/Riotcompressed'
 import RiotTwo from '../components/Riot2'
@@ -129,10 +129,10 @@ export default function HomePage() {
       />
       <ambientLight intensity={0.5} />
       <spotLight position={[10, 15, 10]} angle={0.3}/>
-      {/* <Suspense fallback={null}> */}
-      <Riot />
-      <RiotTwo />
-      {/* </Suspense> */}
+      <Suspense fallback={<div>Loading...</div>}>
+        <Riot />
+        <RiotTwo />
+      </Suspense>
     </Canvas>
     </>
   )
