@@ -82,9 +82,9 @@ export default function HomePage({ subAboutEntries, mainAboutEntry }) {
         </Suspense>
     </Canvas>
       {/* <section className={styles.vanta_about} ref={vantaRef}>] */}
-        <div className={styles.main_about}>
-          { documentToReactComponents(mainAboutEntry) }
-        </div>
+      <div className={styles.main_about}>
+        { documentToReactComponents(mainAboutEntry) }
+      </div>
       {/* </section> */}
       <section className={styles.subsections}>  
       {subAboutEntries.map(subAboutEntry => (

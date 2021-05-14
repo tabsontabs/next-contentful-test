@@ -4,6 +4,7 @@ body {
   margin: 0;
   font-family: 'Inconsolata';
   color: white;
+  background-color: black;
 }
 
 div, p, a, h1, h2, h3, li, ul {
@@ -34,9 +35,6 @@ input, textarea {
 
 canvas {
   height: 100vh;
-  position: fixed;
-  z-index: -1;
-  background-color: black;
 }
 
 .generalWrapper {
