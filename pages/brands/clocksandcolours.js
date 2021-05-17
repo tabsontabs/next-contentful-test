@@ -16,34 +16,14 @@ export async function getStaticProps() {
 
   const clocksPage = await client.getEntries({ content_type: 'clocksBrandPage'})
 
-  let images = []
-  let posts = []
-
-  try {
-    await igclient.login()
-    const instagram = await igclient.getPhotosByUsername({
-      username: 'clocksandcolours',
-    })
-    if (instagram["user"]["edge_owner_to_timeline_media"]["count"] > 0) {
-      posts = instagram["user"]["edge_owner_to_timeline_media"]["edges"]
-    }
-  } catch (err) {
-    console.log("something went wrong logging into IG", err)
-  }
-
-  let slicedPosts = posts.slice(0,3)  
-
   return {
     props: {
-      clocksPage: clocksPage.items,
-      instagramPosts: slicedPosts
+      clocksPage: clocksPage.items
     }
   }
 }
 
 export default function clocksPage({ clocksPage, instagramPosts }) {
-  // console.log(clocksPage)
-  console.log(instagramPosts)
   return (
     <>
     <Head>
@@ -79,30 +59,8 @@ export default function clocksPage({ clocksPage, instagramPosts }) {
           </div>
         ))
       }
-      <div className="vitalyInstagram">
-        <ul>
-          {instagramPosts.map(({node}, i) => {
-            return (
-              <li>
-                <a
-                  href={`https://www.instagram.com/p/${node.shortcode}`}
-                  key={i}
-                  aria-label="View image on Instagram"
-                >
-                  <img
-                    src={node.thumbnail_src}
-                    alt={
-                      // the caption with hashtags removed
-                      node.edge_media_to_caption.edges[0].node.text
-                        .replace(/(#\w+)+/g, "")
-                        .trim()
-                    }
-                  />
-                </a>
-              </li>
-            )
-          })}
-        </ul>
+      <div className="clocksInstagram">
+        
       </div>
       <h2>Recent Campaigns</h2>
       <div className='clocksRecentCampaigns'>
