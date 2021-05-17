@@ -1,3 +1,7 @@
+.campaignPage {
+    background-color: black;
+}
+
 .campaignContentHolder {
     max-width: 1400px;
     width: calc(95% - 300px);
@@ -19,6 +23,6 @@
 }
 
 .backLink {
-    margin-bottom: 2rem;
+    padding-bottom: 2rem;
     text-align: center;
 }

@@ -1,4 +1,8 @@
 .contactFormPage {
+    background-color: black;
+}
+
+.contactFormWrapper {
     text-align: center;
     height: 100vh;
     display: flex;
@@ -37,7 +41,7 @@
 }
 
 .formHolder input::placeholder, .formHolder textarea::placeholder {
-    color: grey;
+    color: lightgrey;
 }
 
 .formHolder input:focus, .formHolder textarea:focus {

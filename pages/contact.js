@@ -110,10 +110,11 @@ export default function ContactPage() {
       <Head>
         <title>Compound - Contact</title>
       </Head>
+      <div className={styles.contactFormPage}>
       <div className='navWrapper'>
         <Nav />
       </div>
-      <div className={styles.contactFormPage}>
+      <div className={styles.contactFormWrapper}>
         <h1 className={styles.contactTitle}>contact us</h1>
         <div className={styles.formHolder}>
           <form>
@@ -148,7 +149,7 @@ export default function ContactPage() {
         }
         { nameDisplay ? 
         <div className={styles.singleButtonHolder}>
-          <button className='showEmail' onClick={(e)=>{showEmailForm(e)}}>Next</button>
+          <button className='showEmail' onClick={(e)=>{showEmailForm(e)}} >Next</button>
         </div>
         : null
         }
@@ -174,6 +175,7 @@ export default function ContactPage() {
         </div>
         : null
         }
+        </div>
         <style jsx>{`
         
         `}</style>

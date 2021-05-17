@@ -1,0 +1,26 @@
+.brandsPage {
+    background-color: black;
+}
+
+.brandsWrapper {
+  padding-top: 7rem;
+  margin-left: 150px;
+  width: calc(100% - 300px);  
+}
+
+.brandsWrapper h1 {
+  font-size: 5rem;
+  text-transform: uppercase;
+}
+
+.brandsWrapper h2 {
+  padding: 1rem 0 0.1rem 0;
+  text-transform: uppercase;
+}
+
+.brandsWrapper button {
+  background: none;
+  color: white;
+  border: none;
+  padding: 0;
+}

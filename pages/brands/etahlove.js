@@ -29,65 +29,67 @@ export default function etahPage({ etahPage }) {
     <Head>
       <title>Compound - Etah Love</title>
     </Head>
-    <div className='navWrapper'>
-      <Nav />
-    </div>
-    <div className={styles.brandContentHolder}>
-    <h1 className='visually-hidden'>Etah Love</h1>
-    {/* LOGO: */}
-    {/* {
+    <div className={styles.singleBrandPage}>
+      <div className='navWrapper'>
+        <Nav />
+      </div>
+      <div className={styles.brandContentHolder}>
+      <h1 className='visually-hidden'>Etah Love</h1>
+      {/* LOGO: */}
+      {/* {
+          etahPage.map(x => (
+            <div className={styles.brandLogo} key={x.sys.id}>
+              <Image
+                    src={'https:' + x.fields.brandLogo.fields.file.url}
+                    width={x.fields.brandLogo.fields.file.details.image.width}
+                    height={x.fields.brandLogo.fields.file.details.image.height}
+              />
+            </div>
+          ))
+      } */}
+      {
         etahPage.map(x => (
-          <div className={styles.brandLogo} key={x.sys.id}>
-            <Image
-                  src={'https:' + x.fields.brandLogo.fields.file.url}
-                  width={x.fields.brandLogo.fields.file.details.image.width}
-                  height={x.fields.brandLogo.fields.file.details.image.height}
-            />
+          <div className={styles.brandContent1}  key={x.sys.id}>
+              <Image 
+                  src={'https:' + x.fields.featuredImage.fields.file.url}
+                  width={x.fields.featuredImage.fields.file.details.image.width}
+                  height={x.fields.featuredImage.fields.file.details.image.height}
+                  className={styles.featuredImage}
+              />
+              { documentToReactComponents(x.fields.brandInfo) }
           </div>
         ))
-    } */}
-    {
-      etahPage.map(x => (
-        <div className={styles.brandContent1}  key={x.sys.id}>
-            <Image 
-                src={'https:' + x.fields.featuredImage.fields.file.url}
-                width={x.fields.featuredImage.fields.file.details.image.width}
-                height={x.fields.featuredImage.fields.file.details.image.height}
-                className={styles.featuredImage}
-            />
-            { documentToReactComponents(x.fields.brandInfo) }
-        </div>
-      ))
-    }
-    <div className="vitalyInstagram">IG FEED / COUNTER WILL GO HERE</div>
-    <h2>Recent Campaigns</h2>
-    <div className='etahRecentCampaigns'>
-    {
-      etahPage.map(x => (
-        x.fields.creativeCampaigns.map(y => (
-            <Link href={`/brands/etahlove/${y.fields.slug}`}>
-                <a>
-                    <Image
-                        src={'https:' + y.fields.featuredImage.fields.file.url}
-                        width={y.fields.featuredImage.fields.file.details.image.width}
-                        height={y.fields.featuredImage.fields.file.details.image.height}
-                    />
-                </a>
-            </Link>
+      }
+      <div className="vitalyInstagram">IG FEED / COUNTER WILL GO HERE</div>
+      <h2>Recent Campaigns</h2>
+      <div className='etahRecentCampaigns'>
+      {
+        etahPage.map(x => (
+          x.fields.creativeCampaigns.map(y => (
+              <Link href={`/brands/etahlove/${y.fields.slug}`}>
+                  <a>
+                      <Image
+                          src={'https:' + y.fields.featuredImage.fields.file.url}
+                          width={y.fields.featuredImage.fields.file.details.image.width}
+                          height={y.fields.featuredImage.fields.file.details.image.height}
+                      />
+                  </a>
+              </Link>
+          ))
         ))
-      ))
-    }
-    <style jsx>{`
-        .etahRecentCampaigns {
-            display: flex;
-            justify-content: space-between;
-        }
-        .etahRecentCampaigns a {
-            width: 48%;
-            display: block;
-        }
-        `}</style>
-    </div>
+      }
+      <style jsx>{`
+          .etahRecentCampaigns {
+              display: flex;
+              justify-content: space-between;
+          }
+          .etahRecentCampaigns a {
+              width: 48%;
+              display: block;
+          }
+          `}</style>
+      </div>
+      </div>
     </div>
     </>
   )

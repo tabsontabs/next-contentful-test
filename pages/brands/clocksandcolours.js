@@ -4,7 +4,6 @@ import Link from 'next/link';
 import Nav from '../../components/nav';
 import { createClient } from 'contentful'
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
-import Instagram from "instagram-web-api";
 import styles from '../../styles/Brand.module.css';
 
 export async function getStaticProps() {
@@ -16,12 +15,6 @@ export async function getStaticProps() {
   })
 
   const clocksPage = await client.getEntries({ content_type: 'clocksBrandPage'})
-
-  // get IG data
-  const igclient = new Instagram({
-    username: 'clocksandcolours',
-    password: process.env.NEXT_PUBLIC_CLOCKS_IG_PW
-  })
 
   let images = []
   let posts = []
@@ -56,88 +49,90 @@ export default function clocksPage({ clocksPage, instagramPosts }) {
     <Head>
       <title>Compound - Clocks and Colours</title>
     </Head>
-    <div className='navWrapper'>
-      <Nav />
-    </div>
-    <h1 className='visually-hidden'>Clocks and Colours</h1>
-    {/* LOGO: */}
-    {/* {
+    <div className={styles.singleBrandPage}>
+      <div className='navWrapper'>
+        <Nav />
+      </div>
+      <h1 className='visually-hidden'>Clocks and Colours</h1>
+      {/* LOGO: */}
+      {/* {
+          clocksPage.map(x => (
+            <div className={styles.brandLogo} key={x.sys.id}>
+              <Image
+                    src={'https:' + x.fields.brandLogo.fields.file.url}
+                    width={x.fields.brandLogo.fields.file.details.image.width}
+                    height={x.fields.brandLogo.fields.file.details.image.height}
+              />
+            </div>
+          ))
+      } */}
+      {
         clocksPage.map(x => (
-          <div className={styles.brandLogo} key={x.sys.id}>
-            <Image
-                  src={'https:' + x.fields.brandLogo.fields.file.url}
-                  width={x.fields.brandLogo.fields.file.details.image.width}
-                  height={x.fields.brandLogo.fields.file.details.image.height}
-            />
+          <div className='clocksPageContent1' key={x.sys.id}>
+              <Image 
+                  src={'https:' + x.fields.featuredImage.fields.file.url}
+                  width={x.fields.featuredImage.fields.file.details.image.width}
+                  height={x.fields.featuredImage.fields.file.details.image.height}
+                  className="clocksFeaturedImage"
+              />
+              { documentToReactComponents(x.fields.brandInfo) }
           </div>
         ))
-    } */}
-    {
-      clocksPage.map(x => (
-        <div className='clocksPageContent1' key={x.sys.id}>
-            <Image 
-                src={'https:' + x.fields.featuredImage.fields.file.url}
-                width={x.fields.featuredImage.fields.file.details.image.width}
-                height={x.fields.featuredImage.fields.file.details.image.height}
-                className="clocksFeaturedImage"
-            />
-            { documentToReactComponents(x.fields.brandInfo) }
-        </div>
-      ))
-    }
-    <div className="vitalyInstagram">
-      <ul>
-        {instagramPosts.map(({node}, i) => {
-          return (
-            <li>
-              <a
-                href={`https://www.instagram.com/p/${node.shortcode}`}
-                key={i}
-                aria-label="View image on Instagram"
-              >
-                <img
-                  src={node.thumbnail_src}
-                  alt={
-                    // the caption with hashtags removed
-                    node.edge_media_to_caption.edges[0].node.text
-                      .replace(/(#\w+)+/g, "")
-                      .trim()
-                  }
-                />
-              </a>
-            </li>
-          )
-        })}
-      </ul>
-    </div>
-    <h2>Recent Campaigns</h2>
-    <div className='clocksRecentCampaigns'>
-    {
-      clocksPage.map(x => (
-        x.fields.creativeCampaigns.map(y => (
-            <Link href={`/brands/clocksandcolours/${y.fields.slug}`}>
-                <a>
-                    <Image
-                        src={'https:' + y.fields.featuredImage.fields.file.url}
-                        width={y.fields.featuredImage.fields.file.details.image.width}
-                        height={y.fields.featuredImage.fields.file.details.image.height}
-                    />
+      }
+      <div className="vitalyInstagram">
+        <ul>
+          {instagramPosts.map(({node}, i) => {
+            return (
+              <li>
+                <a
+                  href={`https://www.instagram.com/p/${node.shortcode}`}
+                  key={i}
+                  aria-label="View image on Instagram"
+                >
+                  <img
+                    src={node.thumbnail_src}
+                    alt={
+                      // the caption with hashtags removed
+                      node.edge_media_to_caption.edges[0].node.text
+                        .replace(/(#\w+)+/g, "")
+                        .trim()
+                    }
+                  />
                 </a>
-            </Link>
+              </li>
+            )
+          })}
+        </ul>
+      </div>
+      <h2>Recent Campaigns</h2>
+      <div className='clocksRecentCampaigns'>
+      {
+        clocksPage.map(x => (
+          x.fields.creativeCampaigns.map(y => (
+              <Link href={`/brands/clocksandcolours/${y.fields.slug}`}>
+                  <a>
+                      <Image
+                          src={'https:' + y.fields.featuredImage.fields.file.url}
+                          width={y.fields.featuredImage.fields.file.details.image.width}
+                          height={y.fields.featuredImage.fields.file.details.image.height}
+                      />
+                  </a>
+              </Link>
+          ))
         ))
-      ))
-    }
-    <style jsx>{`
-        .clocksRecentCampaigns {
-            display: flex;
-            justify-content: space-between;
-        }
-        .clocksRecentCampaigns a {
-            width: 48%;
-            display: block;
-        }
-        `}</style>
-    </div>
+      }
+      </div>
+      <style jsx>{`
+          .clocksRecentCampaigns {
+              display: flex;
+              justify-content: space-between;
+          }
+          .clocksRecentCampaigns a {
+              width: 48%;
+              display: block;
+          }
+          `}</style>
+      </div>
     
     </>
   )

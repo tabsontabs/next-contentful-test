@@ -59,7 +59,7 @@ function Nav() {
             }
             .linksContainer {
               display: flex;
-              width: 40%;
+              width: 30%;
               justify-content: space-between;
             }
           `}</style>

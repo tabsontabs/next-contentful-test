@@ -4,12 +4,16 @@ body {
   margin: 0;
   font-family: 'Inconsolata';
   color: white;
-  background-color: black;
+  /* background-color: black; */
 }
 
-div, p, a, h1, h2, h3, li, ul {
+div, p, a, h1, h2, h3, li, ul, button {
   padding: 0;
   margin: 0;
+}
+
+img {
+  object-fit: cover;
 }
 
 b {
@@ -37,6 +41,12 @@ canvas {
   height: 100vh;
 }
 
+.canvasWrapper {
+  position: fixed;
+  background-color: black;
+  z-index: -10;
+}
+
 .generalWrapper {
   max-width: 1400px;
   margin: 0 auto;
@@ -62,4 +72,3 @@ canvas {
   position: absolute;
   width: 1px;
 }
-

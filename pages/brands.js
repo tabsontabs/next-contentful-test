@@ -2,6 +2,7 @@ import Head from 'next/head'
 import Brand from '../components/brand'
 import Nav from '../components/nav'
 import { createClient } from 'contentful'
+import styles from '../styles/BrandsPage.module.css'
 
 export async function getStaticProps() {
 
@@ -26,16 +27,22 @@ export default function BrandsPage({ brandsPage }) {
     <Head>
       <title>Compound - Brands</title>
     </Head>
-    <div className='generalWrapper'>
-      <Nav />
-      <h1>Brands</h1>
-      {
-        brandsPage.map(x => (
-          x.fields.brand.map(y => (
-            <Brand key={y.sys.id} brand={y} />
-          ))
-        ))
-      }
+    <div className={styles.brandsPage}>
+      <div className='generalWrapper'>
+        <div className='navWrapper'>
+          <Nav />
+        </div>
+        <section className={styles.brandsWrapper}>
+          <h1>Brands</h1>
+          {
+            brandsPage.map(x => (
+              x.fields.brand.map(y => (
+                <Brand key={y.sys.id} brand={y} />
+              ))
+            ))
+          }
+        </section>
+      </div>
     </div>
     </>
   )

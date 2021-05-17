@@ -20,7 +20,7 @@ function Brand({ brand }) {
                 alt={brandImageAlt}
               />
               <h2>{brandName}</h2>
-              <button>See More</button>
+              <button>See More >></button>
               </a>
             </div>
           </Link>
@@ -28,8 +28,9 @@ function Brand({ brand }) {
           .container {
             width: 100%;
             display: flex;
+            padding-top: 4rem;
           }
-          .container:nth-of-type(odd) {
+          .container:nth-of-type(even) {
             text-align: right;
             flex-direction: row-reverse;
           }
@@ -40,6 +41,9 @@ function Brand({ brand }) {
             font-size: 24px;
             margin-bottom: 0;
             cursor: pointer;
+          }
+          .container:last-of-type {
+            padding-bottom: 4rem;
           }
         `}</style>
       </div>

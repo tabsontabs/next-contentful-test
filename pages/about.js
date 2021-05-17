@@ -26,34 +26,13 @@ export async function getStaticProps() {
 }
 
 export default function AbooutPage({ subAboutEntries, mainAboutEntry }) {
-  const [vantaEffect, setVantaEffect] = useState(0);
-  const vantaRef = useRef(null);
-  useEffect(() => {
-    if (!vantaEffect) {
-      setVantaEffect(
-        NET({
-          el: vantaRef.current,
-          color: 0x8c8c8c,
-          backgroundColor: 0x0,
-          points: 10.00,
-          maxDistance: 23.00,
-          spacing: 20.00,
-          THREE,
-        })
-      );
-    }
-    return () => {
-      if (vantaEffect) vantaEffect.destroy()
-    };
-  }, [vantaEffect]);
-
-  // const [vantaEffect2, setVantaEffect2] = useState(0);
-  // const vantaRef2 = useRef(null);
+  // const [vantaEffect, setVantaEffect] = useState(0);
+  // const vantaRef = useRef(null);
   // useEffect(() => {
-  //   if (!vantaEffect2) {
-  //     setVantaEffect2(
+  //   if (!vantaEffect) {
+  //     setVantaEffect(
   //       NET({
-  //         el: vantaRef2.current,
+  //         el: vantaRef.current,
   //         color: 0x8c8c8c,
   //         backgroundColor: 0x0,
   //         points: 10.00,
@@ -64,16 +43,16 @@ export default function AbooutPage({ subAboutEntries, mainAboutEntry }) {
   //     );
   //   }
   //   return () => {
-  //     if (vantaEffect2) vantaEffect2.destroy()
+  //     if (vantaEffect) vantaEffect.destroy()
   //   };
-  // }, [vantaEffect2]);
+  // }, [vantaEffect]);
 
   return (
     <>
     <Head>
       <title>Compound - About</title>
     </Head>
-      <section className={styles.vanta_about} ref={vantaRef}>
+      {/* <section className={styles.vanta_about} ref={vantaRef}>
       <div className={styles.overlay}>  
         <div className='navWrapper'>
           <Nav />
@@ -89,7 +68,7 @@ export default function AbooutPage({ subAboutEntries, mainAboutEntry }) {
           <AboutSubsection key={subAboutEntry.sys.id} subAboutEntry={subAboutEntry} />
         </div>
       ))}
-      </section>  
+      </section>   */}
     </>
   )
 }

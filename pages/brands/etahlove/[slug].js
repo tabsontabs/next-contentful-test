@@ -49,31 +49,33 @@ export default function vitalyCampaign({ campaign }) {
         <Head>
             <title>{campaignTitle}</title>
         </Head>
-        <div className='navWrapper'>
-        <Nav></Nav>
-        </div>
-        <div className={styles.campaignContentHolder}>
-            <h1>{campaignTitle}</h1>
-            <div className={styles.campaignImages}>
-                { images.map(x => (
-                    <div>
-                    <Image 
-                        src={'https:' + x.fields.file.url}
-                        width={x.fields.file.details.image.width}
-                        height={x.fields.file.details.image.height}
-                        key={x.fields.title}
-                    />
-                    </div>
-                ))}
+        <div className={styles.campaignPage}>
+            <div className='navWrapper'>
+            <Nav></Nav>
             </div>
-            <div className={styles.campaignCredits}>
-                { documentToReactComponents(credits) }
+            <div className={styles.campaignContentHolder}>
+                <h1>{campaignTitle}</h1>
+                <div className={styles.campaignImages}>
+                    { images.map(x => (
+                        <div>
+                        <Image 
+                            src={'https:' + x.fields.file.url}
+                            width={x.fields.file.details.image.width}
+                            height={x.fields.file.details.image.height}
+                            key={x.fields.title}
+                        />
+                        </div>
+                    ))}
+                </div>
+                <div className={styles.campaignCredits}>
+                    { documentToReactComponents(credits) }
+                </div>
+            <div className={styles.backLink}>
+                <Link href={`/brands/${associatedBrand}`}>
+                    <p>Back to Etah Love</p>
+                </Link>   
+            </div>    
             </div>
-        <div className={styles.backLink}>
-            <Link href={`/brands/${associatedBrand}`}>
-                <p>Back to Etah Love</p>
-            </Link>   
-        </div>    
         </div>
         </>
   )
