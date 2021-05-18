@@ -99,21 +99,6 @@ export default function VitalyPage({ vitalyPage, mediaData, followerCount }) {
             </div>
           ))
         }
-        
-        {/* <div className='igFeed'>
-        {
-          data.map(i => (
-            <a href={i.permalink} key={i.id} target="_blank">
-              <Image
-                src={i.media_url}
-                alt={i.caption}
-                width={400}
-                height={400}
-              />
-            </a>
-          ))
-        }
-        </div> */}
 
         <div className='igFeed'>
           <Swiper 
