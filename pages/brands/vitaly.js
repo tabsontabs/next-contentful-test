@@ -53,12 +53,13 @@ export default function VitalyPage({ vitalyPage, mediaData, followerCount }) {
   const slides = mediaData.map(i => (
         <SwiperSlide>
         <a href={i.permalink} key={i.id} target="_blank">
-          <Image
+          {/* <Image
             src={i.media_url}
             alt={i.caption}
             width={400}
             height={400}
-          />
+          /> */}
+          <img className={styles.igImage} src={i.media_url} alt={i.caption}></img>
         </a>
         </SwiperSlide>
   )) 
