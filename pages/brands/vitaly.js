@@ -51,14 +51,8 @@ export async function getStaticProps() {
 export default function VitalyPage({ vitalyPage, mediaData, followerCount }) {
 
   const slides = mediaData.map(i => (
-        <SwiperSlide>
-        <a href={i.permalink} key={i.id} target="_blank">
-          {/* <Image
-            src={i.media_url}
-            alt={i.caption}
-            width={400}
-            height={400}
-          /> */}
+        <SwiperSlide tag='li'>
+        <a href={i.permalink} key={i.id} target="_blank" className={styles.igImageContainer}>
           <img className={styles.igImage} src={i.media_url} alt={i.caption}></img>
         </a>
         </SwiperSlide>
@@ -111,6 +105,7 @@ export default function VitalyPage({ vitalyPage, mediaData, followerCount }) {
             keyboard={{
               "enabled": true
             }}
+            styles={'list-style:none;'}
           >
             {slides}
           </Swiper>

@@ -72,3 +72,7 @@ canvas {
   position: absolute;
   width: 1px;
 }
+
+.swiper-wrapper {
+  list-style: none;
+}
