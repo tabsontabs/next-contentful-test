@@ -27,7 +27,7 @@ export default function CareersPage({ careersPage }) {
     <Head>
       <title>Compound - Careers</title>
     </Head>
-    <div className={styles.careersPage}>
+    <div className={styles.careersPage }>
       <div className='navWrapper'>
           <Nav />
       </div>

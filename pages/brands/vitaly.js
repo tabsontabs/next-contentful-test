@@ -7,7 +7,7 @@ import { documentToReactComponents } from '@contentful/rich-text-react-renderer'
 import styles from '../../styles/Brand.module.css';
 import 'swiper/swiper-bundle.css';
 import SwiperCore, { Navigation, Keyboard } from 'swiper';
-import { Swiper, SwiperSlide, SwiperSlider } from 'swiper/react';
+import { Swiper, SwiperSlide } from 'swiper/react';
 
 SwiperCore.use([Navigation, Keyboard]);
 
@@ -29,15 +29,7 @@ export async function getStaticProps() {
     }
   }).then((res) => res.json());
   const data = mediaCall.data
-
-  // const followerCountCall = await fetch(`https://www.instagram.com/vitaly/?__a=1`, {
-  //   method: 'GET',
-  //   headers: {
-  //     'Accept': 'application/json, text/plain, */*',
-  //     'Content-Type': 'application/json'
-  //   }
-  // }).then((response) => response.json());
-
+  
   return {
     props: {
       vitalyPage: vitalyPage.items,
@@ -49,8 +41,10 @@ export async function getStaticProps() {
 }
 
 export default function VitalyPage({ vitalyPage, mediaData, followerCount }) {
+  
+  let images = mediaData.filter(media => media.media_type === "IMAGE");
 
-  const slides = mediaData.map(i => (
+  let slides = images.map(i => (
         <SwiperSlide tag='li'>
         <a href={i.permalink} key={i.id} target="_blank" className={styles.igImageContainer}>
           <img className={styles.igImage} src={i.media_url} alt={i.caption}></img>
@@ -95,6 +89,7 @@ export default function VitalyPage({ vitalyPage, mediaData, followerCount }) {
           ))
         }
 
+        <h2>Follow Us On Instagram</h2>
         <div className='igFeed'>
           <Swiper 
             tag='section' 
@@ -110,7 +105,9 @@ export default function VitalyPage({ vitalyPage, mediaData, followerCount }) {
             {slides}
           </Swiper>
         </div>
-        {/* <h2 className='igCount'>{followerCount}</h2> */}
+        <h3 className='igCount'>follow count goes here</h3>
+
+        <h2>Celebrity Gallery</h2>
 
         <h2>Recent Campaigns</h2>
         <div className='vitalyRecentCampaigns'>

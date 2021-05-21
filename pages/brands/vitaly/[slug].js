@@ -43,7 +43,7 @@ export async function getStaticProps({ params }) {
 
 export default function vitalyCampaign({ campaign }) {
     console.log(campaign)
-    const { associatedBrand, campaignTitle, images, credits } = campaign.fields
+    const { associatedBrand, campaignTitle, images, credits, campaignVideoEmbedUrl } = campaign.fields
     return (
         <>
         <Head>
@@ -67,6 +67,12 @@ export default function vitalyCampaign({ campaign }) {
                         </div>
                     ))}
                 </div>
+                {campaignVideoEmbedUrl !== undefined ? 
+                <div className={styles.campaignVideo}>    
+                    <iframe src={campaignVideoEmbedUrl} title={campaignTitle + ' Video'} frameBorder="0" allowfullscreen></iframe>
+                </div>
+                :
+                null }
                 <div className={styles.campaignCredits}>
                     { documentToReactComponents(credits) }
                 </div>
