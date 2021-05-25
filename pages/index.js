@@ -9,6 +9,7 @@ import { Canvas } from '@react-three/fiber';
 import { OrbitControls, Html } from '@react-three/drei';
 import RiotTwo from '../components/Riot2'
 import Frenzy from '../components/Frenzy'
+import RiotCompress from '../components/Riot_u_compress'
 
 export async function getStaticProps() {
 
@@ -55,8 +56,9 @@ export default function HomePage({ subAboutEntries, mainAboutEntry }) {
           <spotLight position={[10, 15, 10]} angle={0.3}/>
           <Suspense fallback={<Html><div> </div></Html>}>
             {/* <Riot /> */}
-            <RiotTwo />
-            <Frenzy />
+            {/* <RiotTwo /> */}
+            {/* <Frenzy /> */}
+            < RiotCompress />
           </Suspense>
       </Canvas>
     </div>
