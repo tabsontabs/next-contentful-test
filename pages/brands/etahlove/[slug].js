@@ -43,7 +43,7 @@ export async function getStaticProps({ params }) {
 
 export default function vitalyCampaign({ campaign }) {
     console.log(campaign)
-    const { associatedBrand, campaignTitle, images, credits } = campaign.fields
+    const { associatedBrand, campaignTitle, images, credits, videoAspectRatio, campaignVideoEmbedUrl } = campaign.fields
     return (
         <>
         <Head>
