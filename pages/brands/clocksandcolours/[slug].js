@@ -67,6 +67,12 @@ export default function vitalyCampaign({ campaign }) {
                         </div>
                     ))}
                 </div>
+                {campaignVideoEmbedUrl !== undefined ? 
+                <div className='campaignVideo'>    
+                    <iframe src={campaignVideoEmbedUrl + '?rel=0&modestbranding=1'} title={campaignTitle + ' Video'} frameBorder="0" allowfullscreen></iframe>
+                </div>
+                :
+                null }
                 <div className={styles.campaignCredits}>
                     { documentToReactComponents(credits) }
                 </div>
@@ -77,6 +83,23 @@ export default function vitalyCampaign({ campaign }) {
             </div>    
             </div>
         </div>
+        <style jsx>{`
+            .campaignVideo {
+                padding-top: ${videoAspectRatio == '4:3' ? '75%' : '56.25%'}; 
+                width: 100%;
+                position: relative;
+                margin-top: 1rem;
+            }
+            .campaignVideo iframe {
+                width: 100%;
+                position: absolute;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                height: 100%;
+            }
+        `}</style>     
         </>
   )
 }

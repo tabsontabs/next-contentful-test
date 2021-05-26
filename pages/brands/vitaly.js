@@ -42,16 +42,27 @@ export async function getStaticProps() {
 
 export default function VitalyPage({ vitalyPage, mediaData, followerCount }) {
   
-  let images = mediaData.filter(media => media.media_type === "IMAGE");
-
-  let slides = images.map(i => (
+  let igGallery = mediaData.filter(media => media.media_type === "IMAGE" | media.media_type == "CAROUSEL_ALBUM");
+  let igSlides = igGallery.map(i => (
         <SwiperSlide tag='li'>
         <a href={i.permalink} key={i.id} target="_blank" className={styles.igImageContainer}>
           <img className={styles.igImage} src={i.media_url} alt={i.caption}></img>
         </a>
         </SwiperSlide>
   )) 
-  
+
+  let celebGallery = vitalyPage.map(cg => (cg.fields.celebrityGallery))
+  let cgSlides = celebGallery[0].map(cgImage => (
+    <SwiperSlide tag='li'>
+      <div key={cgImage.sys.id} className={styles.igImageContainer}>
+          <img className={styles.igImage} src={'https:' + cgImage.fields.file.url} alt={cgImage.fields.title}></img>
+      </div>
+    </SwiperSlide>
+  ))
+
+  let fullCampaignArray = vitalyPage.map(x => (x.fields.creativeCampaigns))
+  let slicedCampaignArray = fullCampaignArray.slice(0,1)
+
   return (
     <>
     <Head>
@@ -102,18 +113,39 @@ export default function VitalyPage({ vitalyPage, mediaData, followerCount }) {
             }}
             styles={'list-style:none;'}
           >
-            {slides}
+            {igSlides}
           </Swiper>
         </div>
         <h3 className='igCount'>follow count goes here</h3>
 
-        <h2>Celebrity Gallery</h2>
+        
+        {vitalyPage[0].fields.celebrityGallery !== undefined ? 
+          <>
+          <h2>Worn By</h2>
+          <div className='celebFeed'>
+            <Swiper 
+              tag='section' 
+              wrapperTag='ul' 
+              id='swiperMain' 
+              navigation 
+              slidesPerView={3}
+              keyboard={{
+                "enabled": true
+              }}
+              styles={'list-style:none;'}
+            >
+              {cgSlides}
+            </Swiper>
+          </div>
+          </>
+        :
+        null
+        }
 
         <h2>Recent Campaigns</h2>
         <div className='vitalyRecentCampaigns'>
         {
-          vitalyPage.map(x => (
-            x.fields.creativeCampaigns.map(y => (
+          slicedCampaignArray[0].map(y => (
                 <Link href={`/brands/vitaly/${y.fields.slug}`} key={y.sys.id}>
                     <a>
                         <Image
@@ -123,7 +155,6 @@ export default function VitalyPage({ vitalyPage, mediaData, followerCount }) {
                         />
                     </a>
                 </Link>
-            ))
           ))
         }
         <style jsx>{`

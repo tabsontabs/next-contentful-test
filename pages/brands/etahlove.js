@@ -41,15 +41,17 @@ export async function getStaticProps() {
 
 export default function etahPage({ etahPage, mediaData }) {
 
-  let images = mediaData.filter(media => media.media_type === "IMAGE");
-
-  let slides = images.map(i => (
+  let igGallery = mediaData.filter(media => media.media_type == "IMAGE" | media.media_type == "CAROUSEL_ALBUM");
+  let igSlides = igGallery.map(i => (
         <SwiperSlide tag='li'>
         <a href={i.permalink} key={i.id} target="_blank" className={styles.igImageContainer}>
           <img className={styles.igImage} src={i.media_url} alt={i.caption}></img>
         </a>
         </SwiperSlide>
   )) 
+
+  let fullCampaignArray = etahPage.map(x => (x.fields.creativeCampaigns))
+  let slicedCampaignArray = fullCampaignArray.slice(0,1)
 
   return (
     <>
@@ -101,18 +103,38 @@ export default function etahPage({ etahPage, mediaData }) {
             }}
             styles={'list-style:none;'}
           >
-            {slides}
+            {igSlides}
           </Swiper>
       </div>
       <h3 className='igCount'>follow count goes here</h3>
 
-      <h2>Celebrity Gallery</h2>
+      {/* {etahPage[0].fields.celebrityGallery !== undefined ? 
+      <>
+        <h2>Worn By</h2>
+        <div className='igFeed'>
+          <Swiper 
+            tag='section' 
+            wrapperTag='ul' 
+            id='swiperMain' 
+            navigation 
+            slidesPerView={3}
+            keyboard={{
+              "enabled": true
+            }}
+            styles={'list-style:none;'}
+          >
+            {cgSlides}
+          </Swiper>
+        </div>
+      </>
+      :
+      null
+      } */}
 
       <h2>Recent Campaigns</h2>
       <div className='etahRecentCampaigns'>
       {
-        etahPage.map(x => (
-          x.fields.creativeCampaigns.map(y => (
+        slicedCampaignArray[0].map(y => (
               <Link href={`/brands/etahlove/${y.fields.slug}`}>
                   <a>
                       <Image
@@ -123,7 +145,6 @@ export default function etahPage({ etahPage, mediaData }) {
                   </a>
               </Link>
           ))
-        ))
       }
       <style jsx>{`
           .etahRecentCampaigns {

@@ -21,17 +21,16 @@ export async function getStaticProps() {
 }
 
 export default function BrandsPage({ brandsPage }) {
-  console.log(brandsPage)
   return (
     <>
     <Head>
       <title>Compound - Brands</title>
     </Head>
     <div className={styles.brandsPage}>
+      <div className='navWrapper'>
+        <Nav />
+      </div>
       <div className='generalWrapper'>
-        <div className='navWrapper'>
-          <Nav />
-        </div>
         <section className={styles.brandsWrapper}>
           <h1>Brands</h1>
           {

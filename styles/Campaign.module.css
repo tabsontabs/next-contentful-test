@@ -17,23 +17,6 @@
     margin-top: 1rem;
 }
 
-.campaignVideo {
-    width: 100%;
-    padding-top: 75%;
-    position: relative;
-    margin-top: 1rem;
-}
-
-.campaignVideo iframe {
-    width: 100%;
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    height: 100%;
-}
-
 .campaignCredits {
     margin: 2rem 0;
     text-align: center;
@@ -42,5 +25,6 @@
 .backLink {
     padding-bottom: 2rem;
     text-align: center;
+    cursor: pointer;
 }
 

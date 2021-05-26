@@ -7,17 +7,21 @@ function NavLink({ slug, title }) {
     let slugClassName = titleLowerCaseText + '_link'
     
     return (
+      <>
       <div className="nav" className={slugClassName}>
         <Link href={`${slugLowerCaseText}`}>
             <p>{title}</p>
         </Link>   
-        <style jsx>{`
-          .link {
-            cursor: pointer;
-            font-weight: bold;
-          }
-        `}</style>
       </div>
+      <style jsx>{`
+        .careers_link {
+          justify-self: center;
+        }
+        .contact_link {
+          justify-self: end;
+        }
+      `}</style>
+      </>
     )
     
 }

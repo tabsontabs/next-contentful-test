@@ -24,3 +24,17 @@
   border: none;
   padding: 0;
 }
+
+@media only screen and (max-width: 600px) {
+  .brandsWrapper {
+    padding-top: 2rem;
+    margin-left: 0;
+    width: 95%;
+  }
+  .brandsWrapper h1 {
+    text-align: center;
+  }
+  .brandsWrapper h2 {
+    padding-top: 0.5rem;
+  }
+}

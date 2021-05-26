@@ -41,3 +41,12 @@
     position: relative;
     display: block;
 }
+
+@media only screen and (max-width: 600px) {
+    .brandContentHolder {
+        max-width: 1400px;
+        width: 95%;
+        margin: 0 auto;
+        padding-top: 3rem;
+    }
+  }

@@ -10,6 +10,7 @@ import { OrbitControls, Html } from '@react-three/drei';
 import RiotTwo from '../components/Riot2'
 import Frenzy from '../components/Frenzy'
 import RiotCompress from '../components/Riot_u_compress'
+import FrenzyCompress from '../components/Frenzy_compress'
 
 export async function getStaticProps() {
 
@@ -58,20 +59,21 @@ export default function HomePage({ subAboutEntries, mainAboutEntry }) {
             {/* <Riot /> */}
             {/* <RiotTwo /> */}
             {/* <Frenzy /> */}
-            < RiotCompress />
+            <RiotCompress />
+            <FrenzyCompress />
           </Suspense>
       </Canvas>
     </div>
-      <div className={styles.main_about}>
-        { documentToReactComponents(mainAboutEntry) }
+    <div className={styles.main_about}>
+      { documentToReactComponents(mainAboutEntry) }
+    </div>
+    <section className={styles.subsections}>  
+    {subAboutEntries.map(subAboutEntry => (
+      <div className={styles.about_subsection}>
+        <AboutSubsection key={subAboutEntry.sys.id} subAboutEntry={subAboutEntry} />
       </div>
-      <section className={styles.subsections}>  
-      {subAboutEntries.map(subAboutEntry => (
-        <div className={styles.about_subsection}>
-          <AboutSubsection key={subAboutEntry.sys.id} subAboutEntry={subAboutEntry} />
-        </div>
-      ))}
-      </section>  
+    ))}
+    </section>  
       
     </>
   )

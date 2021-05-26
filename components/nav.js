@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import NavLink from '../components/navLink'
 import Link from 'next/link'
+import BrandNavLink from './brandNavLink'
 
 const client = require('contentful').createClient({
     space: process.env.NEXT_PUBLIC_CONTENTFUL_SPACE_ID,
@@ -14,17 +15,53 @@ function Nav() {
       })
       if (entries.items[0].fields.navLinks) return entries.items[0].fields.navLinks
     }
-  
-    const [navLinks, setNavLinks] = useState([])
     
-  
+    const [navLinks, setNavLinks] = useState([])
     useEffect(() => {
       async function getNavLink() {
         const allNavLink = await fetchEntries()
         setNavLinks([...allNavLink])
       }
       getNavLink()
-    }, [])
+    }, [] )
+    console.log(navLinks)
+
+    async function fetchBrandLinkEntries() {
+      const brandLinkEntries = await client.getEntries({
+        content_type: 'brandsPage'
+      })
+      if (brandLinkEntries.items[0].fields.brand) return brandLinkEntries.items[0].fields.brand
+    }
+
+    const [brandNavLinks, setBrandNavLinks] = useState([])
+    useEffect(() => {
+      async function getBrandNavLink() {
+        const allBrandNavLink = await fetchBrandLinkEntries()
+        setBrandNavLinks([...allBrandNavLink])
+      }
+      getBrandNavLink()
+    }, [] )
+    console.log(brandNavLinks)
+
+    let listener = null
+    const [scrollState, setScrollState] = useState('top')
+    useEffect(() => {
+      listener = document.addEventListener("scroll", e => {
+        var scrolled = document.scrollingElement.scrollTop
+        if (scrolled >= 1) {
+          if (scrollState !== "opaque") {
+            setScrollState("opaque")
+          }
+        } else {
+          if (scrollState !== "top") {
+            setScrollState("top")
+          }
+        }
+      })
+      return () => {
+        document.removeEventListener("scroll", listener)
+      }
+    }, [scrollState])
     
     return (
       <>
@@ -44,23 +81,44 @@ function Nav() {
                 />
               ))
             : null}
+          {brandNavLinks.length > 0 ?
+              brandNavLinks.map((b) => (
+                <BrandNavLink
+                  brandName={b.fields.brandName}
+                />
+              ))
+            : null
+            }
           </div>
         </div>
+        
         <style jsx>{`
             .navLinkWrapper {
               display: flex;
               justify-content: space-between;
               padding: 0.5rem 0;
+              position: fixed;
+              max-width: 2000px;
+              width: 100%;
+              background-color: ${scrollState === "top" ? "rgba(0,0,0,0)" : "rgba(0,0,0,0.7)"};
+              z-index: 50;
             }
             .logoContainer {
               display: flex;
               justify-content: flex-end;
               width: 150px;
+              margin-left: 2.5%;
+              align-items: flex-start;
             }
             .linksContainer {
-              display: flex;
-              width: 30%;
-              justify-content: space-between;
+              margin-right: 2.5%;
+              display: grid;
+              grid-template-columns: 10rem 10rem 10rem;
+            }
+            @media only screen and (max-width: 600px) {
+              .navLinkWrapper {
+                display: none;
+              }
             }
           `}</style>
       </>

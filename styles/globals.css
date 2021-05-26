@@ -25,12 +25,28 @@ a {
   text-decoration: none;
 }
 
+a:hover {
+  cursor: pointer;
+}
+
 * {
   box-sizing: border-box;
 }
 
 svg {
   fill: white;
+}
+
+svg:hover {
+  cursor: pointer;
+}
+
+.linksContainer > div:hover {
+  cursor: pointer;
+}
+
+button:hover {
+  cursor: pointer;
 }
 
 input, textarea {
@@ -53,14 +69,14 @@ canvas {
   width: 95%;
 }
 
-.navWrapper {
+/* .navWrapper {
   max-width: 1400px;
   margin: 0 auto;
   width: 95%;
   position: fixed;
   z-index: 100;
   left: 2.5%;
-}
+} */
 
 .visually-hidden {
   border: 0;
@@ -76,3 +92,13 @@ canvas {
 .swiper-wrapper {
   list-style: none;
 }
+
+.swiper-button-disabled::after {
+  display: none !important;
+}
+
+.brands_link:hover ~ .brandNavLink {
+  display: block;
+}
+
+

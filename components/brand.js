@@ -1,5 +1,6 @@
 import Link from 'next/link'
 import Image from 'next/image'
+import styles from '../styles/BrandsPage.module.css'
 
 function Brand({ brand }) {
     const { brandName, brandImageAlt, brandImageURL, imageForBrandsPage } = brand.fields
@@ -44,6 +45,14 @@ function Brand({ brand }) {
           }
           .container:last-of-type {
             padding-bottom: 4rem;
+          }
+          @media only screen and (max-width: 600px) {
+            .container {
+              padding-top: 1rem;
+            }
+            .container:last-of-type {
+              padding-bottom: 1rem;
+            }
           }
         `}</style>
       </div>
