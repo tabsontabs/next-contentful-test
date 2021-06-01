@@ -10,7 +10,7 @@
 }
 
 .brandContent1 p {
-    margin-bottom: 1rem;
+    margin-bottom: 1rem 0 0 0;
     font-size: 2rem;
 }
 
@@ -22,7 +22,7 @@
 }
 
 .brandContentHolder h2 {
-    margin: 2rem 0;
+    margin: 3rem 0 2rem 0;
     font-size: 3rem;
     text-transform: uppercase;
 }
@@ -48,11 +48,58 @@
     display: block;
 }
 
-@media only screen and (max-width: 600px) {
+.brandPageCTA {
+    color: white;
+    text-decoration: underline;
+    font-size: 1rem;
+    margin-top: 1rem;
+    display: block;
+}
+
+.recentCampaigns {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr;
+    column-gap: 30px;
+    padding-bottom: 30px;
+}
+
+.recentCampaigns h3 {
+    padding-top: 0.5rem;
+    text-decoration: underline;
+}
+
+@media only screen and (max-width: 640px) {
     .brandContentHolder {
         max-width: 1400px;
         width: 95%;
         margin: 0 auto;
         padding-top: 3rem;
     }
-  }
+    .brandLogo {
+        width: 50%
+    }
+    .brandContent1 p {
+        margin: 1rem 0;
+        font-size: 1.5rem;
+    }
+    .brandContentHolder h2 {
+        font-size: 2rem;
+    }
+    .recentCampaigns {
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr 1fr;
+        row-gap: 15px;
+        padding-bottom: 30px;
+    }
+}
+
+@media only screen and (max-width: 1000px) {
+    .brandContentHolder {
+        max-width: 1400px;
+        width: 95%;
+        margin: 0 auto;
+        padding-top: 3rem;
+    }
+}

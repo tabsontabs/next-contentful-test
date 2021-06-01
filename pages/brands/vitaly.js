@@ -41,7 +41,7 @@ export async function getStaticProps() {
 }
 
 export default function VitalyPage({ vitalyPage, mediaData, followerCount }) {
-  
+  console.log(vitalyPage)
   let igGallery = mediaData.filter(media => media.media_type === "IMAGE" | media.media_type == "CAROUSEL_ALBUM");
   let igSlides = igGallery.map(i => (
         <SwiperSlide tag='li'>
@@ -89,6 +89,9 @@ export default function VitalyPage({ vitalyPage, mediaData, followerCount }) {
           vitalyPage.map(x => (
             <div className={styles.brandContent1} key={x.sys.id}>
                 { documentToReactComponents(x.fields.brandInfo) }
+                <a href={ x.fields.eCommerceLink } target="_blank">
+                  SHOP >
+                </a>
                 <Image 
                     src={'https:' + x.fields.featuredImage.fields.file.url}
                     width={x.fields.featuredImage.fields.file.details.image.width}
@@ -100,15 +103,21 @@ export default function VitalyPage({ vitalyPage, mediaData, followerCount }) {
           ))
         }
 
-        <h2>Follow Us On Instagram</h2>
+        <h2>Instagram Feed</h2>
         <div className='igFeed'>
           <Swiper 
             tag='section' 
             wrapperTag='ul' 
             id='swiperMain' 
             navigation 
-            spaceBetween={30}
-            slidesPerView={4}
+            spaceBetween={15}
+            slidesPerView={3}
+            breakpoints={{
+              640: {
+                slidesPerView: 4,
+                spaceBetween: 30
+              }
+            }}
             keyboard={{
               "enabled": true
             }}
@@ -117,6 +126,7 @@ export default function VitalyPage({ vitalyPage, mediaData, followerCount }) {
             {igSlides}
           </Swiper>
         </div>
+        <a href='https://www.instagram.com/vitaly' target='_blank' className={styles.brandPageCTA}>Follow Us On Instagram ></a>
         {/* <h3 className='igCount'>follow count goes here</h3> */}
 
         
@@ -145,28 +155,31 @@ export default function VitalyPage({ vitalyPage, mediaData, followerCount }) {
         }
 
         <h2>Recent Campaigns</h2>
-        <div className='vitalyRecentCampaigns'>
+        <div className={styles.recentCampaigns}>
         {
           slicedCampaignArray[0].map(y => (
-                <Link href={`/brands/vitaly/${y.fields.slug}`} key={y.sys.id}>
-                    <a>
-                        <Image
-                            src={'https:' + y.fields.featuredImage.fields.file.url}
-                            width={y.fields.featuredImage.fields.file.details.image.width}
-                            height={y.fields.featuredImage.fields.file.details.image.height}
-                        />
-                    </a>
-                </Link>
+                // <Link href={`/brands/vitaly/${y.fields.slug}`} key={y.sys.id}>
+                //     <a>
+                //         <Image
+                //             src={'https:' + y.fields.featuredImage.fields.file.url}
+                //             width={y.fields.featuredImage.fields.file.details.image.width}
+                //             height={y.fields.featuredImage.fields.file.details.image.height}
+                //         />
+                //     </a>
+                //     <h3>{y.fields.campaignTitle}</h3>
+                // </Link>
+                <>
+                <a href={y.fields.shopifyBlogLink} target="_blank" key={y.sys.id}>
+                    <Image
+                        src={'https:' + y.fields.featuredImage.fields.file.url}
+                        width={y.fields.featuredImage.fields.file.details.image.width}
+                        height={y.fields.featuredImage.fields.file.details.image.height}
+                    />
+                    <h3>{y.fields.campaignTitle}</h3>
+                </a>
+                </>
           ))
         }
-        <style jsx>{`
-            .vitalyRecentCampaigns {
-                display: grid;
-                grid-template-columns: 1fr 1fr;
-                column-gap: 30px;
-                padding-bottom: 30px;
-            }
-            `}</style>
         </div>
       </div>
     </div>

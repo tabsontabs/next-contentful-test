@@ -79,7 +79,7 @@ export default function etahPage({ etahPage, mediaData }) {
         etahPage.map(x => (
           <div className={styles.brandContent1}  key={x.sys.id}>
               { documentToReactComponents(x.fields.brandInfo) }
-              <a href={ x.fields.eCommerceLink }>
+              <a href={ x.fields.eCommerceLink } target="_blank">
                 SHOP >
               </a>
               <Image 
@@ -93,14 +93,15 @@ export default function etahPage({ etahPage, mediaData }) {
       }
       
 
-      <h2>Follow Us On Instagram</h2>
+      <h2>Instagram Feed</h2>
       <div className='igFeed'>
           <Swiper 
             tag='section' 
             wrapperTag='ul' 
             id='swiperMain' 
             navigation 
-            slidesPerView={3}
+            spaceBetween={30}
+            slidesPerView={4}
             keyboard={{
               "enabled": true
             }}
@@ -108,6 +109,7 @@ export default function etahPage({ etahPage, mediaData }) {
           >
             {igSlides}
           </Swiper>
+          <a href='https://www.instagram.com/etahlove' target='_blank' className={styles.brandPageCTA}>Follow Us On Instagram ></a>
       </div>
       {/* <h3 className='igCount'>follow count goes here</h3> */}
 

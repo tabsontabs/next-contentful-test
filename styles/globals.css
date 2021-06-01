@@ -85,7 +85,11 @@ canvas {
 }
 
 .swiper-button-disabled::after {
-  display: none !important;
+  display: none!important;
+}
+
+.swiper-button-prev, .swiper-button-next {
+  color: white!important;
 }
 
 .brands_link:hover ~ .brandNavLink {

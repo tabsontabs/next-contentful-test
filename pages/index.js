@@ -7,8 +7,6 @@ import { Suspense } from "react";
 import styles from '../styles/Home.module.css';
 import { Canvas } from '@react-three/fiber';
 import { OrbitControls, Html } from '@react-three/drei';
-import RiotTwo from '../components/Riot2'
-import Frenzy from '../components/Frenzy'
 import RiotCompress from '../components/Riot_u_compress'
 import FrenzyCompress from '../components/Frenzy_compress'
 
@@ -62,9 +60,6 @@ export default function HomePage({ subAboutEntries, mainAboutEntry }) {
           <ambientLight intensity={0.4} />
           <spotLight position={[10, 15, 10]} angle={0.3}/>
           <Suspense fallback={<Html><div> </div></Html>}>
-            {/* <Riot /> */}
-            {/* <RiotTwo /> */}
-            {/* <Frenzy /> */}
             <RiotCompress />
             <FrenzyCompress />
           </Suspense>

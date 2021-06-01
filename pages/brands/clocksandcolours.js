@@ -64,9 +64,10 @@ export default function clocksPage({ clocksPage, mediaData }) {
       <div className='navWrapper'>
         <Nav />
       </div>
+      <div className={styles.brandContentHolder}>
       <h1 className='visually-hidden'>Clocks and Colours</h1>
-      {/* LOGO: */}
-      {/* {
+    
+      {
           clocksPage.map(x => (
             <div className={styles.brandLogo} key={x.sys.id}>
               <Image
@@ -76,11 +77,15 @@ export default function clocksPage({ clocksPage, mediaData }) {
               />
             </div>
           ))
-      } */}
+      }
+
       {
         clocksPage.map(x => (
-          <div className='clocksPageContent1' key={x.sys.id}>
+          <div className={styles.brandContent1} key={x.sys.id}>
               { documentToReactComponents(x.fields.brandInfo) }
+              <a href={ x.fields.eCommerceLink } target="_blank">
+                SHOP >
+              </a>
               <Image 
                   src={'https:' + x.fields.featuredImage.fields.file.url}
                   width={x.fields.featuredImage.fields.file.details.image.width}
@@ -91,14 +96,15 @@ export default function clocksPage({ clocksPage, mediaData }) {
         ))
       }
      
-      <h2>Follow Us On Instagram</h2>
+      <h2>Instagram Feed</h2>
       <div className='igFeed'>
           <Swiper 
             tag='section' 
             wrapperTag='ul' 
             id='swiperMain' 
             navigation 
-            slidesPerView={3}
+            spaceBetween={30}
+            slidesPerView={4}
             keyboard={{
               "enabled": true
             }}
@@ -107,6 +113,7 @@ export default function clocksPage({ clocksPage, mediaData }) {
             {igSlides}
           </Swiper>
       </div>
+      <a href='https://www.instagram.com/clocksandcolours' target='_blank' className={styles.brandPageCTA}>Follow Us On Instagram ></a>
       {/* <h3 className='igCount'>follow count goes here</h3> */}
       
       {/* {clocksPage[0].fields.celebrityGallery !== undefined ? 
@@ -147,6 +154,7 @@ export default function clocksPage({ clocksPage, mediaData }) {
               </Link>
           ))
       }
+      </div>
       </div>
       <style jsx>{`
           .clocksRecentCampaigns {
