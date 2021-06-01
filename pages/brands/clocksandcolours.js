@@ -52,6 +52,16 @@ export default function clocksPage({ clocksPage, mediaData }) {
         </SwiperSlide>
   )) 
 
+  let celebGallery = clocksPage.map(cg => (cg.fields.celebGallery))
+  let cgSlides = celebGallery[0].map(cgImage => (
+    <SwiperSlide tag='li'>
+      <div key={cgImage.sys.id} className={styles.igImageContainer}>
+          <img className={styles.igImage} src={'https:' + cgImage.fields.file.url} alt={cgImage.fields.title}></img>
+      </div>
+      <a href={cgImage.fields.description} target="_blank"><h3>{cgImage.fields.title} ></h3></a>
+    </SwiperSlide>
+  ))
+
   let fullCampaignArray = clocksPage.map(x => (x.fields.creativeCampaigns))
   let slicedCampaignArray = fullCampaignArray.slice(0,1)
 
@@ -103,8 +113,14 @@ export default function clocksPage({ clocksPage, mediaData }) {
             wrapperTag='ul' 
             id='swiperMain' 
             navigation 
-            spaceBetween={30}
-            slidesPerView={4}
+            spaceBetween={15}
+            slidesPerView={3}
+            breakpoints={{
+              640: {
+                slidesPerView: 4,
+                spaceBetween: 30
+              }
+            }}
             keyboard={{
               "enabled": true
             }}
@@ -116,16 +132,23 @@ export default function clocksPage({ clocksPage, mediaData }) {
       <a href='https://www.instagram.com/clocksandcolours' target='_blank' className={styles.brandPageCTA}>Follow Us On Instagram ></a>
       {/* <h3 className='igCount'>follow count goes here</h3> */}
       
-      {/* {clocksPage[0].fields.celebrityGallery !== undefined ? 
+      {clocksPage[0].fields.celebGallery !== undefined ? 
       <>
         <h2>Worn By</h2>
-        <div className='igFeed'>
+        <div className={styles.celebFeed}>
           <Swiper 
             tag='section' 
             wrapperTag='ul' 
             id='swiperMain' 
             navigation 
-            slidesPerView={3}
+            slidesPerView={2}
+            spaceBetween={15}
+            breakpoints={{
+              640: {
+                slidesPerView: 3,
+                spaceBetween: 30
+              }
+            }}
             keyboard={{
               "enabled": true
             }}
@@ -137,33 +160,36 @@ export default function clocksPage({ clocksPage, mediaData }) {
       </>
       :
       null
-      } */}
+      }
 
       <h2>Recent Campaigns</h2>
-      <div className='clocksRecentCampaigns'>
+      <div className={styles.recentCampaigns}>
       {
         slicedCampaignArray[0].map(y => (
-              <Link href={`/brands/clocksandcolours/${y.fields.slug}`}>
-                  <a>
-                      <Image
-                          src={'https:' + y.fields.featuredImage.fields.file.url}
-                          width={y.fields.featuredImage.fields.file.details.image.width}
-                          height={y.fields.featuredImage.fields.file.details.image.height}
-                      />
-                  </a>
-              </Link>
+              // <Link href={`/brands/clocksandcolours/${y.fields.slug}`}>
+              //     <a>
+              //         <Image
+              //             src={'https:' + y.fields.featuredImage.fields.file.url}
+              //             width={y.fields.featuredImage.fields.file.details.image.width}
+              //             height={y.fields.featuredImage.fields.file.details.image.height}
+              //         />
+              //     </a>
+              // </Link>
+              <>
+                <a href={y.fields.shopifyBlogLink} target="_blank" key={y.sys.id}>
+                    <Image
+                        src={'https:' + y.fields.featuredImage.fields.file.url}
+                        width={y.fields.featuredImage.fields.file.details.image.width}
+                        height={y.fields.featuredImage.fields.file.details.image.height}
+                    />
+                    <h3>{y.fields.campaignTitle} ></h3>
+                </a>
+                </>
           ))
       }
       </div>
       </div>
-      <style jsx>{`
-          .clocksRecentCampaigns {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            column-gap: 30px;
-            padding-bottom: 30px;
-          }
-          `}</style>
+      
       </div>
     
     </>

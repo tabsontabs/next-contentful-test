@@ -41,7 +41,7 @@ export async function getStaticProps() {
 }
 
 export default function VitalyPage({ vitalyPage, mediaData, followerCount }) {
-  console.log(vitalyPage)
+  
   let igGallery = mediaData.filter(media => media.media_type === "IMAGE" | media.media_type == "CAROUSEL_ALBUM");
   let igSlides = igGallery.map(i => (
         <SwiperSlide tag='li'>
@@ -57,6 +57,17 @@ export default function VitalyPage({ vitalyPage, mediaData, followerCount }) {
       <div key={cgImage.sys.id} className={styles.igImageContainer}>
           <img className={styles.igImage} src={'https:' + cgImage.fields.file.url} alt={cgImage.fields.title}></img>
       </div>
+      <a href={cgImage.fields.description} target="_blank"><h3>{cgImage.fields.title} ></h3></a>
+    </SwiperSlide>
+  ))
+
+  let pressGallery = vitalyPage.map(pg => (pg.fields.press))
+  let pressSlides = pressGallery[0].map(article => (
+    <SwiperSlide tag='li'>
+      <div key={article.sys.id} className={styles.pressImageContainer}>
+          <img className={styles.pressImage} src={'https:' + article.fields.file.url} alt={article.fields.title}></img>
+      </div>
+      <a href={article.fields.description} target="_blank"><h3>{article.fields.title} ></h3></a>
     </SwiperSlide>
   ))
 
@@ -129,24 +140,59 @@ export default function VitalyPage({ vitalyPage, mediaData, followerCount }) {
         <a href='https://www.instagram.com/vitaly' target='_blank' className={styles.brandPageCTA}>Follow Us On Instagram ></a>
         {/* <h3 className='igCount'>follow count goes here</h3> */}
 
-        
         {vitalyPage[0].fields.celebrityGallery !== undefined ? 
           <>
           <h2>Worn By</h2>
-          <div className='celebFeed'>
+          <div className={styles.celebFeed}>
             <Swiper 
               tag='section' 
               wrapperTag='ul' 
               id='swiperMain' 
               navigation 
-              slidesPerView={3}
-              spaceBetween={30}
+              slidesPerView={2}
+              spaceBetween={15}
+              breakpoints={{
+                640: {
+                  slidesPerView: 3,
+                  spaceBetween: 30
+                }
+              }}
               keyboard={{
                 "enabled": true
               }}
               styles={'list-style:none;'}
             >
               {cgSlides}
+            </Swiper>
+          </div>
+          </>
+        :
+        null
+        }
+
+        {vitalyPage[0].fields.press !== undefined ? 
+          <>
+          <h2>Press</h2>
+          <div className={`pressFeed ${styles.pressFeed}`}>
+            <Swiper 
+              tag='section' 
+              wrapperTag='ul' 
+              id='swiperMain' 
+              navigation 
+              slidesPerView={2}
+              spaceBetween={15}
+              breakpoints={{
+                640: {
+                  slidesPerView: 3,
+                  spaceBetween: 30
+                }
+              }}
+              keyboard={{
+                "enabled": true
+              }}
+              styles={'list-style:none;'}
+            >
+              {pressSlides}
             </Swiper>
           </div>
           </>
@@ -175,7 +221,7 @@ export default function VitalyPage({ vitalyPage, mediaData, followerCount }) {
                         width={y.fields.featuredImage.fields.file.details.image.width}
                         height={y.fields.featuredImage.fields.file.details.image.height}
                     />
-                    <h3>{y.fields.campaignTitle}</h3>
+                    <h3>{y.fields.campaignTitle} ></h3>
                 </a>
                 </>
           ))

@@ -96,4 +96,11 @@ canvas {
   display: block;
 }
 
+.pressFeed .swiper-button-next, .pressFeed .swiper-button-prev {
+  color: black!important;
+}
+
+.pressFeed img {
+  object-position: top!important;
+}
 

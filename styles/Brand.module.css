@@ -24,14 +24,14 @@
 .brandContentHolder h2 {
     margin: 3rem 0 2rem 0;
     font-size: 3rem;
-    text-transform: uppercase;
+    text-transform: capitalize;
 }
 
 .singleBrandPage {
     background-color: black;
 }
 
-.igImage {
+.igImage, .pressImage {
     position: absolute;
     top: 0;
     left: 0;
@@ -41,11 +41,15 @@
     height: 100%;
 }
 
-.igImageContainer {
+.igImageContainer, .pressImageContainer {
     width: 100%;
     padding-top: 100%;
     position: relative;
     display: block;
+}
+
+.pressImageContainer {
+    padding-top: 150%;
 }
 
 .brandPageCTA {
@@ -64,11 +68,16 @@
     padding-bottom: 30px;
 }
 
-.recentCampaigns h3 {
+.recentCampaigns h3, .celebFeed h3, .pressFeed h3 {
     padding-top: 0.5rem;
     text-decoration: underline;
+    font-size: 1rem;
+    font-weight: normal;
 }
 
+.celebFeed h3, .pressFeed h3 {
+    padding-top: 1rem;
+}
 @media only screen and (max-width: 640px) {
     .brandContentHolder {
         max-width: 1400px;

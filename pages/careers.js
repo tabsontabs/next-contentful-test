@@ -43,7 +43,9 @@ export default function CareersPage({ careersPage }) {
               x.fields.currentCareers.map(y => (
                 <div key={y.sys.id} className={styles.careerEntry}>
                   <h2 className={styles.positionTitle}>{ y.fields.positionTitle }
-                      <span className={styles.collapsiblePlus} onClick={() => setShow(!show)}>+</span>
+                      <span className={styles.collapsiblePlus}  
+                      onClick={() => setShow(!show)}
+                      >+</span>
                   </h2>
                   <div className={styles.positionText} style={{display: show ? 'block': 'none'}}>
                       { documentToReactComponents(y.fields.positionDescription) }

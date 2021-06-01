@@ -9,6 +9,9 @@ import { Canvas } from '@react-three/fiber';
 import { OrbitControls, Html } from '@react-three/drei';
 import RiotCompress from '../components/Riot_u_compress'
 import FrenzyCompress from '../components/Frenzy_compress'
+import ReyCompress from '../components/Reycompress'
+import Gridlok from '../components/Gridlok_compress'
+import Terminus from '../components/Terminus_compress'
 
 export async function getStaticProps() {
 
@@ -62,6 +65,9 @@ export default function HomePage({ subAboutEntries, mainAboutEntry }) {
           <Suspense fallback={<Html><div> </div></Html>}>
             <RiotCompress />
             <FrenzyCompress />
+            <ReyCompress />
+            <Gridlok />
+            <Terminus />
           </Suspense>
       </Canvas>
     </div>

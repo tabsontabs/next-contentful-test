@@ -9,10 +9,6 @@
   align-items: center;
 }
 
-.brandsWrapper h1 {
-  text-transform: uppercase;
-}
-
 .brandsWrapper h2 {
   padding: 1rem 0 0.1rem 0;
   text-transform: uppercase;
@@ -42,19 +38,42 @@
   width: 25%;
 }
 
+.brandSeeMore {
+  font-size: 1rem;
+}
+
 @media only screen and (max-width: 600px) {
   .brandsPage .brandsWrapper {
     height: 100%;
+  }
+
+  .brandsPageH1 {
+    font-size: 3.5rem;
+    padding-top: 5rem;
+    text-align: center;
   }
 
   .brandsGrid {
     grid-template-columns: 1fr;
     grid-template-rows: 3fr;
     row-gap: 3rem;
-    padding: 3rem 0 2rem 0;
+    padding: 0.5rem 0 2rem 0;
   }
 
   .aboutSubsectionBrandsGrid {
     display: block;
+  }
+}
+
+@media only screen and (min-width: 600px) {
+  .brandsPageH1 {
+      border: 0;
+      clip: rect(0 0 0 0);
+      height: 1px;
+      margin: -1px;
+      overflow: hidden;
+      padding: 0;
+      position: absolute;
+      width: 1px;
   }
 }

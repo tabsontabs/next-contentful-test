@@ -32,7 +32,7 @@ export default function BrandsPage({ brandsPage }) {
         <Nav />
       </div>
       <div className='generalWrapper'>
-        <h1 className='visually-hidden'>Brands</h1>
+        <h1 className={styles.brandsPageH1}>Brands</h1>
         <section className={styles.brandsWrapper}>
           <div className={styles.brandsGrid}>
           {
