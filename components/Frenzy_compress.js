@@ -14,7 +14,7 @@ export default function FrenzyCompress(props) {
   const material = new THREE.MeshStandardMaterial({
     color: 0x545454,
     transparent: true,
-    opacity: 0.2,
+    opacity: 0.1,
     wireframe: true,
     roughness: 0
   })

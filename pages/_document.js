@@ -12,6 +12,7 @@ class MyDocument extends Document {
         <Head>
           <link href="https://fonts.googleapis.com/css2?family=Inconsolata&display=swap" rel="stylesheet" />
           <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;400;600&display=swap" rel="stylesheet" />
+          <link rel="stylesheet" href="/fonts/fonts.css" />
         </Head>
         <body>
           <Main />

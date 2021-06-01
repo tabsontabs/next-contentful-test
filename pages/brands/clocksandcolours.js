@@ -80,13 +80,13 @@ export default function clocksPage({ clocksPage, mediaData }) {
       {
         clocksPage.map(x => (
           <div className='clocksPageContent1' key={x.sys.id}>
+              { documentToReactComponents(x.fields.brandInfo) }
               <Image 
                   src={'https:' + x.fields.featuredImage.fields.file.url}
                   width={x.fields.featuredImage.fields.file.details.image.width}
                   height={x.fields.featuredImage.fields.file.details.image.height}
                   className="clocksFeaturedImage"
               />
-              { documentToReactComponents(x.fields.brandInfo) }
           </div>
         ))
       }
@@ -107,9 +107,8 @@ export default function clocksPage({ clocksPage, mediaData }) {
             {igSlides}
           </Swiper>
       </div>
-      <h3 className='igCount'>follow count goes here</h3>
+      {/* <h3 className='igCount'>follow count goes here</h3> */}
       
-
       {/* {clocksPage[0].fields.celebrityGallery !== undefined ? 
       <>
         <h2>Worn By</h2>
@@ -151,12 +150,10 @@ export default function clocksPage({ clocksPage, mediaData }) {
       </div>
       <style jsx>{`
           .clocksRecentCampaigns {
-              display: flex;
-              justify-content: space-between;
-          }
-          .clocksRecentCampaigns a {
-              width: 48%;
-              display: block;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            column-gap: 30px;
+            padding-bottom: 30px;
           }
           `}</style>
       </div>

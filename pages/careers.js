@@ -4,6 +4,7 @@ import Career from '../components/career';
 import { createClient } from 'contentful'
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
 import styles from '../styles/Careers.module.css';
+import { useState } from 'react'
 
 export async function getStaticProps() {
 
@@ -22,6 +23,9 @@ export async function getStaticProps() {
 }
 
 export default function CareersPage({ careersPage }) {
+
+  const [show, setShow] = useState(false)
+  
   return (
     <>
     <Head>
@@ -33,11 +37,18 @@ export default function CareersPage({ careersPage }) {
       </div>
       <div className='generalWrapper'>
         <div className={styles.careersSection}>
-          <h1>Careers</h1>
+          <h1 className=''>Careers</h1>
           {careersPage[0].fields.currentCareers !== undefined ?
             careersPage.map(x => (
               x.fields.currentCareers.map(y => (
-                <Career key={y.sys.id} career={y} />
+                <div key={y.sys.id} className={styles.careerEntry}>
+                  <h2 className={styles.positionTitle}>{ y.fields.positionTitle }
+                      <span className={styles.collapsiblePlus} onClick={() => setShow(!show)}>+</span>
+                  </h2>
+                  <div className={styles.positionText} style={{display: show ? 'block': 'none'}}>
+                      { documentToReactComponents(y.fields.positionDescription) }
+                  </div>
+                </div>
               ))
             ))
           :

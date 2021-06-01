@@ -21,6 +21,7 @@ export async function getStaticProps() {
 }
 
 export default function BrandsPage({ brandsPage }) {
+  console.log(brandsPage)
   return (
     <>
     <Head>
@@ -31,8 +32,9 @@ export default function BrandsPage({ brandsPage }) {
         <Nav />
       </div>
       <div className='generalWrapper'>
+        <h1 className='visually-hidden'>Brands</h1>
         <section className={styles.brandsWrapper}>
-          <h1>Brands</h1>
+          <div className={styles.brandsGrid}>
           {
             brandsPage.map(x => (
               x.fields.brand.map(y => (
@@ -40,6 +42,7 @@ export default function BrandsPage({ brandsPage }) {
               ))
             ))
           }
+          </div>
         </section>
       </div>
     </div>

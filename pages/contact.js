@@ -37,6 +37,18 @@ export default function ContactPage() {
     }
   }
 
+  const showEmailFormKeyPress = (event) => {
+    if (event.key === 'Enter') {
+      if (name != '' && name!= ' ') {
+        setNameErrorMessage(false)
+        setNameDisplay(false)
+        setEmailDisplay(true)
+      } else {
+        setNameErrorMessage(true)
+      }
+    }
+  }
+
   // when the 1st 'back' button is clicked, the email input field and 2nd 'next' button are hidden, the name input field and 1st 'next' button are displayed
   const showNameFormBack = (e) => {
     e.preventDefault()
@@ -54,6 +66,17 @@ export default function ContactPage() {
       setMessageDisplay(true)
     } else {
       setEmailErrorMessage(true)
+    }
+  }
+
+  const showMessageFormKeyPress = (event) => {
+    if (event.key === 'Enter') {
+      if (email != '' && email != ' ' && email.includes('@') && email.includes('.')) {
+        setEmailDisplay(false)
+        setMessageDisplay(true)
+      } else {
+        setEmailErrorMessage(true)
+      }
     }
   }
 
@@ -121,13 +144,13 @@ export default function ContactPage() {
             { nameDisplay ? 
             <div className={styles.nameInput}>
               <label className='visually-hidden' htmlFor='name'>Name</label>
-              <input value={name} type='text' placeholder='Type your full name here' onChange={(e)=>{setName(e.target.value), setNameErrorMessage(false)}} name='name' />  
+              <input value={name} type='text' placeholder='Type your full name here' onChange={(e)=>{setName(e.target.value), setNameErrorMessage(false)}} onKeyPress={(event)=>{showEmailFormKeyPress(event)}} name='name' />  
             </div> : null
             }
             { emailDisplay ? 
             <div className='emailInput'>
               <label className='visually-hidden' htmlFor='email'>Email</label>
-              <input value={email} id='emailField' type='email' placeholder='Type your email here' onChange={(e)=>{setEmail(e.target.value), setEmailErrorMessage(false)}} name='email' />
+              <input value={email} id='emailField' type='email' placeholder='Type your email here' onChange={(e)=>{setEmail(e.target.value), setEmailErrorMessage(false)}} onKeyPress={(event)=>{showMessageFormKeyPress(event)}} name='email' />
             </div> : null
             }
             { messageDisplay ? 
@@ -149,7 +172,7 @@ export default function ContactPage() {
         }
         { nameDisplay ? 
         <div className={styles.singleButtonHolder}>
-          <button className='showEmail' onClick={(e)=>{showEmailForm(e)}} >Next</button>
+          <button className='showEmail' className={styles.nextButton} onClick={(e)=>{showEmailForm(e)}}>Next</button>
         </div>
         : null
         }
@@ -160,7 +183,7 @@ export default function ContactPage() {
         { emailDisplay ?
         <div className={styles.buttonHolder}> 
           <button className={styles.backButton} onClick={(e)=>{showNameFormBack(e)}}>Back</button>
-          <button className='showMessage' onClick={(e)=>{showMessageForm(e)}}>Next</button>
+          <button className='showMessage' className={styles.nextButton} onClick={(e)=>{showMessageForm(e)}}>Next</button>
         </div>
         : null
         }
@@ -171,7 +194,7 @@ export default function ContactPage() {
         { messageDisplay ? 
         <div className={styles.buttonHolder}>
           <button className={styles.backButton} onClick={(e)=>{showEmailFormBack(e)}}>Back</button>
-          <button className='formSubmit' onClick={(e)=>{handleSubmit(e)}}>Submit</button>
+          <button className='formSubmit' className={styles.nextButton} onClick={(e)=>{handleSubmit(e)}}>Submit</button>
         </div>
         : null
         }

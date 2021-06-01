@@ -19,8 +19,8 @@ export async function getStaticProps() {
     accessToken: process.env.NEXT_PUBLIC_CONTENTFUL_ACCESS_TOKEN,
   })
 
-  const response = await client.getEntries({ content_type: 'aboutPage'})
-
+  const response = await client.getEntries({ content_type: 'aboutPage', include: 2})
+  
   return {
     props: {
       mainAboutEntry: response.items[0].fields.mainAboutSection,
@@ -30,11 +30,17 @@ export async function getStaticProps() {
 }
 
 export default function HomePage({ subAboutEntries, mainAboutEntry }) {
-
+  console.log(subAboutEntries)
   return (
     <>
     <Head>
       <title>Compound Studio</title>
+      <link 
+        rel='preload'
+        href='public/fonts/HelveticaNeueLTPro-Roman.woff'
+        as='font'
+        crossOrigin=''
+      ></link>
     </Head>
     <div className='navWrapper'>
           <Nav />
@@ -53,7 +59,7 @@ export default function HomePage({ subAboutEntries, mainAboutEntry }) {
             maxAzimuthAngle={0}
             minAzimuthAngle={0}
           />
-          <ambientLight intensity={0.5} />
+          <ambientLight intensity={0.4} />
           <spotLight position={[10, 15, 10]} angle={0.3}/>
           <Suspense fallback={<Html><div> </div></Html>}>
             {/* <Riot /> */}
@@ -64,17 +70,22 @@ export default function HomePage({ subAboutEntries, mainAboutEntry }) {
           </Suspense>
       </Canvas>
     </div>
-    <div className={styles.main_about}>
+    <section className={styles.main_about}>
       { documentToReactComponents(mainAboutEntry) }
-    </div>
+    </section>
     <section className={styles.subsections}>  
     {subAboutEntries.map(subAboutEntry => (
-      <div className={styles.about_subsection}>
+      <div className={styles.about_subsection} id={subAboutEntry.fields.aboutSubsectionTitle}>
         <AboutSubsection key={subAboutEntry.sys.id} subAboutEntry={subAboutEntry} />
       </div>
     ))}
     </section>  
-      
+    <style jsx>{`
+      #brands {
+        // padding: 3rem 0 5rem 0;
+      }
+    `}</style>
     </>
+    
   )
 }

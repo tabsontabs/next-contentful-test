@@ -6,13 +6,19 @@
 }
 
 .brandLogo {
-    margin-bottom: 2rem;
     width: 20%
 }
 
 .brandContent1 p {
-    margin: 2rem 0;
+    margin-bottom: 1rem;
     font-size: 2rem;
+}
+
+.brandContent1 a {
+    text-decoration: underline;
+    font-size: 1.5rem;
+    margin-bottom: 2rem;
+    display: block;
 }
 
 .brandContentHolder h2 {

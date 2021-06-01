@@ -88,6 +88,7 @@ export default function VitalyPage({ vitalyPage, mediaData, followerCount }) {
         {
           vitalyPage.map(x => (
             <div className={styles.brandContent1} key={x.sys.id}>
+                { documentToReactComponents(x.fields.brandInfo) }
                 <Image 
                     src={'https:' + x.fields.featuredImage.fields.file.url}
                     width={x.fields.featuredImage.fields.file.details.image.width}
@@ -95,7 +96,6 @@ export default function VitalyPage({ vitalyPage, mediaData, followerCount }) {
                     className={styles.featuredImage}
                     alt={"vitaly logo"}
                 />
-                { documentToReactComponents(x.fields.brandInfo) }
             </div>
           ))
         }
@@ -107,7 +107,8 @@ export default function VitalyPage({ vitalyPage, mediaData, followerCount }) {
             wrapperTag='ul' 
             id='swiperMain' 
             navigation 
-            slidesPerView={3}
+            spaceBetween={30}
+            slidesPerView={4}
             keyboard={{
               "enabled": true
             }}
@@ -116,7 +117,7 @@ export default function VitalyPage({ vitalyPage, mediaData, followerCount }) {
             {igSlides}
           </Swiper>
         </div>
-        <h3 className='igCount'>follow count goes here</h3>
+        {/* <h3 className='igCount'>follow count goes here</h3> */}
 
         
         {vitalyPage[0].fields.celebrityGallery !== undefined ? 
@@ -129,6 +130,7 @@ export default function VitalyPage({ vitalyPage, mediaData, followerCount }) {
               id='swiperMain' 
               navigation 
               slidesPerView={3}
+              spaceBetween={30}
               keyboard={{
                 "enabled": true
               }}
@@ -159,12 +161,10 @@ export default function VitalyPage({ vitalyPage, mediaData, followerCount }) {
         }
         <style jsx>{`
             .vitalyRecentCampaigns {
-                display: flex;
-                justify-content: space-between;
-            }
-            .vitalyRecentCampaigns a {
-                width: 48%;
-                display: block;
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                column-gap: 30px;
+                padding-bottom: 30px;
             }
             `}</style>
         </div>

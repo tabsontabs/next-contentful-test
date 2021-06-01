@@ -78,13 +78,16 @@ export default function etahPage({ etahPage, mediaData }) {
       {
         etahPage.map(x => (
           <div className={styles.brandContent1}  key={x.sys.id}>
+              { documentToReactComponents(x.fields.brandInfo) }
+              <a href={ x.fields.eCommerceLink }>
+                SHOP >
+              </a>
               <Image 
                   src={'https:' + x.fields.featuredImage.fields.file.url}
                   width={x.fields.featuredImage.fields.file.details.image.width}
                   height={x.fields.featuredImage.fields.file.details.image.height}
                   className={styles.featuredImage}
               />
-              { documentToReactComponents(x.fields.brandInfo) }
           </div>
         ))
       }
@@ -106,7 +109,7 @@ export default function etahPage({ etahPage, mediaData }) {
             {igSlides}
           </Swiper>
       </div>
-      <h3 className='igCount'>follow count goes here</h3>
+      {/* <h3 className='igCount'>follow count goes here</h3> */}
 
       {/* {etahPage[0].fields.celebrityGallery !== undefined ? 
       <>
@@ -148,12 +151,10 @@ export default function etahPage({ etahPage, mediaData }) {
       }
       <style jsx>{`
           .etahRecentCampaigns {
-              display: flex;
-              justify-content: space-between;
-          }
-          .etahRecentCampaigns a {
-              width: 48%;
-              display: block;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            column-gap: 30px;
+            padding-bottom: 30px;
           }
           `}</style>
       </div>

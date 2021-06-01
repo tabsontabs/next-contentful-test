@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 import NavLink from '../components/navLink'
 import Link from 'next/link'
 import BrandNavLink from './brandNavLink'
+import { useRouter } from 'next/router'
 
 const client = require('contentful').createClient({
     space: process.env.NEXT_PUBLIC_CONTENTFUL_SPACE_ID,
@@ -24,7 +25,6 @@ function Nav() {
       }
       getNavLink()
     }, [] )
-    console.log(navLinks)
 
     async function fetchBrandLinkEntries() {
       const brandLinkEntries = await client.getEntries({
@@ -41,7 +41,6 @@ function Nav() {
       }
       getBrandNavLink()
     }, [] )
-    console.log(brandNavLinks)
 
     let listener = null
     const [scrollState, setScrollState] = useState('top')
@@ -62,9 +61,29 @@ function Nav() {
         document.removeEventListener("scroll", listener)
       }
     }, [scrollState])
-    
+
+    const [fullscreenMenuDisplay, setFullscreenMenuDisplay] = useState(false)
+    useEffect(() => {
+      if (fullscreenMenuDisplay == true) {
+        document.body.style.overflow = 'hidden';
+      } else {
+        document.body.style.overflow = 'unset';
+      }
+    })
+
     return (
       <>
+        <div className='mobileLinksContainer' style={{display: fullscreenMenuDisplay ? 'flex':'none'}}>
+          {navLinks.length > 0 ?
+            navLinks.map((x) => (
+                <NavLink
+                  title={x.fields.link}
+                  slug={x.fields.slug}
+                  key={x.fields.link}
+                />
+            ))
+          : null}
+        </div>
         <div className='navLinkWrapper'>
           <Link href='/'>
             <div className='logoContainer'>
@@ -90,6 +109,9 @@ function Nav() {
             : null
             }
           </div>
+          <button className='mobileNavButtonMenu' onClick={() => setFullscreenMenuDisplay(true)}>Menu</button>
+          <button className='mobileNavButtonX' onClick={() => setFullscreenMenuDisplay(false)}>x</button>
+
         </div>
         
         <style jsx>{`
@@ -100,7 +122,7 @@ function Nav() {
               position: fixed;
               max-width: 2000px;
               width: 100%;
-              background-color: ${scrollState === "top" ? "rgba(0,0,0,0)" : "rgba(0,0,0,0.7)"};
+              background-color: ${scrollState === "top" | fullscreenMenuDisplay == true ? "rgba(0,0,0,0)" : "rgba(0,0,0,0.7)"};
               z-index: 50;
             }
             .logoContainer {
@@ -110,14 +132,53 @@ function Nav() {
               margin-left: 2.5%;
               align-items: flex-start;
             }
+            .logoContainer svg {
+              fill: ${fullscreenMenuDisplay ? "black" : "white"};
+            }
+            .mobileNavButtonX, .mobileNavButtonMenu {
+              display: none;
+            }
             .linksContainer {
               margin-right: 2.5%;
               display: grid;
               grid-template-columns: 10rem 10rem 10rem;
             }
+            
             @media only screen and (max-width: 600px) {
-              .navLinkWrapper {
+              .linksContainer {
                 display: none;
+              }
+              .mobileNavButtonMenu, .mobileNavButtonX {
+                margin-right: 2.5%;
+                margin-top: 0;
+                padding: 0;
+                border: none;
+                text-transform: capitalize;
+                font-size: 1rem;
+                border: none;
+                transition: none;
+                transition-timing-function: none;
+                background-color: transparent;
+              }
+              .mobileNavButtonMenu {
+                color: white;
+                display: ${fullscreenMenuDisplay ? "none" : "block"};
+              }
+              .mobileNavButtonX {
+                color: black;
+                display: ${fullscreenMenuDisplay ? "block" : "none"};
+              }
+              .mobileLinksContainer {
+                position: fixed;
+                z-index: 5;
+                color: black;
+                background-color: white;
+                height: 100vh;
+                width: 100vw;
+                justify-content: center;
+                align-items: center;
+                flex-direction: column;
+                font-size: 4rem;
               }
             }
           `}</style>

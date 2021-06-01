@@ -2,14 +2,14 @@
     background-color: black;
 }
 
-.brandsWrapper {
-  padding-top: 7rem;
-  margin-left: 150px;
-  width: calc(100% - 300px);  
+.brandsPage .brandsWrapper {
+  display: flex;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
 }
 
 .brandsWrapper h1 {
-  font-size: 5rem;
   text-transform: uppercase;
 }
 
@@ -23,18 +23,38 @@
   color: white;
   border: none;
   padding: 0;
+  text-decoration: underline;
+}
+
+.brandsGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  column-gap: 30px;
+}
+
+.aboutSubsectionBrandsGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  column-gap: 30px;
+}
+
+.brandLogoContainer {
+  width: 25%;
 }
 
 @media only screen and (max-width: 600px) {
-  .brandsWrapper {
-    padding-top: 2rem;
-    margin-left: 0;
-    width: 95%;
+  .brandsPage .brandsWrapper {
+    height: 100%;
   }
-  .brandsWrapper h1 {
-    text-align: center;
+
+  .brandsGrid {
+    grid-template-columns: 1fr;
+    grid-template-rows: 3fr;
+    row-gap: 3rem;
+    padding: 3rem 0 2rem 0;
   }
-  .brandsWrapper h2 {
-    padding-top: 0.5rem;
+
+  .aboutSubsectionBrandsGrid {
+    display: block;
   }
 }
