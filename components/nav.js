@@ -123,7 +123,7 @@ function Nav() {
               position: fixed;
               max-width: 2000px;
               width: 100%;
-              background-color: ${scrollState === "top" | fullscreenMenuDisplay == true ? "rgba(0,0,0,0)" : "rgba(0,0,0,0.7)"};
+              background-color: ${scrollState === "top" | fullscreenMenuDisplay == true ? "rgba(0,0,0,0)" : "rgba(0,0,0,1)"};
               z-index: 50;
               align-items: center;
             }

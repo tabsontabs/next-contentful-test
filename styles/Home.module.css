@@ -1,12 +1,15 @@
 .main_about {
     display: flex;
-    justify-content: center;
     align-items: center;
     max-width: 1400px;
     margin: 0 auto;
     width: 95%;
     font-size: 2.5rem;
     min-height: 100vh;
+}
+
+.main_about p {
+    line-height: 1.1;
 }
 
 .main_about p a {
@@ -24,6 +27,7 @@
     align-items: center;
     min-height: 100vh;
     padding: 4rem 0 4rem 0;
+    width: 100%;
 }
 
 .about_subsection h2 {
@@ -33,27 +37,29 @@
     text-transform: capitalize;
 }
 
-.about_subsection p {
-    font-size: 1.5rem;
+.about_subsection p, .about_subsection a{
+    font-size: 18px;
     font-weight: normal;
     padding-bottom: 1rem;
+    
 }
 
 .about_subsection a {
-    font-size: 1.5rem;
-    font-weight: normal;
-    padding-bottom: 1rem;
     text-decoration: underline;
 }
 
 @media only screen and (min-width: 600px) {
     .main_about {
         font-size: 5rem;
+        width: 75%;
+        margin: 0 0 0 2.5%;
+        width: 75%;
     }
     .about_subsection h2 {
         font-size: 5rem;
     }
+
     .about_subsection p, .about_subsection a {
-        font-size: 2rem;
+        width: 50%;
     }
 }
