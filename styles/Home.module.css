@@ -14,17 +14,20 @@
 .main_about p a {
     /* text-decoration: underline; */
     display: inline-block;
-    position: relative;
+    /* position: relative; */
+    border-bottom: 2.5px solid white;
+    line-height: 0.7;
+    
 }
 
-.main_about p a::after {
+/* .main_about p a::after {
     content: '';
     position: absolute;
     width: 100%;
     border-bottom: 0.25rem solid white;
     display: block;
     bottom: 0;
-}
+} */
 
 .subsections {   
     width: 95%;
@@ -87,6 +90,11 @@
 
     .about_subsection p, .about_subsection a{
         font-size: 24px
+    }
+
+    .main_about p a {
+        border-bottom: 4px solid white;
+        line-height: 0.8;
     }
 
     /* .main_about p a::after {
