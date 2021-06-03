@@ -84,4 +84,8 @@
     .about_subsection p, .about_subsection a{
         font-size: 24px;
     }
+
+    .main_about p a::after {
+        bottom: 0.7rem;
+    }
 }
