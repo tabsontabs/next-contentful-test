@@ -1,7 +1,6 @@
 .main_about {
     display: flex;
     align-items: center;
-    max-width: 1400px;
     margin: 0 auto;
     width: 95%;
     font-size: 2.5rem;
@@ -28,7 +27,7 @@
 }
 
 .subsections {
-    max-width: 1400px;
+    
     width: 95%;
     margin: 0 auto;
 }
@@ -64,7 +63,6 @@
         font-size: 4.5rem;
         width: 75%;
         margin: 0 0 0 2.5%;
-        width: 75%;
     }
     .about_subsection h2 {
         font-size: 4.5rem;
@@ -72,5 +70,18 @@
 
     .about_subsection p, .about_subsection a {
         width: 50%;
+    }
+}
+
+@media only screen and (min-width: 1600px) {
+    .main_about {
+        font-size: 7rem;
+    }
+    .about_subsection h2 {
+        font-size: 7rem;
+    }
+
+    .about_subsection p, .about_subsection a{
+        font-size: 24px;
     }
 }

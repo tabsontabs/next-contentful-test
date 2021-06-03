@@ -121,7 +121,7 @@ function Nav() {
               justify-content: space-between;
               padding: 0.5rem 0;
               position: fixed;
-              max-width: 1600px;
+              // max-width: 1600px;
               width: 100%;
               background-color: ${scrollState === "top" | fullscreenMenuDisplay == true ? "rgba(0,0,0,0)" : "rgba(0,0,0,1)"};
               z-index: 50;
@@ -145,7 +145,14 @@ function Nav() {
               display: grid;
               grid-template-columns: 9rem 9rem 9rem;
             }
-            
+            @media only screen and (min-width: 1600px) {
+              .logoContainer {
+                width: 250px;
+              }
+              .linksContainer {
+                grid-template-columns: 12rem 12rem 12rem;
+              }
+            }
             @media only screen and (max-width: 700px) {
               .linksContainer {
                 display: none;

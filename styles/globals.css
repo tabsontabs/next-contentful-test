@@ -65,13 +65,11 @@ canvas {
 }
 
 .generalWrapper {
-  max-width: 1600px;
   margin: 0 auto;
   width: 95%;
 }
 
 .navWrapper {
-  max-width: 1600px;
   margin: 0 auto;
   width: 100%;
 }
@@ -123,3 +121,11 @@ canvas {
   object-position: top!important;
 }
 
+@media only screen and (min-width: 1600px) {
+  body {
+    font-size: 24px;
+  }
+  .swiper-button-prev::after, .swiper-button-next::after {
+    font-size: 25px!important;
+  }
+}

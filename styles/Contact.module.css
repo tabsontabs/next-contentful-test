@@ -10,7 +10,6 @@
     justify-content: center;
     width: 95%;
     margin: 0 auto;
-    max-width: 1600px;
 }
 
 .contactFormPage h1 {
@@ -108,5 +107,19 @@
 @media only screen and (max-width: 600px) {
     .contactFormPage h1 {
         font-size: 3rem;
+    }
+}
+
+@media only screen and (min-width: 1600px) {
+    .contactFormPage h1 {
+        font-size: 7rem;
+    }
+
+    .formHolder input, .formHolder textarea {
+        font-size: 24px;
+    }
+    
+    .contactFormPage button {
+        font-size: 24px;
     }
 }

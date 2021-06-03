@@ -65,7 +65,7 @@
 .brandPageCTA {
     color: white;
     text-decoration: underline;
-    font-size: 1rem;
+    font-size: 16px;
     margin-top: 1rem;
     display: block;
 }
@@ -81,7 +81,7 @@
 .recentCampaigns h3, .celebFeed h3, .pressFeed h3 {
     padding-top: 0.5rem;
     text-decoration: underline;
-    font-size: 1rem;
+    font-size: 16px;
     font-weight: normal;
 }
 
@@ -111,5 +111,20 @@
         grid-template-rows: 1fr 1fr;
         row-gap: 15px;
         padding-bottom: 30px;
+    }
+}
+
+
+@media only screen and (min-width: 1600px) {
+    .brandPageCTA {
+        font-size: 24px;
+    }
+
+    .recentCampaigns h3, .celebFeed h3, .pressFeed h3 {
+        font-size: 24px;
+    }
+
+    .brandContentHolder {
+        padding-top: 7rem;
     }
 }
