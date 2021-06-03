@@ -23,7 +23,7 @@
     width: 100%;
     border-bottom: 0.25rem solid white;
     display: block;
-    bottom: 5px;
+    bottom: 0;
 }
 
 .subsections {   
@@ -64,9 +64,9 @@
         margin: 0 0 0 2.5%;
     }
 
-    .main_about p a::after {
+    /* .main_about p a::after {
         bottom: 10px;
-    }
+    } */
 
     .about_subsection h2 {
         font-size: 75px;
@@ -79,17 +79,17 @@
 
 @media only screen and (min-width: 1600px) {
     .main_about {
-        font-size: 7rem;
+        font-size: 110px;
     }
     .about_subsection h2 {
-        font-size: 7rem;
+        font-size: 110px;
     }
 
     .about_subsection p, .about_subsection a{
-        font-size: 112px;
+        font-size: 24px
     }
 
-    .main_about p a::after {
+    /* .main_about p a::after {
         bottom: 15px;
-    }
+    } */
 }
