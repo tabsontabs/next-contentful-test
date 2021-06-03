@@ -90,7 +90,7 @@ export default function clocksPage({ clocksPage, mediaData }) {
                 <div className={styles.brandInfoText}>
                     { documentToReactComponents(x.fields.brandInfo) }
                     <a href={ x.fields.eCommerceLink } target="_blank">
-                      Shop {x.fields.brandName} >
+                      Visit Website >
                     </a>
                 </div>
             </div>
@@ -104,7 +104,7 @@ export default function clocksPage({ clocksPage, mediaData }) {
         ))
       }
      
-      <h2>Instagram Feed</h2>
+      <h2>Instagram</h2>
       <div className='igFeed'>
           <Swiper 
             tag='section' 

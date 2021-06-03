@@ -4,7 +4,7 @@ import Career from '../components/career';
 import { createClient } from 'contentful'
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
 import styles from '../styles/Careers.module.css';
-import { useState } from 'react'
+import React, { useState, Component } from 'react'
 
 export async function getStaticProps() {
 
@@ -14,6 +14,8 @@ export async function getStaticProps() {
   })
 
   const careersPage = await client.getEntries({ content_type: 'careersPage'})
+
+
 
   return {
     props: {
@@ -25,6 +27,19 @@ export async function getStaticProps() {
 export default function CareersPage({ careersPage }) {
   
   const [show, setShow] = useState(false)
+
+  const [test, setTest] = useState('')
+
+  const handleClick = (e) => {
+    setTest(e.target.id)
+  }
+
+  const [state, setState] = useState(["a", "b", "c"]);
+  console.log(state)
+
+  const [state2, setState2] = useState([{id: 1, b: 2}, {id: 3, b: 4}, {id: 5, b: 6}, ])
+  console.log(state2)
+
   
   return (
     <>
@@ -42,14 +57,14 @@ export default function CareersPage({ careersPage }) {
             careersPage.map(x => (
               x.fields.currentCareers.map(y => (
                 <div key={y.sys.id} className={styles.careerEntry}>
-                  <h2 className={styles.positionTitle}
-                      // onClick={toggleClass}
+                  <h2 id={y.sys.id} className={styles.positionTitle}
+                      onClick={handleClick}
                       >
                       { y.fields.positionTitle } 
                       <span className={styles.collapsiblePlus}>+</span>
                   </h2>
                   <div className={styles.positionText} 
-                  // style={{display: show ? 'block': 'none'}}
+                  style={{display: show == y.sys.id ? 'none': 'block'}}
                   >
                       { documentToReactComponents(y.fields.positionDescription) }
                   </div>

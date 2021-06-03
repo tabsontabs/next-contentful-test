@@ -25,13 +25,13 @@
     border-bottom: 1px solid white;
 }
 
-.positionTitle {
+.careerEntry h2 {
     text-decoration: underline;
     position: relative;
-    font-size: 18px;
+    font-size: 16px;
 }
 
-.positionTitle span {
+.careerEntry h2 span {
     position: absolute;
     right: 0;
 }
@@ -91,7 +91,7 @@
         width: 1px;
     }
 
-    .positionTitle {
+    .careerEntry h2 {
         font-size: 1.5rem;
     }
 }

@@ -4,7 +4,7 @@ body {
   margin: 0;
   font-family: 'HelveticaNeue';
   color: white;
-  font-size: 18px;
+  font-size: 16px;
 }
 
 div, p, a, h1, h2, h3, li, ul, button {
@@ -95,8 +95,20 @@ canvas {
   display: none!important;
 }
 
+.swiper-button-prev::after, .swiper-button-next::after {
+  font-size: 20px!important;
+}
+
 .swiper-button-prev, .swiper-button-next {
   color: white!important;
+}
+
+.swiper-button-next {
+  right: 2px!important;
+}
+
+.swiper-button-prev {
+  left: 2px!important;
 }
 
 .brands_link:hover ~ .brandNavLink {

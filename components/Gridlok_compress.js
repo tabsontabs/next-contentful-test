@@ -19,9 +19,9 @@ export default function Gridlok(props) {
     roughness: 0
   })
   return (
-    <group ref={group} {...props} dispose={null} position={[5, 2, 0]}>
-      <mesh scale={0.04, 0.04, 0.04} geometry={nodes.object_1.geometry} material={material} rotation={[Math.PI / 2, 0, 0]} />
-      <mesh scale={0.04, 0.04, 0.04} geometry={nodes.object_2.geometry} material={material} rotation={[Math.PI / 2, 0, 0]} />
+    <group ref={group} {...props} dispose={null} position={[-4, 2, 0]}>
+      <mesh scale={0.05, 0.05, 0.05} geometry={nodes.object_1.geometry} material={material} rotation={[Math.PI / 2, 0, 0]} />
+      <mesh scale={0.05, 0.05, 0.05} geometry={nodes.object_2.geometry} material={material} rotation={[Math.PI / 2, 0, 0]} />
     </group>
   )
 }

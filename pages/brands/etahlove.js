@@ -78,7 +78,7 @@ export default function etahPage({ etahPage, mediaData }) {
       {
         etahPage.map(x => (
           <div className={styles.brandTopSection} key={x.sys.id}>
-            <div className={styles.logoAndInfo}>
+            <div className={styles.logoAndInfoEtah}>
               <div className={styles.brandLogo} key={x.sys.id}>
                   <Image
                         src={'https:' + x.fields.brandLogo.fields.file.url}
@@ -104,7 +104,7 @@ export default function etahPage({ etahPage, mediaData }) {
       }
       
 
-      <h2>Instagram Feed</h2>
+      <h2>Instagram</h2>
       <div className='igFeed'>
           <Swiper 
             tag='section' 
@@ -115,7 +115,7 @@ export default function etahPage({ etahPage, mediaData }) {
             slidesPerView={3}
             breakpoints={{
               640: {
-                slidesPerView: 3,
+                slidesPerView: 4,
                 spaceBetween: 30
               }
             }}

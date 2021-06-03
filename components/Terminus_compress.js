@@ -19,8 +19,8 @@ export default function Terminus(props) {
     roughness: 0
   })
   return (
-    <group ref={group} {...props} dispose={null} position={[2, 2.75, 0]}>
-      <mesh scale={0.04, 0.04, 0.04} geometry={nodes.Fillet7.geometry} material={material} rotation={[Math.PI / 2, 0, 0]} />
+    <group ref={group} {...props} dispose={null} position={[4.5, -3, 0]}>
+      <mesh scale={0.055, 0.055, 0.055} geometry={nodes.Fillet7.geometry} material={material} rotation={[Math.PI / 2, 0, 0]} />
     </group>
   )
 }

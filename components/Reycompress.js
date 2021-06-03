@@ -19,7 +19,7 @@ export default function ReyCompress(props) {
     roughness: 0
   })
   return (
-    <group ref={group} {...props} dispose={null} position={[-4, -2.25, 0]}>
+    <group ref={group} {...props} dispose={null} position={[-0.5, -3, 0]}>
       <mesh scale={0.04, 0.04, 0.04} geometry={nodes.object_1.geometry} material={material} rotation={[Math.PI / 2, 0, 0]} />
     </group>
   )

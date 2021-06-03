@@ -17,6 +17,12 @@
     grid-template-areas: "logo logo . text text text text text";
 }
 
+.logoAndInfoEtah {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-template-areas: "logo logo logo . . . text text text text text text text text text text";
+}
+
 .brandLogo {
     grid-area: logo;
 }
@@ -95,6 +101,7 @@
         grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
         grid-template-areas: "logo logo logo . text text text text";
     }
+
     .brandContentHolder h2 {
         font-size: 2rem;
     }

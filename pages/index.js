@@ -63,10 +63,10 @@ export default function HomePage({ subAboutEntries, mainAboutEntry }) {
           <ambientLight intensity={0.4} />
           <spotLight position={[10, 15, 10]} angle={0.3}/>
           <Suspense fallback={<Html><div> </div></Html>}>
-            <RiotCompress />
+            {/* <RiotCompress /> */}
             <FrenzyCompress />
-            <ReyCompress />
-            <Gridlok />
+            {/* <ReyCompress /> */}
+            {/* <Gridlok /> */}
             <Terminus />
           </Suspense>
       </Canvas>
@@ -81,11 +81,6 @@ export default function HomePage({ subAboutEntries, mainAboutEntry }) {
       </div>
     ))}
     </section>  
-    <style jsx>{`
-      #brands {
-        // padding: 3rem 0 5rem 0;
-      }
-    `}</style>
     </>
     
   )

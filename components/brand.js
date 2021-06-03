@@ -20,7 +20,7 @@ function Brand({ brand }) {
                 className="brandsPageFeaturedImage"
                 alt={brandImageAlt}
               />
-              <div className={styles.brandLogoContainer}>
+              <div className={`${styles.brandLogoContainer} ${brandName}_logoContainer`}>
                 <Image 
                   src={'https:' + brandLogo.fields.file.url}
                   width={brandLogo.fields.file.details.image.width}
@@ -34,7 +34,10 @@ function Brand({ brand }) {
             </div>
           </Link>
         <style jsx>{`
-          
+          .Colours_logoContainer {
+            width: 45%;
+            padding-top: 5px;
+          }
         `}</style>
       </div>
     )

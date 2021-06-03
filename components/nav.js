@@ -130,7 +130,7 @@ function Nav() {
             .logoContainer {
               display: flex;
               justify-content: flex-end;
-              width: 150px;
+              width: 165px;
               margin-left: 2.5%;
               align-items: flex-start;
             }
@@ -143,7 +143,7 @@ function Nav() {
             .linksContainer {
               margin-right: 2.5%;
               display: grid;
-              grid-template-columns: 7rem 7rem 7rem;
+              grid-template-columns: 9rem 9rem 9rem;
             }
             
             @media only screen and (max-width: 700px) {
