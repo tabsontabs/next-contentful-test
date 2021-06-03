@@ -29,7 +29,7 @@ function Brand({ brand }) {
                   alt={`${brandName} logo`}
                 />
               </div>
-              <button className={styles.brandSeeMore}>See More ></button>
+              <button className={styles.brandSeeMore}>Explore {brandName} ></button>
               </a>
             </div>
           </Link>

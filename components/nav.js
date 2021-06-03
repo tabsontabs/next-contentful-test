@@ -121,7 +121,7 @@ function Nav() {
               justify-content: space-between;
               padding: 0.5rem 0;
               position: fixed;
-              max-width: 2000px;
+              max-width: 1600px;
               width: 100%;
               background-color: ${scrollState === "top" | fullscreenMenuDisplay == true ? "rgba(0,0,0,0)" : "rgba(0,0,0,1)"};
               z-index: 50;
@@ -143,10 +143,10 @@ function Nav() {
             .linksContainer {
               margin-right: 2.5%;
               display: grid;
-              grid-template-columns: 10rem 10rem 10rem;
+              grid-template-columns: 7rem 7rem 7rem;
             }
             
-            @media only screen and (max-width: 600px) {
+            @media only screen and (max-width: 700px) {
               .linksContainer {
                 display: none;
               }

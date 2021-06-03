@@ -4,12 +4,13 @@ body {
   margin: 0;
   font-family: 'HelveticaNeue';
   color: white;
-  /* background-color: black; */
+  font-size: 18px;
 }
 
 div, p, a, h1, h2, h3, li, ul, button {
   padding: 0;
   margin: 0;
+  font-weight: normal;
 }
 
 img {
@@ -64,9 +65,15 @@ canvas {
 }
 
 .generalWrapper {
-  max-width: 1400px;
+  max-width: 1600px;
   margin: 0 auto;
   width: 95%;
+}
+
+.navWrapper {
+  max-width: 1600px;
+  margin: 0 auto;
+  width: 100%;
 }
 
 .visually-hidden {

@@ -1,28 +1,32 @@
 .brandContentHolder {
     max-width: 1400px;
-    width: calc(95% - 300px);
+    width: 60%;
     margin: 0 auto;
-    padding-top: 7rem;
+    padding-top: 5rem;
 }
 
-.brandLogo {
-    width: 20%
-}
-
-.brandContent1 p {
-    margin-bottom: 1rem 0 0 0;
-    font-size: 2rem;
-}
-
-.brandContent1 a {
+.brandTopSection a {
     text-decoration: underline;
-    font-size: 1.5rem;
-    margin-bottom: 2rem;
+    margin: 0.5rem 0 2rem 0;
     display: block;
 }
 
+.logoAndInfo {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-template-areas: "logo logo . text text text text text";
+}
+
+.brandLogo {
+    grid-area: logo;
+}
+
+.brandInfoText {
+    grid-area: text;
+}
+
 .brandContentHolder h2 {
-    margin: 3rem 0 2rem 0;
+    margin: 5rem 0 0.5rem 0;
     font-size: 3rem;
     text-transform: capitalize;
 }
@@ -75,22 +79,21 @@
     font-weight: normal;
 }
 
-.celebFeed h3, .pressFeed h3 {
-    padding-top: 1rem;
+.recentCampaigns h3 {
+    padding-top: 2px;
 }
+
 @media only screen and (max-width: 640px) {
     .brandContentHolder {
         max-width: 1400px;
         width: 95%;
         margin: 0 auto;
-        padding-top: 3rem;
+        padding-top: 5rem;
     }
-    .brandLogo {
-        width: 50%
-    }
-    .brandContent1 p {
-        margin: 1rem 0;
-        font-size: 1.5rem;
+    .logoAndInfo {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+        grid-template-areas: "logo logo logo . text text text text";
     }
     .brandContentHolder h2 {
         font-size: 2rem;
@@ -101,14 +104,5 @@
         grid-template-rows: 1fr 1fr;
         row-gap: 15px;
         padding-bottom: 30px;
-    }
-}
-
-@media only screen and (max-width: 1000px) {
-    .brandContentHolder {
-        max-width: 1400px;
-        width: 95%;
-        margin: 0 auto;
-        padding-top: 3rem;
     }
 }

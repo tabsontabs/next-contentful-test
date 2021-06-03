@@ -8,15 +8,15 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center;
-    width: 70%;
+    width: 95%;
     margin: 0 auto;
+    max-width: 1600px;
 }
 
 .contactFormPage h1 {
     text-transform: capitalize;
-    font-size: 6rem;
-    padding-bottom: 2rem;
+    font-size: 5rem;
+    text-align: left;
 }
 
 .formHolder {
@@ -32,7 +32,7 @@
     border: none;
     background-color: black;
     color: white;
-    font-size: 1.5rem;
+    font-size: 18px;
 }
 
 .formHolder textarea {
@@ -53,36 +53,44 @@
 }
 
 .contactFormPage button {
-    margin-top: 2rem;
-    padding: 1rem 5rem;
-    border: none;
+    margin-top: 1rem;
+    padding: 1rem 2.5rem;
     text-transform: capitalize;
-    font-size: 1.5rem;
-    border: 1px solid black;
+    font-size: 18px;
     transition: 0.2s;
     transition-timing-function: linear;
 }
 
-.nextButton:hover, .nextButton:focus {
-    color: white;
-    background-color: black;
+.nextButton {
     border: 1px solid white;
+    color: white;
+    background-color: black;;
+}
+
+.nextButton:hover, .nextButton:focus {
+    color: black;
+    background-color: white;
     outline: 0;
 }
 
 .backButton {
-    background-color: grey;
+    background-color: black;
+    border: 1px solid grey;
+    color: grey;
 }
 
 .backButton:hover, .backButton:focus {
-    color: grey;
-    background-color: black;
-    border: 1px solid grey;
+    color: black;
+    background-color: grey;
     outline: 0;
 }
 
 .contactFormPage .errorMessage {
     margin-top: 2rem;
+}
+
+.contactFormPage .errorMessage p {
+    text-align: center;
 }
 
 .contactFormPage .singleButtonHolder {
@@ -97,25 +105,8 @@
     width: 100%;
 }
 
-.messageReceived {
-    font-size: 2rem;
-}
-
 @media only screen and (max-width: 600px) {
     .contactFormPage h1 {
-        font-size: 3.5rem;
-    }
-
-    .contactFormWrapper {
-        width: 95%;
-    }
-
-    .contactFormPage button {
-        padding: 1rem 3rem;
-        font-size: 1rem;
-    }
-
-    .formHolder input, .formHolder textarea {
-        font-size: 1rem;
+        font-size: 3rem;
     }
 }

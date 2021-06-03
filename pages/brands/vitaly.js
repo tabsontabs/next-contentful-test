@@ -87,22 +87,22 @@ export default function VitalyPage({ vitalyPage, mediaData, followerCount }) {
         <h1 className='visually-hidden'>Vitaly</h1>
         {
           vitalyPage.map(x => (
-            <div className={styles.brandLogo} key={x.sys.id}>
-              <Image
-                    src={'https:' + x.fields.brandLogo.fields.file.url}
-                    width={x.fields.brandLogo.fields.file.details.image.width}
-                    height={x.fields.brandLogo.fields.file.details.image.height}
-              />
-            </div>
-          ))
-        }
-        {
-          vitalyPage.map(x => (
-            <div className={styles.brandContent1} key={x.sys.id}>
-                { documentToReactComponents(x.fields.brandInfo) }
-                <a href={ x.fields.eCommerceLink } target="_blank">
-                  SHOP >
-                </a>
+            <div className={styles.brandTopSection} key={x.sys.id}>
+                <div className={styles.logoAndInfo}>
+                    <div className={styles.brandLogo} key={x.sys.id}>
+                      <Image
+                            src={'https:' + x.fields.brandLogo.fields.file.url}
+                            width={x.fields.brandLogo.fields.file.details.image.width}
+                            height={x.fields.brandLogo.fields.file.details.image.height}
+                      />
+                    </div>
+                    <div className={styles.brandInfoText}>
+                      { documentToReactComponents(x.fields.brandInfo) }
+                      <a href={ x.fields.eCommerceLink } target="_blank">
+                        Shop {x.fields.brandName} >
+                      </a>
+                    </div>
+                </div>
                 <Image 
                     src={'https:' + x.fields.featuredImage.fields.file.url}
                     width={x.fields.featuredImage.fields.file.details.image.width}

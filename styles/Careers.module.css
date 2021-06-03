@@ -5,24 +5,30 @@
 
 .careersSection {
     padding-top: 7rem;
-    width: 70%;
-    margin:0 auto;
+    width: 95%;
+    margin: 0 auto;
+    padding-bottom: 2rem;
 }
 
 .careersSection h1 {
-    font-size: 3.5rem;
+    font-size: 3rem;
     text-transform: capitalize;
 }
 
 .careerEntry {
     padding: 2rem 0;
     border-top: 1px solid white;
+}
+
+.careerEntry:last-of-type {
+    margin-bottom: 1rem;
     border-bottom: 1px solid white;
 }
 
 .positionTitle {
     text-decoration: underline;
     position: relative;
+    font-size: 18px;
 }
 
 .positionTitle span {
@@ -35,12 +41,15 @@
 }
 
 .positionText p {
-    font-weight: 200;
     padding-top: 1.5rem;
 }
 
 .careerEntry ul li p {
     padding-top: 0;
+}
+
+.careerEntry ul {
+    padding-left: 2rem;
 }
 
 .careerEntry ul li:first-of-type {
@@ -50,16 +59,15 @@
 @media only screen and (max-width: 600px) {
     .careersSection {
         padding-top: 5rem;
-        width: 95%;
     }
 
     .careersSection h1 {
-        text-align: center;
+        text-align: left;
     }
     
     .careerEntry {
         padding-top: 2rem;
-        width: 90%;
+        width: 100%;
         margin: 0 auto;
     }
     .careerEntry:last-of-type {
@@ -68,6 +76,10 @@
 }
 
 @media only screen and (min-width: 600px) {
+    .careersSection {
+        width: 100%;
+    }
+    
     .careersSection h1 {
         border: 0;
         clip: rect(0 0 0 0);
@@ -77,5 +89,9 @@
         padding: 0;
         position: absolute;
         width: 1px;
+    }
+
+    .positionTitle {
+        font-size: 1.5rem;
     }
 }

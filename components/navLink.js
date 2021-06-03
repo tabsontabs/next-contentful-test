@@ -33,6 +33,11 @@ function NavLink({ slug, title }) {
         .contact_link {
           justify-self: end;
         }
+        @media only screen and (max-width: 700px) {
+          .navLink {
+            padding-bottom: 1rem;
+          }
+        }
       `}</style>
       </>
     )

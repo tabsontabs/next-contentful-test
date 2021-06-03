@@ -17,13 +17,13 @@ export async function getStaticProps() {
 
   return {
     props: {
-      careersPage: careersPage.items
+      careersPage: careersPage.items 
     }
   }
 }
 
 export default function CareersPage({ careersPage }) {
-
+  
   const [show, setShow] = useState(false)
   
   return (
@@ -42,12 +42,15 @@ export default function CareersPage({ careersPage }) {
             careersPage.map(x => (
               x.fields.currentCareers.map(y => (
                 <div key={y.sys.id} className={styles.careerEntry}>
-                  <h2 className={styles.positionTitle}>{ y.fields.positionTitle }
-                      <span className={styles.collapsiblePlus}  
-                      onClick={() => setShow(!show)}
-                      >+</span>
+                  <h2 className={styles.positionTitle}
+                      // onClick={toggleClass}
+                      >
+                      { y.fields.positionTitle } 
+                      <span className={styles.collapsiblePlus}>+</span>
                   </h2>
-                  <div className={styles.positionText} style={{display: show ? 'block': 'none'}}>
+                  <div className={styles.positionText} 
+                  // style={{display: show ? 'block': 'none'}}
+                  >
                       { documentToReactComponents(y.fields.positionDescription) }
                   </div>
                 </div>
