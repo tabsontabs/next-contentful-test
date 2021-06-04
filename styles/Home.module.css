@@ -14,14 +14,13 @@
 }
 
 .main_about p a {
+    font-weight: bold;
     text-decoration: underline;
     /* display: inline-block; */
     /* position: relative; */
     /* border-bottom: 1px solid white; */
-    /* line-height: ; */
-    font-weight: bold;
-    text-decoration-thickness: 5px;
-    
+    /* line-height: 0.8; */
+    /* text-decoration-thickness: 5px; */
 }
 
 /* .main_about p a::after {
