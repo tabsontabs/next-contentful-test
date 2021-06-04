@@ -3,20 +3,24 @@
     align-items: center;
     margin: 0 auto;
     width: 95%;
-    font-size: 2.5rem;
+    font-size: 3rem;
     min-height: 100vh;
+    font-family: 'NeueMontrealLight';
 }
 
 .main_about p {
     line-height: 1.1;
+    font-weight: bold;
 }
 
 .main_about p a {
-    /* text-decoration: underline; */
-    display: inline-block;
+    text-decoration: underline;
+    /* display: inline-block; */
     /* position: relative; */
-    border-bottom: 2.5px solid white;
-    line-height: 0.7;
+    /* border-bottom: 1px solid white; */
+    /* line-height: ; */
+    font-weight: bold;
+    text-decoration-thickness: 5px;
     
 }
 
@@ -32,6 +36,7 @@
 .subsections {   
     width: 95%;
     margin: 0 auto;
+    font-family: 'NeueMontrealLight';
 }
 
 .about_subsection {
@@ -71,6 +76,11 @@
         bottom: 10px;
     } */
 
+    /* .main_about p a {
+        border-bottom: 2.5px solid white;
+        line-height: 0.7;
+    } */
+
     .about_subsection h2 {
         font-size: 75px;
     }
@@ -82,10 +92,10 @@
 
 @media only screen and (min-width: 1600px) {
     .main_about {
-        font-size: 110px;
+        font-size: 5rem;
     }
     .about_subsection h2 {
-        font-size: 110px;
+        font-size: 5rem;
     }
 
     .about_subsection p, .about_subsection a{

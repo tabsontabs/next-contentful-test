@@ -4,3 +4,17 @@
     font-style: normal;
     font-weight: normal;
 }
+
+@font-face {
+    src: url('./NeueMontrealLight.otf') format('opentype');
+    font-family: 'NeueMontrealLight';
+    font-style: normal;
+    font-weight: 400;
+}
+
+@font-face {
+    src: url('./NeueMontrealBold.otf') format('opentype');
+    font-family: 'NeueMontrealBold';
+    font-style: normal;
+    font-weight: 400;
+}

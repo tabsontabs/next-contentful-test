@@ -1,10 +1,10 @@
 import Head from 'next/head';
 import Nav from '../components/nav';
-import Career from '../components/career';
+// import Career from '../components/career';
 import { createClient } from 'contentful'
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
 import styles from '../styles/Careers.module.css';
-import React, { useState, Component } from 'react'
+import React, { Component } from 'react'
 
 export async function getStaticProps() {
 
@@ -15,31 +15,66 @@ export async function getStaticProps() {
 
   const careersPage = await client.getEntries({ content_type: 'careersPage'})
 
-
-
   return {
     props: {
-      careersPage: careersPage.items 
+      careersPage: careersPage.items
     }
   }
 }
 
 export default function CareersPage({ careersPage }) {
+
+  class Careers extends Component {
+    constructor() {
+      super();
+      this.state = {
+        isShow: false
+      }
+    }
   
-  const [show, setShow] = useState(false)
-
-  const [test, setTest] = useState('')
-
-  const handleClick = (e) => {
-    setTest(e.target.id)
+    handleToggle = () => {
+      const { isShow } = this.state;
+      this.setState({ isShow: !isShow });
+    }
+  
+    render() {
+      const { handleToggle } = this;
+      const { title, description } = this.props;
+      const { isShow } = this.state;
+      return (
+        <>
+        <div className={styles.careerEntry}>
+          <h2 className={styles.positionTitle} onClick={handleToggle}>
+            {title}
+            <span className={styles.collapsiblePlus}>+</span>
+          </h2>
+          <div className={isShow ? `jobShow ${styles.positionText}` : "jobHide"}>{description}</div>
+        </div>
+        </>
+      );
+    }
   }
 
-  const [state, setState] = useState(["a", "b", "c"]);
-  console.log(state)
-
-  const [state2, setState2] = useState([{id: 1, b: 2}, {id: 3, b: 4}, {id: 5, b: 6}, ])
-  console.log(state2)
-
+  class AvailableCareers extends Component { 
+    constructor() {
+      const careers = careersPage.map(x => (
+        x.fields.currentCareers.map(y => (
+          {id: y.sys.id, title: y.fields.positionTitle, description: documentToReactComponents(y.fields.positionDescription)}
+        ))
+      ))
+      super();
+      this.state = {
+        availCareers: careers
+      }
+    }
+    
+    render() {
+      const careers = this.state.availCareers[0].map(x => (
+        <Careers key={x.id} title={x.title} description={x.description}/>
+      ));
+      return <div>{careers}</div>;
+    }
+  }
   
   return (
     <>
@@ -54,28 +89,13 @@ export default function CareersPage({ careersPage }) {
         <div className={styles.careersSection}>
           <h1 className=''>Careers</h1>
           {careersPage[0].fields.currentCareers !== undefined ?
-            careersPage.map(x => (
-              x.fields.currentCareers.map(y => (
-                <div key={y.sys.id} className={styles.careerEntry}>
-                  <h2 id={y.sys.id} className={styles.positionTitle}
-                      onClick={handleClick}
-                      >
-                      { y.fields.positionTitle } 
-                      <span className={styles.collapsiblePlus}>+</span>
-                  </h2>
-                  <div className={styles.positionText} 
-                  style={{display: show == y.sys.id ? 'none': 'block'}}
-                  >
-                      { documentToReactComponents(y.fields.positionDescription) }
-                  </div>
-                </div>
-              ))
-            ))
+            <AvailableCareers />
           :
             careersPage.map(x => ( 
               <div key='noCareersFound'> { documentToReactComponents(x.fields.noCurrentCareersMessage) }</div>
             ))
           }
+          
         </div>
       </div>
     </div>

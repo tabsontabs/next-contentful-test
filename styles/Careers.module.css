@@ -29,16 +29,49 @@
     text-decoration: underline;
     position: relative;
     font-size: 16px;
+    color: white;
 }
 
-.careerEntry h2 span {
+.careerEntry h2:hover {
+    cursor: pointer;
+}
+
+.collapsiblePlus {
     position: absolute;
     right: 0;
 }
 
-.positionText {
-    display: none;
+/* .collapsiblePlus {
+    position: absolute;
+    right: 0;
+    top: calc(50% - (11px / 2));
+    width: 11px;
+    height: 11px;
+    color: white;
 }
+
+.collapsiblePlus::before, .collapsiblePlus::after {
+    position: absolute;
+    content: '';
+    top: 50%;
+    left: 50%;
+    color: white;
+    transform: translate(-50%,-50%) rotate(-90deg);
+    background-color: black;
+    transition: transform .4s ease-in-out,opacity .4s ease-in-out,-webkit-transform .4s ease-in-out;
+    box-sizing: border-box;
+}
+
+.collapsiblePlus::before {
+    width: 11px;
+    height: 1px;
+    opacity: 1;
+} 
+
+.collapsiblePlus::after {
+    width: 1px;
+    height: 11px;
+}  */
 
 .positionText p {
     padding-top: 1.5rem;
