@@ -5,22 +5,21 @@
     width: 95%;
     font-size: 3rem;
     min-height: 100vh;
-    font-family: 'NeueMontrealLight';
+    /* font-family: 'NeueMontrealRegular'; */
 }
 
 .main_about p {
     line-height: 1.1;
-    font-weight: bold;
 }
 
 .main_about p a {
-    font-weight: bold;
     text-decoration: underline;
     /* display: inline-block; */
     /* position: relative; */
     /* border-bottom: 1px solid white; */
     /* line-height: 0.8; */
-    /* text-decoration-thickness: 5px; */
+    text-decoration-thickness: from-font;
+    text-underline-offset: 5px;
 }
 
 /* .main_about p a::after {
@@ -35,7 +34,7 @@
 .subsections {   
     width: 95%;
     margin: 0 auto;
-    font-family: 'NeueMontrealLight';
+    /* font-family: 'NeueMontrealLight'; */
 }
 
 .about_subsection {
@@ -91,20 +90,20 @@
 
 @media only screen and (min-width: 1600px) {
     .main_about {
-        font-size: 5rem;
+        font-size: 7rem;
     }
     .about_subsection h2 {
-        font-size: 5rem;
+        font-size: 7rem;
     }
 
     .about_subsection p, .about_subsection a{
         font-size: 24px
     }
 
-    .main_about p a {
+    /* .main_about p a {
         border-bottom: 4px solid white;
         line-height: 0.8;
-    }
+    } */
 
     /* .main_about p a::after {
         bottom: 15px;
