@@ -100,10 +100,11 @@
         font-size: 24px
     }
 
-    /* .main_about p a {
-        border-bottom: 4px solid white;
-        line-height: 0.8;
-    } */
+    .main_about p a {
+        /* border-bottom: 4px solid white;
+        line-height: 0.8; */
+        text-underline-offset: 10px;
+    }
 
     /* .main_about p a::after {
         bottom: 15px;
