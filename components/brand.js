@@ -34,8 +34,14 @@ function Brand({ brand }) {
             </div>
           </Link>
         <style jsx>{`
+          @media only screen and (min-width: 1000px) {
+            .Colours_logoContainer {
+              width: 45%;
+              padding-top: 5px;
+            }
+          }
           .Colours_logoContainer {
-            width: 45%;
+            width: 60%;
             padding-top: 5px;
           }
         `}</style>

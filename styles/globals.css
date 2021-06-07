@@ -58,7 +58,22 @@ canvas {
   height: 100vh;
 }
 
-.canvasWrapper {
+.canvasWrapperDesktop {
+  display: none;
+  position: fixed;
+  background-color: black;
+  z-index: -10;
+}
+
+.canvasWrapperTablet {
+  display: none;
+  position: fixed;
+  background-color: black;
+  z-index: -10;
+}
+
+.canvasWrapperMobile {
+  display: block;
   position: fixed;
   background-color: black;
   z-index: -10;
@@ -85,6 +100,8 @@ canvas {
   width: 1px;
 }
 
+/* swiper slideshow styles: */
+
 .swiper-wrapper {
   list-style: none;
 }
@@ -109,10 +126,6 @@ canvas {
   left: 2px!important;
 }
 
-.brands_link:hover ~ .brandNavLink {
-  display: block;
-}
-
 .pressFeed .swiper-button-next, .pressFeed .swiper-button-prev {
   color: black!important;
 }
@@ -121,6 +134,38 @@ canvas {
   object-position: top!important;
 }
 
+/* .brands_link:hover ~ .brandNavLink {
+  display: block;
+} */
+
+/* use for careers drawers: */
+.jobHide {
+  display: none;
+}
+
+.jobShow {
+  display: block;
+}
+
+@media only screen and (min-width: 600px) {
+  .canvasWrapperMobile {
+    display: none;
+  }
+  .canvasWrapperTablet {
+    display: block;
+  }
+}
+
+@media only screen and (min-width: 1000px) {
+  .canvasWrapperTablet {
+    display: none;
+  }
+  .canvasWrapperDesktop {
+    display: block;
+  }
+}
+
+
 @media only screen and (min-width: 1600px) {
   body {
     font-size: 24px;
@@ -128,12 +173,4 @@ canvas {
   .swiper-button-prev::after, .swiper-button-next::after {
     font-size: 25px!important;
   }
-}
-
-.jobHide {
-  display: none;
-}
-
-.jobShow {
-  display: block;
 }

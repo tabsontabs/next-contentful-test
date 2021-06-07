@@ -7,7 +7,7 @@ import { useGLTF } from '@react-three/drei'
 import { useFrame } from '@react-three/fiber'
 import * as THREE  from "three";
 
-export default function TerminusDesktop(props) {
+export default function TerminusMobile(props) {
   const group = useRef()
   const { nodes, materials } = useGLTF('/terminus_compress.glb')
   useFrame(() => (group.current.rotation.x = group.current.rotation.y += 0.01)) 
@@ -19,8 +19,8 @@ export default function TerminusDesktop(props) {
     roughness: 0
   })
   return (
-    <group ref={group} {...props} dispose={null} position={[4.5, -3, 0]}>
-      <mesh scale={0.055, 0.055, 0.055} geometry={nodes.Fillet7.geometry} material={material} rotation={[Math.PI / 2, 0, 0]} />
+    <group ref={group} {...props} dispose={null} position={[-4, -2.5, 0]}>
+      <mesh scale={0.045, 0.045, 0.045} geometry={nodes.Fillet7.geometry} material={material} rotation={[Math.PI / 2, 0, 0]} />
     </group>
   )
 }

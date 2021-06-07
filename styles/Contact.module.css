@@ -107,6 +107,7 @@
 @media only screen and (max-width: 600px) {
     .contactFormPage h1 {
         font-size: 3rem;
+        padding-bottom: 0.5rem;
     }
 }
 

@@ -7,7 +7,7 @@ import { useGLTF } from '@react-three/drei'
 import { useFrame } from '@react-three/fiber'
 import * as THREE  from "three";
 
-export default function FrenzyCompress(props) {
+export default function FrenzyDesktop(props) {
   const group = useRef()
   const { nodes, materials } = useGLTF('/frenzy_compress.glb')
   useFrame(() => (group.current.rotation.x = group.current.rotation.y += 0.004)) 
