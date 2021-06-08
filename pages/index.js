@@ -11,9 +11,13 @@ import { OrbitControls, Html } from '@react-three/drei';
 // import ReyCompress from '../components/Reycompress'
 // import Gridlok from '../components/Gridlok_compress'
 import FrenzyDesktop from '../components/Frenzy_compress'
+import FrenzyTablet from '../components/Frenzy_tablet'
 import FrenzyMobile from '../components/Frenzy_mobile'
 import TerminusDesktop from '../components/Terminus_compress'
+import TerminusTablet from '../components/Terminus_tablet'
 import TerminusMobile from '../components/Terminus_mobile'
+import TerminusBigScreen from '../components/Terminus_bigscreen'
+import FrenzyBigScreen from '../components/Frenzy_bigscreen'
 
 export async function getStaticProps() {
 
@@ -48,7 +52,7 @@ export default function HomePage({ subAboutEntries, mainAboutEntry }) {
     <div className='navWrapper'>
           <Nav />
     </div>
-    {/* <div className='canvasWrapperBigScreen'>
+    <div className='canvasWrapperBigScreen'>
       <Canvas>
           <OrbitControls 
             autoRotate
@@ -65,11 +69,11 @@ export default function HomePage({ subAboutEntries, mainAboutEntry }) {
           <ambientLight intensity={0.4} />
           <spotLight position={[10, 15, 10]} angle={0.3}/>
           <Suspense fallback={<Html><div> </div></Html>}>
-            <FrenzyDesktop />
-            <TerminusDesktop />
+            <FrenzyBigScreen />
+            <TerminusBigScreen />
           </Suspense>
       </Canvas>
-    </div> */}
+    </div>
     <div className='canvasWrapperDesktop'>
       <Canvas>
           <OrbitControls 
@@ -109,7 +113,8 @@ export default function HomePage({ subAboutEntries, mainAboutEntry }) {
           <ambientLight intensity={0.4} />
           <spotLight position={[10, 15, 10]} angle={0.3}/>
           <Suspense fallback={<Html><div> </div></Html>}>
-            <FrenzyDesktop />
+            <FrenzyTablet />
+            <TerminusTablet />
           </Suspense>
       </Canvas>
     </div>

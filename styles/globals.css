@@ -58,6 +58,13 @@ canvas {
   height: 100vh;
 }
 
+.canvasWrapperBigScreen {
+  display: none;
+  position: fixed;
+  background-color: black;
+  z-index: -10;
+}
+
 .canvasWrapperDesktop {
   display: none;
   position: fixed;
@@ -173,6 +180,12 @@ canvas {
 
 
 @media only screen and (min-width: 1600px) {
+  .canvasWrapperDesktop {
+    display: none;
+  }
+  .canvasWrapperBigScreen {
+    display: block;
+  }
   body {
     font-size: 24px;
   }
