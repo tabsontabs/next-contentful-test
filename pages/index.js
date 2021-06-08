@@ -48,6 +48,28 @@ export default function HomePage({ subAboutEntries, mainAboutEntry }) {
     <div className='navWrapper'>
           <Nav />
     </div>
+    {/* <div className='canvasWrapperBigScreen'>
+      <Canvas>
+          <OrbitControls 
+            autoRotate
+            autoRotateSpeed={1.0}
+            enablePan={false}
+            enableZoom={false}
+            enableDamping
+            dampingFactor={0.5}
+            maxPolarAngle={Math.PI / 2}
+            minPolarAngle={Math.PI / 2}
+            maxAzimuthAngle={0}
+            minAzimuthAngle={0}
+          />
+          <ambientLight intensity={0.4} />
+          <spotLight position={[10, 15, 10]} angle={0.3}/>
+          <Suspense fallback={<Html><div> </div></Html>}>
+            <FrenzyDesktop />
+            <TerminusDesktop />
+          </Suspense>
+      </Canvas>
+    </div> */}
     <div className='canvasWrapperDesktop'>
       <Canvas>
           <OrbitControls 

@@ -144,6 +144,9 @@ function Nav() {
               // border: 1px solid red;
               // padding: 10px;
             }
+            .logoContainer:hover {
+              cursor: pointer;
+            }
             .logoContainer svg {
               fill: ${fullscreenMenuDisplay ? "black" : "white"};
             }

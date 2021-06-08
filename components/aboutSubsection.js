@@ -35,7 +35,12 @@ export default function AboutSubsection({ subAboutEntry }) {
                 margin-bottom: 2rem;
                 line-height: 0.7;
               }
-              
+              @media only screen and (min-width: 1600px) {
+                h2 {
+                  padding-bottom: 1rem;
+                  margin-bottom: 2.5rem;
+                }
+              }
             `}</style>
         </div>
     ) 
