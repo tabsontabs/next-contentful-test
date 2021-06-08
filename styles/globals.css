@@ -147,6 +147,12 @@ canvas {
   display: block;
 }
 
+/* remove rogue p tag underneath brands about section h2: */
+
+#brands p {
+  display: none;
+}
+
 @media only screen and (min-width: 600px) {
   .canvasWrapperMobile {
     display: none;
@@ -174,3 +180,4 @@ canvas {
     font-size: 25px!important;
   }
 }
+

@@ -8,6 +8,7 @@ export default function AboutSubsection({ subAboutEntry }) {
     return (
         <div style={styles.aboutSubsectionContainer}>
             <>
+            
             <h2>{ subAboutEntry.fields.aboutSubsectionTitle }</h2>
             { documentToReactComponents(subAboutEntry.fields.aboutSubsection) }
             { subAboutEntry.fields.aboutSubsectionCta && subAboutEntry.fields.aboutSubsectionCtaUrlSlug ? 
@@ -28,6 +29,13 @@ export default function AboutSubsection({ subAboutEntry }) {
             }
             </>
             <style jsx>{`
+              h2 {
+                border-bottom: 1px solid white;
+                padding-bottom: 0;
+                margin-bottom: 2rem;
+                line-height: 0.7;
+              }
+              
             `}</style>
         </div>
     ) 
