@@ -30,6 +30,10 @@
     width: 100%;
 }
 
+.about_subsection:last-of-type {
+    padding-bottom: 8rem;
+}
+
 .about_subsection h2 {
     font-size: 3rem;
     font-weight: normal;
