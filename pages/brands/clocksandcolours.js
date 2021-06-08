@@ -80,7 +80,7 @@ export default function clocksPage({ clocksPage, mediaData }) {
         clocksPage.map(x => (
           <div className={styles.brandTopSection} key={x.sys.id}>
             <div className={styles.logoAndInfo}>
-                <div className={styles.brandLogo} key={x.sys.id}>
+                <div className={`${styles.brandLogo} clocksBrandLogo`} key={x.sys.id}>
                   <Image
                         src={'https:' + x.fields.brandLogo.fields.file.url}
                         width={x.fields.brandLogo.fields.file.details.image.width}
@@ -189,7 +189,11 @@ export default function clocksPage({ clocksPage, mediaData }) {
       </div>
       
       </div>
-    
+    <style jsx>{`
+        .clocksBrandLogo {
+          width: 60%;
+        }
+      `}</style>
     </>
   )
 }
