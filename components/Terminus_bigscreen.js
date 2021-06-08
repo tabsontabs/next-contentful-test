@@ -10,7 +10,7 @@ import * as THREE  from "three";
 export default function TerminusBigScreen(props) {
   const group = useRef()
   const { nodes, materials } = useGLTF('/terminus_compress.glb')
-  useFrame(() => (group.current.rotation.x = group.current.rotation.y += 0.01)) 
+  useFrame(() => (group.current.rotation.x = group.current.rotation.y += 0.003)) 
   const material = new THREE.MeshStandardMaterial({
     color: 0x545454,
     transparent: true,

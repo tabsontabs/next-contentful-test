@@ -10,7 +10,7 @@ import * as THREE  from "three";
 export default function FrenzyBigScreen(props) {
   const group = useRef()
   const { nodes, materials } = useGLTF('/frenzy_compress.glb')
-  useFrame(() => (group.current.rotation.x = group.current.rotation.y += 0.004)) 
+  useFrame(() => (group.current.rotation.x = group.current.rotation.y += 0.002)) 
   const material = new THREE.MeshStandardMaterial({
     color: 0x545454,
     transparent: true,
