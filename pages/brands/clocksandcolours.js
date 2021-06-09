@@ -8,7 +8,7 @@ import styles from '../../styles/Brand.module.css';
 import 'swiper/swiper-bundle.css';
 import SwiperCore, { Navigation, Keyboard } from 'swiper';
 import { Swiper, SwiperSlide } from 'swiper/react';
-// import Footer from '../../components/footer';
+import Newfooter from '../../components/newfooter';
 
 
 SwiperCore.use([Navigation, Keyboard]);
@@ -191,9 +191,9 @@ export default function clocksPage({ clocksPage, mediaData }) {
       </div>
       
       </div>
-      {/* <div className={styles.footerWrapper}>
-      <Footer />
-      </div> */}
+      <div className={styles.footerWrapper}>
+      <Newfooter />
+      </div>
       
       </div>
     <style jsx>{`
