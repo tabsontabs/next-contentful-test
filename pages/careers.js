@@ -5,7 +5,7 @@ import { createClient } from 'contentful'
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
 import styles from '../styles/Careers.module.css';
 import React, { Component } from 'react'
-// import Footer from '../components/footer';
+import Newfooter from '../components/Newfooter';
 
 export async function getStaticProps() {
 
@@ -99,7 +99,7 @@ export default function CareersPage({ careersPage }) {
           }
           
         </div>
-        {/* <Footer /> */}
+        <Newfooter />
       </div>
     </div> 
     

@@ -2,7 +2,6 @@ import Head from 'next/head'
 import Nav from '../components/nav'
 import { useState } from 'react'
 import styles from '../styles/Contact.module.css';
-// import Footer from '../components/footer'
 import Newfooter from '../components/newfooter'
 
 export default function ContactPage() {
