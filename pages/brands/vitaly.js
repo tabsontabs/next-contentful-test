@@ -8,7 +8,7 @@ import styles from '../../styles/Brand.module.css';
 import 'swiper/swiper-bundle.css';
 import SwiperCore, { Navigation, Keyboard } from 'swiper';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import Footer from '../../components/Footer'
+import Footer from '../../components/footer'
 
 SwiperCore.use([Navigation, Keyboard]);
 
