@@ -3,7 +3,7 @@ import Brand from '../components/brand'
 import Nav from '../components/nav'
 import { createClient } from 'contentful'
 import styles from '../styles/BrandsPage.module.css'
-// import Footer from '../components/footer'
+import Newfooter from '../components/newfooter';
 
 export async function getStaticProps() {
 
@@ -45,7 +45,7 @@ export default function BrandsPage({ brandsPage }) {
           }
           </div>
         </section>
-        {/* <Footer/> */}
+        <Newfooter/>
       </div>
     </div>
     </>

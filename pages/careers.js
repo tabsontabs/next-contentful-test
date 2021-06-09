@@ -1,6 +1,5 @@
 import Head from 'next/head';
 import Nav from '../components/nav';
-// import Career from '../components/career';
 import { createClient } from 'contentful'
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
 import styles from '../styles/Careers.module.css';
