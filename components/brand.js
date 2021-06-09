@@ -11,13 +11,13 @@ function Brand({ brand }) {
     return (
       <div className="container">
           <Link href={`/brands/${spacesRemoved}`}>
-            <div className="brandContent">
+            <div className={styles.brandContent}>
               <a>
               <Image 
                 src={'https:' + imageForBrandsPage.fields.file.url}
                 width={imageForBrandsPage.fields.file.details.image.width}
                 height={imageForBrandsPage.fields.file.details.image.height}
-                className="brandsPageFeaturedImage"
+                className={styles.brandsPageFeaturedImage}
                 alt={brandImageAlt}
               />
               <div className={`${styles.brandLogoContainer} ${brandName}_logoContainer`}>
@@ -37,12 +37,10 @@ function Brand({ brand }) {
           @media only screen and (min-width: 1000px) {
             .Colours_logoContainer {
               width: 45%;
-              padding-top: 5px;
             }
           }
           .Colours_logoContainer {
             width: 50%;
-            padding-top: 5px;
           }
           .Vitaly_logoContainer {
             width: 25%;

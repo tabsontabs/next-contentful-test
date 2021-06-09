@@ -197,7 +197,7 @@ function Nav() {
                 justify-content: center;
                 align-items: center;
                 flex-direction: column;
-                font-size: 4rem;
+                font-size: 3rem;
               }
             }
           `}</style>

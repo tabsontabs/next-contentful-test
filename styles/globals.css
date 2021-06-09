@@ -58,6 +58,15 @@ canvas {
   height: 100vh;
 }
 
+a img {
+  border: 1px solid transparent;
+}
+
+a img:hover {
+  border: 1px solid white;
+  outline: none;
+}
+
 .canvasWrapperBigScreen {
   display: none;
   position: fixed;

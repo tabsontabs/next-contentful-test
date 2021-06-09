@@ -2,6 +2,7 @@ import Head from 'next/head'
 import Nav from '../components/nav'
 import { useState } from 'react'
 import styles from '../styles/Contact.module.css';
+import Footer from '../components/footer'
 
 export default function ContactPage() {
 
@@ -137,6 +138,7 @@ export default function ContactPage() {
       <div className='navWrapper'>
         <Nav />
       </div>
+      <div className={`${styles.contactPageGeneralWrapper} generalWrapper`}>
       <div className={styles.contactFormWrapper}>
         <h1 className={styles.contactTitle}>contact us</h1>
         <div className={styles.formHolder}>
@@ -198,6 +200,8 @@ export default function ContactPage() {
         </div>
         : null
         }
+        </div>
+        <Footer/>
         </div>
         <style jsx>{`
         

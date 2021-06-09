@@ -5,6 +5,7 @@ import { createClient } from 'contentful'
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
 import styles from '../styles/Careers.module.css';
 import React, { Component } from 'react'
+import Footer from '../components/footer';
 
 export async function getStaticProps() {
 
@@ -86,7 +87,7 @@ export default function CareersPage({ careersPage }) {
       <div className='navWrapper'>
           <Nav />
       </div>
-      <div className='generalWrapper'>
+      <div className={`${styles.careersPageGeneralWrapper} generalWrapper`}>
         <div className={styles.careersSection}>
           <h1 className=''>Careers</h1>
           {careersPage[0].fields.currentCareers !== undefined ?
@@ -98,8 +99,11 @@ export default function CareersPage({ careersPage }) {
           }
           
         </div>
+        <Footer />
       </div>
-    </div>
+    </div> 
+    
+    
     </>
   )
 }

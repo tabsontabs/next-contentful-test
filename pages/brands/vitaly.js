@@ -8,6 +8,7 @@ import styles from '../../styles/Brand.module.css';
 import 'swiper/swiper-bundle.css';
 import SwiperCore, { Navigation, Keyboard } from 'swiper';
 import { Swiper, SwiperSlide } from 'swiper/react';
+import Footer from '../../components/Footer'
 
 SwiperCore.use([Navigation, Keyboard]);
 
@@ -54,20 +55,24 @@ export default function VitalyPage({ vitalyPage, mediaData, followerCount }) {
   let celebGallery = vitalyPage.map(cg => (cg.fields.celebrityGallery))
   let cgSlides = celebGallery[0].map(cgImage => (
     <SwiperSlide tag='li'>
-      <div key={cgImage.sys.id} className={styles.igImageContainer}>
-          <img className={styles.igImage} src={'https:' + cgImage.fields.file.url} alt={cgImage.fields.title}></img>
-      </div>
-      <a href={cgImage.fields.description} target="_blank"><h3>{cgImage.fields.title} ></h3></a>
+      <a href={cgImage.fields.description} target="_blank">
+        <div key={cgImage.sys.id} className={styles.igImageContainer}>
+            <img className={styles.igImage} src={'https:' + cgImage.fields.file.url} alt={cgImage.fields.title}></img>
+        </div>
+        <h3>{cgImage.fields.title} ></h3>
+      </a>
     </SwiperSlide>
   ))
 
   let pressGallery = vitalyPage.map(pg => (pg.fields.press))
   let pressSlides = pressGallery[0].map(article => (
     <SwiperSlide tag='li'>
-      <div key={article.sys.id} className={styles.pressImageContainer}>
-          <img className={styles.pressImage} src={'https:' + article.fields.file.url} alt={article.fields.title}></img>
-      </div>
-      <a href={article.fields.description} target="_blank"><h3>{article.fields.title} ></h3></a>
+      <a href={article.fields.description} target="_blank">
+        <div key={article.sys.id} className={styles.pressImageContainer}>
+            <img className={styles.pressImage} src={'https:' + article.fields.file.url} alt={article.fields.title}></img>
+        </div>
+        <h3>{article.fields.title} ></h3>
+      </a>
     </SwiperSlide>
   ))
 
@@ -227,6 +232,10 @@ export default function VitalyPage({ vitalyPage, mediaData, followerCount }) {
           ))
         }
         </div>
+        
+      </div>
+      <div className={styles.footerWrapper}>
+      <Footer />
       </div>
     </div>
     

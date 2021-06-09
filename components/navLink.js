@@ -40,6 +40,10 @@ function NavLink({ slug, title }) {
           .navLink:last-of-type {
             padding-bottom: 0;
           }
+          .activeNavLink {
+            text-decoration-thickness: from-font;
+            text-underline-offset: 5px;
+          }
         }
       `}</style>
       </>

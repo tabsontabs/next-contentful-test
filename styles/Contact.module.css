@@ -1,15 +1,22 @@
 .contactFormPage {
     background-color: black;
+    height: 100vh;
 }
 
 .contactFormWrapper {
     text-align: center;
-    height: 100vh;
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    width: 95%;
+    width: 100%;
     margin: 0 auto;
+    padding-top: 5rem;
+}
+
+.contactPageGeneralWrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100vh;
 }
 
 .contactFormPage h1 {
@@ -90,7 +97,9 @@
 @media only screen and (max-width: 600px) {
     .contactFormPage h1 {
         font-size: 3rem;
-        padding-bottom: 30px;
+    }
+    .contactFormPage button {
+        padding: 16px 30px;
     }
 }
 

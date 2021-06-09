@@ -3,9 +3,15 @@
     min-height: 100vh;
 }
 
+.careersPageGeneralWrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100vh;
+}
+
 .careersSection {
     padding-top: 7rem;
-    width: 95%;
     margin: 0 auto;
     padding-bottom: 2rem;
 }
@@ -13,7 +19,6 @@
 .careersSection h1 {
     font-size: 3rem;
     text-transform: capitalize;
-    padding-bottom: 0.5rem;
 }
 
 .noCareers p {

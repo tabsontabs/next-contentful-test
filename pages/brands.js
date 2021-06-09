@@ -3,6 +3,7 @@ import Brand from '../components/brand'
 import Nav from '../components/nav'
 import { createClient } from 'contentful'
 import styles from '../styles/BrandsPage.module.css'
+import Footer from '../components/Footer'
 
 export async function getStaticProps() {
 
@@ -31,7 +32,7 @@ export default function BrandsPage({ brandsPage }) {
       <div className='navWrapper'>
         <Nav />
       </div>
-      <div className='generalWrapper'>
+      <div className={`${styles.brandsPageGeneralWrapper} generalWrapper`}>
         <h1 className={styles.brandsPageH1}>Brands</h1>
         <section className={styles.brandsWrapper}>
           <div className={styles.brandsGrid}>
@@ -44,6 +45,7 @@ export default function BrandsPage({ brandsPage }) {
           }
           </div>
         </section>
+        <Footer/>
       </div>
     </div>
     </>

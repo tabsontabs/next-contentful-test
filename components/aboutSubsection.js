@@ -31,14 +31,14 @@ export default function AboutSubsection({ subAboutEntry }) {
             <style jsx>{`
             h2 {
               border-bottom: 1px solid white;
-              line-height: 0.7;
-              padding-bottom: 16px;
-              margin-bottom: 30px;
+              line-height: 1;
+              padding-bottom: 0px;
+              margin-bottom: 28px;
             }
 
             @media only screen and (min-width: 600px) {
                 h2 {
-                  padding-bottom: 30px;
+                  margin-bottom: 30px;
                 }
               }
             `}</style>

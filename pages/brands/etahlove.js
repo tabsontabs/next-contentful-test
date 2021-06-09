@@ -8,6 +8,7 @@ import styles from '../../styles/Brand.module.css';
 import 'swiper/swiper-bundle.css';
 import SwiperCore, { Navigation, Keyboard } from 'swiper';
 import { Swiper, SwiperSlide } from 'swiper/react';
+import Footer from '../../components/footer'
 
 SwiperCore.use([Navigation, Keyboard]);
 
@@ -53,10 +54,12 @@ export default function etahPage({ etahPage, mediaData }) {
   let celebGallery = etahPage.map(cg => (cg.fields.celebrityGallery))
   let cgSlides = celebGallery[0].map(cgImage => (
     <SwiperSlide tag='li'>
-      <div key={cgImage.sys.id} className={styles.igImageContainer}>
-          <img className={styles.igImage} src={'https:' + cgImage.fields.file.url} alt={cgImage.fields.title}></img>
-      </div>
-      <a href={cgImage.fields.description} target="_blank"><h3>{cgImage.fields.title} ></h3></a>
+      <a href={cgImage.fields.description} target="_blank">
+        <div key={cgImage.sys.id} className={styles.igImageContainer}>
+            <img className={styles.igImage} src={'https:' + cgImage.fields.file.url} alt={cgImage.fields.title}></img>
+        </div>
+        <h3>{cgImage.fields.title} ></h3>
+      </a>
     </SwiperSlide>
   ))
 
@@ -187,6 +190,10 @@ export default function etahPage({ etahPage, mediaData }) {
       }
      
       </div>
+      
+      </div>
+      <div className={styles.footerWrapper}>
+      <Footer />
       </div>
     </div>
     </>

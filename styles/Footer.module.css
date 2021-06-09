@@ -1,0 +1,28 @@
+.desktopFooterDiv {
+    display: flex;
+    width: 100%;
+    margin: 0 auto;
+    justify-content: space-between;
+    border-top: 1px solid white;
+    padding: 16px 0;
+    background-color: black;
+    display: none;
+}
+
+.mobileFooterDiv {
+    border-top: 1px solid white;
+    padding: 16px 0;
+}
+
+.mobileFooterDiv .socialMedia {
+    padding-top: 14px;
+}
+
+@media only screen and (min-width: 600px) {
+    .desktopFooterDiv {
+        display: flex;
+    }
+    .mobileFooterDiv {
+        display: none;
+    }
+}

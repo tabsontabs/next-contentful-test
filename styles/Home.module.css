@@ -56,6 +56,11 @@
     text-decoration: underline;
 }
 
+.homeFooterWrapper {
+    width: 95%;
+    margin: 0 auto;
+}
+
 /* @media only screen and (max-width: 600px) {
     .about_subsection h2 {
         padding-bottom: 16px;

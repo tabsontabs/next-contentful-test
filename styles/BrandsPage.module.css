@@ -1,12 +1,21 @@
 .brandsPage {
-    background-color: black;
+  background-color: black;
+  min-height: 100vh;
+}
+
+.brandsPageGeneralWrapper {
+  padding-top: 5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 100vh;
 }
 
 .brandsPage .brandsWrapper {
   display: flex;
-  height: 100vh;
   justify-content: center;
   align-items: center;
+  padding-bottom: 60px;
 }
 
 .brandsWrapper h2 {
@@ -68,12 +77,13 @@
     font-size: 3rem;
     padding-top: 5rem;
     text-align: left;
+    border-bottom: 1px solid white;
+    margin-bottom: 30px;
   }
 
   .brandsGrid {
     grid-template-columns: 1fr;
     grid-template-rows: 3fr;
-    padding: 0.5rem 0 2rem 0;
   }
 
   .aboutSubsectionBrandsGrid {
