@@ -5,7 +5,7 @@ import { createClient } from 'contentful'
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
 import styles from '../styles/Careers.module.css';
 import React, { Component } from 'react'
-import Newfooter from '../components/Newfooter';
+import Newfooter from '../components/newfooter';
 
 export async function getStaticProps() {
 
