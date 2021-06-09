@@ -46,7 +46,8 @@ export default function CareersPage({ careersPage }) {
         <div className={styles.careerEntry}>
           <h2 className={styles.positionTitle} onClick={handleToggle}>
             {title}
-            <span className={styles.collapsiblePlus}>+</span>
+            <span className={isShow ? `${styles.plusHide}` : `${styles.plusShow}`} >+</span>
+            <span className={isShow ? `${styles.minusShow}` : `${styles.plusHide}`}>-</span>
           </h2>
           <div className={isShow ? `jobShow ${styles.positionText}` : "jobHide"}>{description}</div>
         </div>
@@ -92,7 +93,7 @@ export default function CareersPage({ careersPage }) {
             <AvailableCareers />
           :
             careersPage.map(x => ( 
-              <div key='noCareersFound'> { documentToReactComponents(x.fields.noCurrentCareersMessage) }</div>
+              <div key='noCareersFound' className={styles.noCareers}> { documentToReactComponents(x.fields.noCurrentCareersMessage) }</div>
             ))
           }
           

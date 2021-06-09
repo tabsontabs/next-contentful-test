@@ -129,7 +129,6 @@ function Nav() {
               justify-content: space-between;
               padding: 0.5rem 0;
               position: fixed;
-              // max-width: 1600px;
               width: 100%;
               background-color: ${scrollState === "top" | fullscreenMenuDisplay == true ? "rgba(0,0,0,0)" : "rgba(0,0,0,1)"};
               z-index: 50;
@@ -141,8 +140,6 @@ function Nav() {
               width: 165px;
               margin-left: 2.5%;
               align-items: flex-start;
-              // border: 1px solid red;
-              // padding: 10px;
             }
             .logoContainer:hover {
               cursor: pointer;

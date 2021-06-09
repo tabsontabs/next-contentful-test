@@ -190,9 +190,9 @@ export default function clocksPage({ clocksPage, mediaData }) {
       
       </div>
     <style jsx>{`
-        // .clocksBrandLogo {
-        //   width: 60%;
-        // }
+        .clocksBrandLogo {
+          width: 55%;
+        }
       `}</style>
     </>
   )

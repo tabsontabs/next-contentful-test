@@ -41,8 +41,11 @@ function Brand({ brand }) {
             }
           }
           .Colours_logoContainer {
-            width: 60%;
+            width: 50%;
             padding-top: 5px;
+          }
+          .Vitaly_logoContainer {
+            width: 25%;
           }
         `}</style>
       </div>

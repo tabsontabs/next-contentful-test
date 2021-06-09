@@ -7,7 +7,7 @@
 
 .brandTopSection a {
     text-decoration: underline;
-    margin: 0.5rem 0 2rem 0;
+    margin: 18px 0 30px 0;
     display: block;
 }
 
@@ -17,7 +17,7 @@
     grid-template-areas: "logo logo . text text text text text";
 }
 
-.logoAndInfoEtah {
+.logoAndInfoEtah, .logoAndInfoVitaly {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
     grid-template-areas: "logo logo logo . . . text text text text text text text text text text";
@@ -32,8 +32,8 @@
 }
 
 .brandContentHolder h2 {
-    margin: 5rem 0 0.5rem 0;
-    font-size: 3rem;
+    margin: 5rem 0 14px 0;
+    font-size: 7rem;
     text-transform: capitalize;
 }
 
@@ -63,10 +63,9 @@
 }
 
 .brandPageCTA {
-    color: white;
     text-decoration: underline;
     font-size: 16px;
-    margin-top: 1rem;
+    margin-top: 18px;
     display: block;
 }
 
@@ -79,14 +78,10 @@
 }
 
 .recentCampaigns h3, .celebFeed h3, .pressFeed h3 {
-    padding-top: 0.5rem;
+    padding-top: 18px;
     text-decoration: underline;
     font-size: 16px;
     font-weight: normal;
-}
-
-.recentCampaigns h3 {
-    padding-top: 2px;
 }
 
 @media only screen and (max-width: 640px) {
@@ -109,8 +104,8 @@
         display: grid;
         grid-template-columns: 1fr;
         grid-template-rows: 1fr 1fr;
-        row-gap: 15px;
-        padding-bottom: 30px;
+        row-gap: 16px;
+        padding-bottom: 60px;
     }
 }
 
@@ -125,20 +120,24 @@
     }
 
     .brandContentHolder {
-        padding-top: 7rem;
+        padding: 7rem 0;
     }
 }
 
 @media only screen and (max-width: 600px) {
 
-    .logoAndInfoEtah, .logoAndInfo {
+    .logoAndInfoEtah, .logoAndInfoVitaly, .logoAndInfo {
         display: block;
     }
     .brandLogo {
-        margin-bottom: 1rem;
+        margin-bottom: 16px;
         width: 45%;
     }
     .brandContentHolder h2 {
         margin: 3rem 0 0.5rem 0;
+    }
+
+    .recentCampaigns h3, .celebFeed h3, .pressFeed h3 {
+        padding-top: 14px;
     }
 }

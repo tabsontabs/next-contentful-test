@@ -88,7 +88,7 @@ export default function VitalyPage({ vitalyPage, mediaData, followerCount }) {
         {
           vitalyPage.map(x => (
             <div className={styles.brandTopSection} key={x.sys.id}>
-                <div className={styles.logoAndInfo}>
+                <div className={styles.logoAndInfoVitaly}>
                     <div className={styles.brandLogo} key={x.sys.id}>
                       <Image
                             src={'https:' + x.fields.brandLogo.fields.file.url}

@@ -29,16 +29,16 @@ export default function AboutSubsection({ subAboutEntry }) {
             }
             </>
             <style jsx>{`
-              h2 {
-                border-bottom: 1px solid white;
-                padding-bottom: 0;
-                margin-bottom: 2rem;
-                line-height: 0.7;
-              }
-              @media only screen and (min-width: 1600px) {
+            h2 {
+              border-bottom: 1px solid white;
+              line-height: 0.7;
+              padding-bottom: 16px;
+              margin-bottom: 30px;
+            }
+
+            @media only screen and (min-width: 600px) {
                 h2 {
-                  padding-bottom: 1rem;
-                  margin-bottom: 2.5rem;
+                  padding-bottom: 30px;
                 }
               }
             `}</style>

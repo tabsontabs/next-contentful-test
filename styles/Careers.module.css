@@ -16,8 +16,21 @@
     padding-bottom: 0.5rem;
 }
 
+.noCareers p {
+    padding-top: 16px;
+}
+
+.noCareers p a {
+    text-decoration: underline;
+}
+
+.noCareers {
+    border-bottom: 1px solid white;
+    border-top: 1px solid white;
+}
+
 .careerEntry {
-    padding: 2rem 0;
+    padding: 30px 0;
     border-top: 1px solid white;
 }
 
@@ -37,10 +50,28 @@
     cursor: pointer;
 }
 
-.collapsiblePlus {
+.plusShow {
     position: absolute;
     right: 0;
 }
+
+.plusHide {
+    display: none;
+}
+
+.minusShow {
+    position: absolute;
+    right: 0;
+}
+
+.minusHide {
+    display: none;
+}
+
+/* .collapsiblePlus {
+    position: absolute;
+    right: 0;
+} */
 
 /* .collapsiblePlus {
     position: absolute;
@@ -132,6 +163,6 @@
 
 @media only screen and (min-width: 1600px) {
     .careerEntry h2 {
-        font-size: 3rem;
+        font-size: 24px;
     }
 }

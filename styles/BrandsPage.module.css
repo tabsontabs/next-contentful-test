@@ -20,7 +20,7 @@
   padding: 0;
   text-decoration: underline;
   text-align: left;
-  padding-top: 0.5rem;
+  padding-top: 16px;
 }
 
 .brandsGrid {
@@ -41,6 +41,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  margin-top: 18px;
 }
 
 .brandSeeMore {
@@ -72,7 +73,6 @@
   .brandsGrid {
     grid-template-columns: 1fr;
     grid-template-rows: 3fr;
-    row-gap: 2rem;
     padding: 0.5rem 0 2rem 0;
   }
 

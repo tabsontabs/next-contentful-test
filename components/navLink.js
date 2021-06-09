@@ -35,7 +35,10 @@ function NavLink({ slug, title }) {
         }
         @media only screen and (max-width: 700px) {
           .navLink {
-            padding-bottom: 1rem;
+            padding-bottom: 3rem;
+          }
+          .navLink:last-of-type {
+            padding-bottom: 0;
           }
         }
       `}</style>
