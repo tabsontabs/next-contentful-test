@@ -3,6 +3,7 @@ import Nav from '../components/nav'
 import { useState } from 'react'
 import styles from '../styles/Contact.module.css';
 // import Footer from '../components/footer'
+import Newfooter from '../components/newfooter'
 
 export default function ContactPage() {
 
@@ -201,7 +202,7 @@ export default function ContactPage() {
         : null
         }
         </div>
-        {/* <Footer/> */}
+        <Newfooter/>
         </div>
         <style jsx>{`
         
