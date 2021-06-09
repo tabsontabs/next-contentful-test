@@ -15,7 +15,7 @@ import TerminusTablet from '../components/Terminus_tablet'
 import TerminusMobile from '../components/Terminus_mobile'
 import TerminusBigScreen from '../components/Terminus_bigscreen'
 import FrenzyBigScreen from '../components/Frenzy_bigscreen'
-import Footer from '../components/footer'
+// import Footer from '../components/footer'
 
 export async function getStaticProps() {
 
@@ -149,7 +149,7 @@ export default function HomePage({ subAboutEntries, mainAboutEntry }) {
     ))}
     </section>  
     <div className={styles.homeFooterWrapper}>
-      <Footer />
+      {/* <Footer /> */}
     </div>
     </>
     

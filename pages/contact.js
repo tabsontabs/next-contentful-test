@@ -2,7 +2,7 @@ import Head from 'next/head'
 import Nav from '../components/nav'
 import { useState } from 'react'
 import styles from '../styles/Contact.module.css';
-import Footer from '../components/footer'
+// import Footer from '../components/footer'
 
 export default function ContactPage() {
 
@@ -201,7 +201,7 @@ export default function ContactPage() {
         : null
         }
         </div>
-        <Footer/>
+        {/* <Footer/> */}
         </div>
         <style jsx>{`
         
