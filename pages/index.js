@@ -7,9 +7,6 @@ import { Suspense } from "react";
 import styles from '../styles/Home.module.css';
 import { Canvas } from '@react-three/fiber';
 import { OrbitControls, Html } from '@react-three/drei';
-// import RiotCompress from '../components/Riot_u_compress'
-// import ReyCompress from '../components/Reycompress'
-// import Gridlok from '../components/Gridlok_compress'
 import FrenzyDesktop from '../components/Frenzy_compress'
 import FrenzyTablet from '../components/Frenzy_tablet'
 import FrenzyMobile from '../components/Frenzy_mobile'
