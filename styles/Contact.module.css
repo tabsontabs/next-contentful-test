@@ -60,7 +60,7 @@
 
 .contactFormPage button {
     margin-top: 18px;
-    padding: 18px 30px;
+    padding: 16px 30px;
     text-transform: capitalize;
     font-size: 16px;
     border: 1px solid white;
@@ -97,9 +97,6 @@
 @media only screen and (max-width: 600px) {
     .contactFormPage h1 {
         font-size: 3rem;
-    }
-    .contactFormPage button {
-        padding: 16px 30px;
     }
 }
 

@@ -5,6 +5,7 @@ body {
   font-family: 'HelveticaNeue';
   color: white;
   font-size: 16px;
+  background-color: transparent;
 }
 
 div, p, a, h1, h2, h3, li, ul, button {
