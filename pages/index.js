@@ -46,6 +46,7 @@ export default function HomePage({ subAboutEntries, mainAboutEntry }) {
         as='font'
         crossOrigin=''
       ></link>
+      <link rel="icon" type="image/png" href="/Compound_Favicon.png" />
     </Head>
     <div className='navWrapper'>
           <Nav />
