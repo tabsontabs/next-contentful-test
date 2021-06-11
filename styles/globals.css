@@ -131,6 +131,10 @@ a img:hover {
   font-size: 20px!important;
 }
 
+.celebFeed .swiper-button-prev::after, .celebFeed .swiper-button-next::after, .pressFeed .swiper-button-prev::after, .pressFeed .swiper-button-next::after{
+  padding-bottom: 33px!important;
+}
+
 .swiper-button-prev, .swiper-button-next {
   color: white!important;
 }
@@ -177,6 +181,9 @@ a img:hover {
   .canvasWrapperTablet {
     display: block;
   }
+  .celebFeed .swiper-button-prev::after, .celebFeed .swiper-button-next::after, .pressFeed .swiper-button-prev::after, .pressFeed .swiper-button-next::after{
+    padding-bottom: 37px!important;
+  }
 }
 
 @media only screen and (min-width: 1000px) {
@@ -201,6 +208,9 @@ a img:hover {
   }
   .swiper-button-prev::after, .swiper-button-next::after {
     font-size: 25px!important;
+  }
+  .celebFeed .swiper-button-prev::after, .celebFeed .swiper-button-next::after, .pressFeed .swiper-button-prev::after, .pressFeed .swiper-button-next::after{
+    padding-bottom: 47px!important;
   }
 }
 

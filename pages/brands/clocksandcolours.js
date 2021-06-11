@@ -136,7 +136,7 @@ export default function clocksPage({ clocksPage, mediaData }) {
       {clocksPage[0].fields.celebGallery !== undefined ? 
       <>
         <h2>Worn By</h2>
-        <div className={styles.celebFeed}>
+        <div className={`${styles.celebFeed} celebFeed`}>
           <Swiper 
             tag='section' 
             wrapperTag='ul' 

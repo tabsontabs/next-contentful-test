@@ -148,7 +148,7 @@ export default function VitalyPage({ vitalyPage, mediaData, followerCount }) {
         {vitalyPage[0].fields.celebrityGallery !== undefined ? 
           <>
           <h2>Worn By</h2>
-          <div className={styles.celebFeed}>
+          <div className={`${styles.celebFeed} celebFeed`}>
             <Swiper 
               tag='section' 
               wrapperTag='ul' 
