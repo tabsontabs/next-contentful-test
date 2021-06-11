@@ -13,6 +13,7 @@ function Brand({ brand }) {
           <Link href={`/brands/${spacesRemoved}`}>
             <div className={styles.brandContent}>
               <a>
+              <div className={`${styles.brandImageContainer} ${brandName}_imageContainer`}>
               <Image 
                 src={'https:' + imageForBrandsPage.fields.file.url}
                 width={imageForBrandsPage.fields.file.details.image.width}
@@ -20,6 +21,7 @@ function Brand({ brand }) {
                 className={styles.brandsPageFeaturedImage}
                 alt={brandImageAlt}
               />
+              </div>
               <div className={`${styles.brandLogoContainer} ${brandName}_logoContainer`}>
                 <Image 
                   src={'https:' + brandLogo.fields.file.url}

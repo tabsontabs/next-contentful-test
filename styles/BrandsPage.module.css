@@ -44,6 +44,18 @@
   column-gap: 30px;
 }
 
+/* .brandImageContainer {
+  border: 1px solid white;
+} */
+
+.brandImageContainer div {
+  border: 1px solid transparent;
+}
+
+.brandImageContainer div:hover {
+  border: 1px solid white;
+}
+
 .brandLogoContainer {
   width: 30%;
   height: 2rem;
