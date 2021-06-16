@@ -9,6 +9,14 @@
     display: none;
 }
 
+/* .desktopFooterDiv a {
+    text-decoration: underline;
+}
+
+.mobileFooterDiv a {
+    text-decoration: underline;
+} */
+
 .mobileFooterDiv {
     border-top: 1px solid white;
     padding: 16px 0;
