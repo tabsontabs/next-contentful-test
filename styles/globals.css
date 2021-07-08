@@ -73,6 +73,7 @@ a img:hover {
   position: fixed;
   background-color: black;
   z-index: -10;
+  width: 100%;
 }
 
 .canvasWrapperDesktop {
@@ -80,6 +81,7 @@ a img:hover {
   position: fixed;
   background-color: black;
   z-index: -10;
+  width: 100%;
 }
 
 .canvasWrapperTablet {
@@ -87,6 +89,7 @@ a img:hover {
   position: fixed;
   background-color: black;
   z-index: -10;
+  width: 100%;
 }
 
 .canvasWrapperMobile {
@@ -94,6 +97,7 @@ a img:hover {
   position: fixed;
   background-color: black;
   z-index: -10;
+  width: 100%;
 }
 
 .generalWrapper {
