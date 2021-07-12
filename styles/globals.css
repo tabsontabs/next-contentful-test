@@ -89,7 +89,7 @@ a img:hover {
   position: fixed;
   background-color: black;
   z-index: -10;
-  width: 100%;
+  /* width: 100%; */
 }
 
 .canvasWrapperMobile {
@@ -97,7 +97,7 @@ a img:hover {
   position: fixed;
   background-color: black;
   z-index: -10;
-  width: 100%;
+  /* width: 100%; */
 }
 
 .generalWrapper {
