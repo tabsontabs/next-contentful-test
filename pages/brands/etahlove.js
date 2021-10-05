@@ -36,7 +36,8 @@ export async function getStaticProps() {
     props: {
       etahPage: etahPage.items,
       mediaData: data,
-    }
+    },
+    revalidate: 160
   }
 }
 
