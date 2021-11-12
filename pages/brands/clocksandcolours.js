@@ -38,7 +38,8 @@ export async function getStaticProps() {
     props: {
       clocksPage: clocksPage.items,
       mediaData: data,
-    }
+    },
+    revalidate: 160
   }
 }
 
