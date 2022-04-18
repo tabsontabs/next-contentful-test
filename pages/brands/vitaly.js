@@ -1,6 +1,6 @@
 import Head from 'next/head';
 import Image from 'next/image';
-import Link from 'next/link';
+
 import Nav from '../../components/nav';
 import { createClient } from 'contentful'
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
@@ -35,13 +35,12 @@ export async function getStaticProps() {
     props: {
       vitalyPage: vitalyPage.items,
       mediaData: data,
-      // followerCount: followerCountCall
     },
     revalidate: 160
   }
 }
 
-export default function VitalyPage({ vitalyPage, mediaData, followerCount }) {
+export default function VitalyPage({ vitalyPage, mediaData }) {
   
   let igGallery = mediaData.filter(media => media.media_type === "IMAGE" | media.media_type == "CAROUSEL_ALBUM");
   let igSlides = igGallery.map(i => (

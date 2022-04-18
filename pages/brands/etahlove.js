@@ -164,7 +164,7 @@ export default function etahPage({ etahPage, mediaData }) {
       null
       }
 
-      <h2>Recent Campaigns</h2>
+      <h2>Recent  Campaigns</h2>
       <div className={styles.recentCampaigns}>
       {
         slicedCampaignArray[0].map(y => (

@@ -10,7 +10,6 @@ import SwiperCore, { Navigation, Keyboard } from 'swiper';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import Newfooter from '../../components/newfooter';
 
-
 SwiperCore.use([Navigation, Keyboard]);
 
 export async function getStaticProps() {
