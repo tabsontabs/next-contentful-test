@@ -2,6 +2,7 @@ import { documentToReactComponents } from '@contentful/rich-text-react-renderer'
 import Link from 'next/link'
 import Brand from '../components/brand'
 import styles from '../styles/BrandsPage.module.css'
+import Image from 'next/image'
 
 export default function AboutSubsection({ subAboutEntry }) {
     
@@ -23,7 +24,33 @@ export default function AboutSubsection({ subAboutEntry }) {
                     {subAboutEntry.fields.aboutSubsectionBrands.map(brand => (
                         <Brand brand={brand} key={brand.sys.id}/>
                     ))}
+                    <div className="container everyHeart_container">
+                <div className='brandContent'>
+              <a>
+              <div className='brandImageContainer everyHeart_imageContainer'>
+              <Image 
+                src='/eh_tile.png'
+                width='2328'
+                height='2910'
+                className='brandsPageFeaturedImage'
+                alt='every heart tile'
+              />
+              </div>
+              <div className='brandLogoContainer everyHeart_logoContainer'>
+                <Image 
+                  src='/eh_logo_white_new.png'
+                  width='509'
+                  height='84'
+                  className="brandsPageBrandLogo"
+                  alt='every heart logo'
+                />
+              </div>
+              <button className='brandSeeMore everyHeart_comingSoon'>Coming Soon</button>
+              </a>
+            </div>
                 </div>
+                </div>
+                
             </div>
               : null
             }
@@ -39,6 +66,46 @@ export default function AboutSubsection({ subAboutEntry }) {
             @media only screen and (min-width: 600px) {
                 h2 {
                   margin-bottom: 30px;
+                }
+              }
+
+              .brandImageContainer div {
+                border: 1px solid transparent;
+              }
+              
+              .brandImageContainer div:hover {
+                border: 1px solid white;
+              }
+              
+              .brandLogoContainer {
+                width: 30%;
+                height: 2rem;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                margin-top: 18px;
+              }
+              
+              .brandSeeMore {
+                font-size: 16px;
+              }
+              
+              .everyHeart_logoContainer {
+                width: 45%;
+              }
+    
+              .everyHeart_container:hover, .everyHeart_container .brandContent:hover, .everyHeart_container a:hover, .everyHeart_comingSoon:hover {
+                cursor: not-allowed;
+              }
+              
+              @media only screen and (min-width: 1600px) {
+                .brandLogoContainer {
+                  height: 4rem;
+                }
+              
+                .brandSeeMore {
+                  font-size: 24px;
+                  padding-top: 1rem;
                 }
               }
             `}</style>

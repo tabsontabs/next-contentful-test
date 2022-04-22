@@ -45,7 +45,8 @@ function Brand({ brand }) {
             width: 50%;
           }
           .Vitaly_logoContainer {
-            width: 25%;
+            width: 40%;
+            justify-content: flex-start;
           }
         `}</style>
       </div>
