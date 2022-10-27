@@ -48,7 +48,7 @@ export default function BrandsPage({ brandsPage }) {
           <div className="container everyHeart_container">
           
             <div className='brandContent'>
-              <a href="https://www.everyheart.com/">
+              <a href="https://www.everyheart.com/" target="_blank">
               <div className='brandImageContainer everyHeart_imageContainer'>
               <Image 
                 src='/eh_tile.png'
@@ -67,7 +67,7 @@ export default function BrandsPage({ brandsPage }) {
                   alt='every heart logo'
                 />
               </div>
-              <button className='brandSeeMore'>Now Live</button>
+              <button className='brandSeeMore'>Now Live ></button>
               </a>
             </div>
         <style jsx>{`
