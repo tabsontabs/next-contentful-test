@@ -26,7 +26,7 @@ export default function AboutSubsection({ subAboutEntry }) {
                     ))}
                     <div className="container everyHeart_container">
                 <div className='brandContent'>
-              <a>
+              <a href="https://www.everyheart.com/" target="_blank">
               <div className='brandImageContainer everyHeart_imageContainer'>
               <Image 
                 src='/eh_tile.png'
@@ -45,7 +45,7 @@ export default function AboutSubsection({ subAboutEntry }) {
                   alt='every heart logo'
                 />
               </div>
-              <button className='brandSeeMore everyHeart_comingSoon'>Coming Soon</button>
+              <button className='brandSeeMore'>Now Live ></button>
               </a>
             </div>
                 </div>
