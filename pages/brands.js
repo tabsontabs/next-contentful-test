@@ -49,7 +49,7 @@ export default function BrandsPage({ brandsPage }) {
           
             <div className='brandContent'>
               <a href="https://www.everyheart.com/" target="_blank">
-              <div className='brandImageContainer everyHeart_imageContainer'>
+              <div className={`${styles.brandImageContainer} brandImageContainer everyHeart_imageContainer`}>
               <Image 
                 src='/eh_tile.png'
                 width='2328'
