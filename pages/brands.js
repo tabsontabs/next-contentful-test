@@ -107,10 +107,6 @@ export default function BrandsPage({ brandsPage }) {
           .everyHeart_logoContainer {
             width: 45%;
           }
-
-          .everyHeart_container:hover, .everyHeart_container .brandContent:hover, .everyHeart_container a:hover, .everyHeart_comingSoon:hover {
-            cursor: not-allowed;
-          }
           
           @media only screen and (min-width: 1600px) {
             .brandLogoContainer {

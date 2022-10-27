@@ -94,9 +94,7 @@ export default function AboutSubsection({ subAboutEntry }) {
                 width: 45%;
               }
     
-              .everyHeart_container:hover, .everyHeart_container .brandContent:hover, .everyHeart_container a:hover, .everyHeart_comingSoon:hover {
-                cursor: not-allowed;
-              }
+              
               
               @media only screen and (min-width: 1600px) {
                 .brandLogoContainer {
